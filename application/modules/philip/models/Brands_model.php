@@ -35,7 +35,7 @@ class Brands_model extends CI_Model
     //     return $query;
     // }
 
-    public function selectretrieve_brands_and_models() {
+    public function retrieve_brands_and_models() {
 
         $result = $this->db->query("select brand.brand_name, brand_model.brand_model_name from `brand_model` 
         INNER JOIN `brand` ON brand.brand_id = brand_model.brand_id WHERE brand.brand_status=1");  

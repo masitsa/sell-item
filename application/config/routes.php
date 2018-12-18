@@ -49,9 +49,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:    my-controller/index    -> my_controller/index
 |        my-controller/my-method    -> my_controller/my_method
  */
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 $route['default_controller'] = 'sarafina';
 =======
 $route['default_controller'] = 'martin';

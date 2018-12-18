@@ -51,13 +51,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
  */
 
 $route['default_controller'] = 'sarafina';
-=======
+
 $route['default_controller'] = 'martin';
->>>>>>> 2d6f4cff7731e21921f2790258d78faa40f31e41
-=======
-=======
+
+
 $route['default_controller'] = 'martin';
->>>>>>> 2258fcd9c2d3c80935e70960d0cefe67888fe022
+
 $route['samuel/get-brands'] = "samuel/brands/get_brands";
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
@@ -66,17 +65,12 @@ $route['translate_uri_dashes'] = false;
  * Alvaro routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 $route['sarafina/get-brands'] = "sarafina/brands/get_brands";
-=======
+
 $route['martin/get-brands'] = "martin/brands/get_brands";
->>>>>>> 2d6f4cff7731e21921f2790258d78faa40f31e41
-=======
-=======
 $route['martin/get-brands'] = "martin/brands/get_brands";
->>>>>>> 2258fcd9c2d3c80935e70960d0cefe67888fe022
+
 $route['grace/get-brands'] = "grace/brands/get_brands";
 
 

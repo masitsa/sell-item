@@ -56,10 +56,6 @@ $route['translate_uri_dashes'] = false;
 /**
  * Alvaro routes
  */
-<<<<<<< HEAD
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 
 $route['philip/get-brands'] = "philip/brands/get_brands";
-=======
-$route['patricia/get-brands'] = "patricia/brands/get_brands";
->>>>>>> fde099eccfab919a27dc224077484682ecec4dff

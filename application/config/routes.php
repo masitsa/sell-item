@@ -49,13 +49,14 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:    my-controller/index    -> my_controller/index
 |        my-controller/my-method    -> my_controller/my_method
  */
-$route['default_controller'] = 'alvaro';
+$route['default_controller'] = 'patricia';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 
 /**
  * Alvaro routes
  */
+<<<<<<< HEAD
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 
 
@@ -63,3 +64,12 @@ $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
  * Moses routes
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
+=======
+<<<<<<< HEAD
+$route['alvaro/get-brands'] = "alvaro/brands/get_brands";
+
+$route['philip/get-brands'] = "philip/brands/get_brands";
+=======
+$route['patricia/get-brands'] = "patricia/brands/get_brands";
+>>>>>>> fde099eccfab919a27dc224077484682ecec4dff
+>>>>>>> 99d6d27c588a4e0526c359878f5f00c4ce51f817

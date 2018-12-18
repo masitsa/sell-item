@@ -75,14 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	// 'hostname' => 'rewad-db.mysql.database.azure.com',
-	// 'username' => 'alvaro@rewad-db',
-	// 'password' => 'r6r5bb!!',
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
 	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
+<<<<<<< HEAD
 	'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
+=======
+	'username' => 'alvaro@nanyukiappfactory-mysqldbserver',
+>>>>>>> 072ccd03ebae7c56092776b38061652b7ebb77ee
 	'password' => 'appfactory',
 	'database' => 'nanyukiaf',
 	'dbdriver' => 'mysqli',

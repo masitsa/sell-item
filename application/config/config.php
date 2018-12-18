@@ -24,13 +24,7 @@ date_default_timezone_set('Africa/Nairobi');
 | a PHP script and you can easily do that on your own.
 |
  */
-<<<<<<< HEAD
 //$config['base_url'] = 'http://localhost/nanyukiaf/';
-=======
-//$config['base_url'] = 'http://localhost/sell-item/';
-// $config['base_url'] = 'http://localhost/nanyukiaf/';
-
->>>>>>> 77338d4b3b3d2ce960a8cad51becdd2090655c9e
 $config['base_url'] = 'https://sell-item.azurewebsites.net/';
 //$config['base_url'] = 'http://localhost/sell-item/';
 

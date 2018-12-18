@@ -49,86 +49,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | Examples:    my-controller/index    -> my_controller/index
 |        my-controller/my-method    -> my_controller/my_method
  */
-$route['default_controller'] = 'advertiser';
+$route['default_controller'] = 'alvaro';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 
 /**
- * Infomoby routes
+ * Alvaro routes
  */
-$route['infomoby/register-business'] = "infomoby/registration/register_business";
-$route['infomoby/getfavlistings'] = "infomoby/favouritelistings/favorite_listings";
-$route['infomoby/getcompanyLength'] = "infomoby/favouritelistings/companyLength";
-$route['infomoby/sendactioncard'] = "infomoby/favouritelistings/send_actioncard";
-$route['searched_customers'] = "infomoby/registration/searched_customers";
-
-/**
- * Royal Media Service routes
- */
-$route['royalmedia/save-item'] = "royalmedia/registration/register_services";
-$route['royalmedia/search'] = "royalmedia/registration/services_search";
-$route['royalmedia/items'] = "royalmedia/registration/items_search";
-$route['royalmedia/categories'] = "royalmedia/categories/categories";
-$route['royalmedia/category-items'] = "royalmedia/categories/category_items";
-$route['royalmedia/purchase-items'] = "royalmedia/registration/purchase_items";
-$route['royalmedia/units'] = "royalmedia/categories/units";
-$route['royalmedia/allitems'] = "royalmedia/categories/items";
-
-/**
- * Mawingu routes
- */
-$route['mawingu/generate-bucket-names'] = "mawingu/merchant_location/generate_bucket_names";
-$route['mawingu/remove-throughput-spaces'] = "mawingu/merchant_location/remove_throughput_spaces";
-$route['mawingu/update-bucket'] = "mawingu/merchant_location/update_data_throughput_with_location";
-$route['mawingu/heatmap'] = "mawingu/merchant_location/populate_heat_map";
-$route['mawingu/customers'] = "mawingu/telesales/get_customers";
-$route['mpesa/searched_customers'] = "mawingu/telesales/searched_customers";
-
-/**
- * Safaricom routes
- */
-$route['safaricom/get-regions'] = "safaricom/sso/get_regions";
-$route['safaricom/save-sso'] = "safaricom/sso/save_sso";
-$route['safaricom/send-report'] = "safaricom/sso/get_region";
-
-/**
- * LaikipiaSchools routes
- */
-$route['laikipiaschools/save'] = "laikipiaschools/save/savetodb";
-$route['laikipiaschools/schools'] = "laikipiaschools/fetch/getschools";
-$route['laikipiaschools/view'] = "laikipiaschools/getSchools/allSchools";
-// $route['default_controller'] = 'pages/view';
-// $route['(:any)'] = 'pages/view/$1';
-
-/**
- * Well Told Stories
- */
-$route['wts/sendsms/(:any)'] = "wts/contact/sendsms/$1";
-
-/**
- * KPC
- */
-$route['kpc/save-incident'] = "kpc/incidents/save_incident";
-$route['kpc/region-subscribers'] = "kpc/incidents/region_subscribers";
-$route['kpc/get-incident'] = "kpc/incidents/get_incident";
-$route['kpc/sos-incident'] = "kpc/erts/save_ert";
-$route['kpc/get-ert'] = "kpc/erts/get_ert";
-$route['kpc/get-sos'] = "kpc/erts/get_sos";
-$route['kpc/save-sos'] = "kpc/erts/save_sos";
-
-/**
- * M-kopa
- */
-$route['mkopa/save'] = "m-kopa/mkopa/save_checkin";
-
-/**
- * AppFactory
- */
-$route['appfactory/save-progress'] = "appfactory/progress/save_progress";
-
-/**
- * EthiopianAirlines
- */
-$route['ethiopianairlines/viewfilecontents'] = "ethiopiaairlines/filecontents/getSelectedFile";
-$route['ethiopianairlines/uploadfiles'] = "ethiopiaairlines/filecontents/index";
-$route['ethiopianairlines/getuploadfiles'] = "ethiopiaairlines/filecontents/get_saved_files";
+$route['alvaro/get-brands'] = "alvaro/brands/get_brands";

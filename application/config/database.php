@@ -75,43 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
-	// 'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
-	// 'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
-	// 'password' => 'appfactory',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-=======
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'nanyukiaf',
-	//====Localhost Credentials======
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	//====Localhost Credentials======
-
 	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
 	'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
-<<<<<<< HEAD
 	'password' => 'appfactory',
->>>>>>> 77338d4b3b3d2ce960a8cad51becdd2090655c9e
-=======
->>>>>>> 2d6f4cff7731e21921f2790258d78faa40f31e41
 	'database' => 'nanyukiaf',
-<<<<<<< HEAD
-	'password' => 'appfactory',
-	//'hostname' => 'localhost',
-	//'username' => 'root',
-	//'password' => '',
-=======
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'nanyukiaf',
->>>>>>> 77338d4b3b3d2ce960a8cad51becdd2090655c9e
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

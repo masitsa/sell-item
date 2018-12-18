@@ -76,15 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
-<<<<<<< HEAD
 	'username' => 'alvaro@nanyukiappfactory-mysqldbserver',
-	'password' => '3306',
+	'password' => 'appfactory',
 	'database' => 'nanyukiaf',
-=======
-    'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
-    'password' => 'appfactory',
-    'database' => 'nanyukiaf',
->>>>>>> 0529fe34e6cec4a7f2c2e3fbcf08f48bab91f48c
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

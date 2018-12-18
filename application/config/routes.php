@@ -50,7 +50,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |        my-controller/my-method    -> my_controller/my_method
  */
 <<<<<<< HEAD
+<<<<<<< HEAD
 $route['default_controller'] = 'sarafina';
+=======
+$route['default_controller'] = 'martin';
+>>>>>>> 2d6f4cff7731e21921f2790258d78faa40f31e41
 =======
 $route['samuel/get-brands'] = "samuel/brands/get_brands";
 >>>>>>> 77338d4b3b3d2ce960a8cad51becdd2090655c9e
@@ -62,7 +66,11 @@ $route['translate_uri_dashes'] = false;
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 <<<<<<< HEAD
+<<<<<<< HEAD
 $route['sarafina/get-brands'] = "sarafina/brands/get_brands";
+=======
+$route['martin/get-brands'] = "martin/brands/get_brands";
+>>>>>>> 2d6f4cff7731e21921f2790258d78faa40f31e41
 =======
 $route['grace/get-brands'] = "grace/brands/get_brands";
 

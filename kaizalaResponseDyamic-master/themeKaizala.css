@@ -1,0 +1,307 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, sans-serif;
+    display: flex;
+    flex-direction: column;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.body-container {
+    margin-top: 40pt;
+    margin-bottom: 76pt;
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+.section {
+    border-bottom: 1pt solid #d4d8db;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 40pt;
+    display: inline-box;
+    padding: 0;
+    overflow: hidden;
+    border-bottom: 0.5pt solid #d4d8db;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    box-shadow: 0pt 2pt 4pt 1pt rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    display: inline-box;
+    padding-top: 31.5pt;
+    padding-bottom: 15pt;
+    padding-left: 5%;
+    padding-right: 5%;
+    overflow: hidden;
+    background-image: url("footer_bg.png");
+    background-size: contain;
+}
+
+.footer-action {
+    margin-bottom: 0pt;
+    height: 33pt;
+    width: 30%;
+    color: rgb(0, 111, 241);
+    background-color: white;
+    border-radius: 0;
+    font-size: 12pt;
+    font-weight: normal;
+    float: left;
+    -webkit-appearance: none;
+}
+
+.first-column {
+    white-space: nowrap;
+}
+
+.footer-action:disabled {
+    color: #6f7e8f;
+}
+
+.footer-action-previous {
+    margin-bottom: 0pt;
+    height: 33pt;
+    width: 30%;
+    color: rgb(0, 111, 241);
+    background-color: white;
+    border-radius: 2px;
+    font-size: 12pt;
+    font-weight: normal;
+    float: left;
+    -webkit-appearance: none;
+    border: 1px solid rgba(111, 126, 143, 0.5);
+    background-image: url("previous.png");
+    background-position: center;
+    background-size: 19pt 8pt;
+    background-repeat: no-repeat;
+}
+
+.footer-action-previous:disabled {
+    background-image: url("previous_disabled.png");
+}
+
+.footer-action-next {
+    margin-bottom: 0pt;
+    height: 33pt;
+    width: 30%;
+    color: rgb(0, 111, 241);
+    background-color: white;
+    border-radius: 2px;
+    font-size: 12pt;
+    font-weight: normal;
+    float: left;
+    -webkit-appearance: none;
+    border: none;
+    background-image: url("next.png");
+    background-position: center;
+    background-size: 19pt 8pt;
+    background-repeat: no-repeat;
+    background-color: #00a1ff;
+}
+
+.footer-action-next:disabled {
+    background-image: url("next_disabled.png");
+}
+
+.footer-action-send {
+    margin-bottom: 0pt;
+    height: 33pt;
+    width: 30%;
+    color: white;
+    background-color: #5ad7a4;
+    border-radius: 2px;
+    font-size: 12pt;
+    font-weight: normal;
+    border: none;
+    font-weight: 600;
+    float: left;
+    -webkit-appearance: none;
+}
+
+.comment-header {
+    padding: 15pt;
+    padding-top: 0pt;
+    padding-bottom: 0pt;
+    font-size: 9pt;
+    font-weight: normal;
+    color: #6f7e8f;
+}
+
+.comment-input {
+    padding-top: 0pt;
+    padding-bottom: 15pt;
+    padding-left: 15pt;
+    padding-right: 15pt;
+    font-size: 12pt;
+    font-weight: normal;
+    color: #32485f;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    width: calc(100%-30pt);
+    font-family: -apple-system, sans-serif;
+}
+
+.comment-input::-webkit-input-placeholder {
+    color: #98a3af;
+}
+
+input[type=radio] {
+    float: right;
+    width: 15pt;
+    height: 15pt;
+    background-color: white;
+    border: 1px solid transparent;
+    background-size: 100% 100%;
+    -webkit-appearance: none;
+    background-image: url("radio_unchecked.png");
+    background-repeat: no-repeat;
+}
+
+input[type=radio]:checked {
+    background-size: 100% 100%;
+    -webkit-appearance: none;
+    background-image: url("radio_checked.png");
+    background-repeat: no-repeat;
+}
+
+.checkbox {
+    float: right;
+    padding: 9px;
+    background-color: white;
+    border: 0px solid transparent;
+    border-radius: 0px;
+    background-size: 100% 100%;
+    -webkit-appearance: none;
+    background-image: url("checkbox_unchecked.png");
+    background-repeat: no-repeat;
+}
+
+.checkbox:checked {
+    background-size: 100% 100%;
+    -webkit-appearance: none;
+    background-image: url("checkbox_checked.png");
+    background-repeat: no-repeat;
+}
+
+.question-title {
+    padding: 15pt;
+    font-size: 13.5pt;
+    font-weight: normal;
+    color: rgb(50, 72, 95);
+}
+
+.option-div {
+    font-size: 12pt;
+    font-weight: normal;
+    color: rgb(50, 72, 95);
+}
+
+.options {
+    height: 24pt;
+    display: flex;
+    align-items: center;
+    padding: 15pt;
+    padding-top: 0pt;
+}
+
+.option-title {
+    padding: 15pt;
+    padding-top: 0pt;
+    font-size: 9pt;
+    font-weight: normal;
+    color: #6f7e8f;
+}
+/* location */
+
+.location-title {
+    padding: 15pt;
+    padding-bottom: 5pt;
+    font-size: 9pt;
+    font-weight: normal;
+    color: #32495f;
+}
+
+.location-image {
+    padding: 15pt;
+    padding-top: 10px;
+    padding-bottom: 0pt;
+    height: auto;
+    max-height: 200pt;
+    object-fit: contain;
+    width: calc(100%-30pt);
+}
+
+.location-address {
+    font-size: 12pt;
+    font-weight: normal;
+    color: #32495f;
+    float: left;
+}
+/* refresh icon*/
+
+.refresh-img {
+    width: 16pt;
+    object-fit: contain;
+    align-items: center;
+}
+
+.refresh-img-selected {
+    height: 16pt;
+    object-fit: contain;
+    align-self: flex-end;
+    -webkit-animation: refresh-rotate 0.75s infinite linear;
+    animation: refresh-rotate 0.75s infinite linear;
+}
+
+@-webkit-keyframes refresh-rotate {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes refresh-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.bg-view {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: none;
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent;
+}

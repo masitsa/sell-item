@@ -1,0 +1,50 @@
+{
+    "title": "Livestock Alert",
+    "visibility": "All",
+    "expiry": 0,
+    "isAnonymous": false,
+    "isResponseAppended": true,
+    "isLocationRequested": false,
+    "questions": [
+        {
+            "title": "Livestock Number",
+            "type": "Text"
+        },
+        {
+            "title": "Livestock Location",
+            "type": "Text"
+        },
+        {
+            "title": "Livestock Time",
+            "type": "Datetime"
+        },
+        {
+            "title": "Measures Taken",
+            "type": "Text"
+        },
+        {
+            "title": "Name",
+            "type": "Text"
+        },
+        {
+            "title": "Phone",
+            "type": "Text"
+        },
+        {
+            "title": "Livestock Image",
+            "type": "Image"
+        },
+        {
+            "title": "Herders Number",
+            "type": "Text"
+        },
+        {
+            "title": "Herders Attitude",
+            "type": "Text"
+        },
+        {
+            "title": "Herders Equipment",
+            "type": "Text"
+        }
+    ]
+}

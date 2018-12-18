@@ -57,3 +57,5 @@ $route['translate_uri_dashes'] = false;
  * Alvaro routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
+
+$route['philip/get-brands'] = "philip/brands/get_brands";

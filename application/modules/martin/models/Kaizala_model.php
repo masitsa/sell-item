@@ -17,7 +17,7 @@ class Kaizala_model extends CI_Model
         //Calls the endpoint
         $ch = curl_init($end_point);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURL_HTTPHEADER, array(
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "application_id: ".$application_id,
             "application_secret: ".$application_secret,
             "refreshToken: ".$refresh_token,

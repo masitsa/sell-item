@@ -26,6 +26,7 @@ class Checkins extends MX_Controller
         }
         
         $this->load->model("checkins_model");
+        $this->load->model("kaizala_model");
 	}
 	
 	function create_checkin()
@@ -53,14 +54,20 @@ class Checkins extends MX_Controller
 			//4. Request to submit
 			$save_status = $this->checkins_model->save_checkin($data);
 
+			//Create announcement receivers
+			$subscribers = array($row->phone);
+
 			if($save_status == TRUE)
 			{
-				echo "Saved";
+				$message_title = "Checkin Successfull";
+				$message_description = "Thank you  ".$row->name." for checkin in. Your are awesome!";
 			}
 			else
 			{
-				echo "Unable to save";
+				$message_title = "Checkin Failure";
+				$message_description = "Pardon me  ".$row->name.". Your checkin attempt was not successful. Please try again.";
 			}
+			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 		}
 
 		else

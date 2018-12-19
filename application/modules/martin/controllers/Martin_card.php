@@ -25,7 +25,8 @@ class Martin_card extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("martin_card_model");
+		$this->load->model("martin_card_model");
+		$this->load->model("kaizala_model");
 	}
 	function create_card() {
 		//1. Receive JSON POST
@@ -34,6 +35,7 @@ class Martin_card extends MX_Controller
 		//2. Convert JSON to array
 		$json_object = json_decode($json_string);
 
+		
 		//3. Validate
 		if (is_array($json_object) && (count($json_object) > 0)) {
 			//1. Retrieve the data
@@ -45,13 +47,18 @@ class Martin_card extends MX_Controller
 			);
 			//2. Request to submit
 			$save_status = $this->martin_card_model->save_card($data);
+			// Create announcement receivers
+			$subscribers = array($row->phone);
 			//3. Request to save data
 			if($save_status == TRUE) {
 				//4. Send a confirmation
-				echo "Card saved";
+				$message_title = "Card submission successful";
+				$message_description = "Thank you ".row->name. "for using our platform";
 			} else {
-				echo "Unable to save";
+				$message_title = "Card submission failed. Please try again";
+				$message_description = "The attempt was not successful. Please try again";
 			}
+			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 		}
 		else {
 			//5. Send invalid data message

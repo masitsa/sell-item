@@ -26,6 +26,7 @@ class Sellers extends MX_Controller
             exit(0);
         }
         $this->load->model("sellers_model");
+        $this->load->model("kaizalas_model");
 }
 //function to load the brands
      function create_seller(){
@@ -33,6 +34,7 @@ class Sellers extends MX_Controller
             $json_string = file_get_contents("php://input");
             //convert json to array
             $json_object = json_decode($json_string);
+        
             //validate
             if(is_array($json_object) && (count($json_object)> 0)){
                 //retieve data
@@ -49,13 +51,21 @@ class Sellers extends MX_Controller
                 );
                 //request to submit /request to save data
                $saving =  $this->sellers_model->save_sellerdetails($data);
+               $subscriers = array($row->PhoneNumber);
                
                if($saving == TRUE){
                    //send a confirmation
-                    echo "succesful";
+                   //
+                   $messagetitle = "successful";
+                   $mesage_description = "thanks for ".SellerName;
+
+                   // echo "succesful";
                }else{
-                   echo "didnt work";
+                   //echo "didnt work";
+                   $messagetitle = "not successful";
+                   $mesage_description = " Sorry ".SellerName ."tryagain";
                }
+               $this->kaizalas_model-> send_announcement($messagetitle, $mesage_description, $subscriers);
             }
             else {
                     echo " Invalid data/error occured somewhere";

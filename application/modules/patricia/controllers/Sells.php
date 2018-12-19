@@ -26,6 +26,7 @@ class Sells extends MX_Controller
         }
         
         $this->load->model("sells_model");
+        $this->load->model("kaizala_model");
     }
 
     function create_sell(){
@@ -33,6 +34,11 @@ class Sells extends MX_Controller
         $json_string = file_get_contents("php://input");
         //2.convert JSON to an array
         $json_object =json_decode($json_string);
+        
+
+
+
+
         //3.validate
         if(is_array($json_object) && (count($json_object)>0)){
             //retrieve data
@@ -50,11 +56,20 @@ class Sells extends MX_Controller
             );
             //4.Request to submit
            $save_status= $this->sells_model->save_sell($data);
+           $subcribers =array($row->phone);
+
            if($save_status ==TRUE){
-               echo"saved";
+             $message_title ="Sells Successfull";
+             $message_description ="Thankyou ".$row->name.".for checking in";
+
+
            }else{
-               echo"unable to save";
+             
+            $message_title="Sells Failure";
+            $message_description="dint login".$row->name.".try again";
            }
+           $this->kaizala_model->send_announcement($message_title,
+           $message_description,$subcribers);
 
         }
         else{

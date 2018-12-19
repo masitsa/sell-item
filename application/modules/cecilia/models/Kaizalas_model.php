@@ -34,7 +34,7 @@ class Kaizalas_model extends CI_Model
               "sendToAllSubscribers" => false,
               "subscribers" => $receivers,
               "actionBody" =>array(
-                "properties" => aray(
+                "properties" => array(
                     array(
                        "name" => "messageTitle",
                        "value"=> $title ,

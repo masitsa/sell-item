@@ -83,3 +83,4 @@ $route['moses/get-brands'] = "moses/brands/get_brands";
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";
 $route['patricia/savegit_sell'] = "patricia/sells/create_sell";
+

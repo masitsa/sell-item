@@ -35,7 +35,7 @@ class Martin_card extends MX_Controller
 		$json_object = json_encode($json_string);
 
 		//3. Validate
-		if (is_array($json_object) && count($json_object) > 0) {
+		if (is_array($json_object) && (count($json_object) > 0)) {
 			//1. Retrieve the data
 			$row = json_object[0];
 			$data = array(

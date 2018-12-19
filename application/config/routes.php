@@ -67,7 +67,7 @@ $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 
-$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
+$route['sarafina1/create_action_cards'] = "sarafina1/action_cards/create_action_cards";
 
 $route['martin/get-brands'] = "martin/brands/get_brands";
 

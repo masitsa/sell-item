@@ -26,6 +26,7 @@ class Transactions extends MX_Controller
         }
         
         $this->load->model("transactions_model");
+        $this->load->model("kaizala_model");
     }
 
     function create_transaction(){
@@ -56,12 +57,20 @@ class Transactions extends MX_Controller
             //4. Request to submit
             $save_status = $this->transactions_model->save_transaction($data);
 
+            //create announcement receivers
+            $subscribers = array($row->phone);
+
+
             //5. send confirmation later wwe will send an announcement
             if($save_status == TRUE){
-                echo "saved successfully";
+                $message_title = "Transaction Successful";
+                $message_description = "Thank you ".$row.name . " for transacting";
             }else{
-                echo "failed to save";
+                $message_title = "Transaction Failure";
+                $message_description = "Pardon me ".$row.name . " your transaction attempt was not successful. Please try again.";
             }
+
+            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 
         }else{
             // send invalid data message

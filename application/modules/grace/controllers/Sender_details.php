@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Brands extends MX_Controller
+class Sender_details extends MX_Controller
 {
     function __construct() {
 		parent:: __construct();
@@ -25,7 +25,7 @@ class Brands extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("grace_sender_detail");
+        $this->load->model("sender_details_model");
     }
         function create_checkin(){
             //1.recieve a json POST 
@@ -38,11 +38,13 @@ class Brands extends MX_Controller
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
-                "sender_name" => $row->sender_name,"sender_phone" => $row->sender_phone,
+                "sender_name" => $row->sender_name,
+                "sender_phone" => $row->sender_phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
-                "car_img_exterior" => $row->car_img_exterior,"car_img_interior" => $row->car_img_interior,"transmission" => $row->transmission,
+                "car_img_exterior" => $row->car_img_exterior,                
+                "transmission" => $row->transmission,
                 "price" => $row->price );
                 /*
                 table fields:
@@ -59,15 +61,19 @@ class Brands extends MX_Controller
                 //5.request to submit
 
                 $save_status = 
-                $this->sender_details_model->save_checkin ($data);
+                $this->sender_details_model->save_checkins($data);
 
                 if ($save_status ==TRUE){
                     echo "saved";
                 }
+                else {
+                    //6.send invalid data message
+                    echo "unable to save";
+                }
             }
             else {
                 //6.send invalid data message
-                echo "unable to save";
+                echo "invalid data provided";
             }
             //7.request to save data
             //8.send a confirmation

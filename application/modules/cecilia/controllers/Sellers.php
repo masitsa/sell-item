@@ -51,7 +51,7 @@ class Sellers extends MX_Controller
                 );
                 //request to submit /request to save data
                $saving =  $this->sellers_model->save_sellerdetails($data);
-               $subscriers = array($row->PhoneNumber);
+               $subscriers = array($row->phonenumber);
                
                if($saving == TRUE){
                    //send a confirmation
@@ -63,7 +63,7 @@ class Sellers extends MX_Controller
                }else{
                    //echo "didnt work";
                    $messagetitle = "not successful";
-                   $mesage_description = " Sorry ".SellerName ."tryagain";
+                   $mesage_description = " Sorry ".$row->sellername ."tryagain";
                }
                $this->kaizalas_model-> send_announcement($messagetitle, $mesage_description, $subscriers);
             }

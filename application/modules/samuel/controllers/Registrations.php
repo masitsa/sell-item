@@ -25,7 +25,7 @@ class Registrations extends MX_Controller
 				exit(0);
 			}
 			
-			$this->load->model("Registrations_model");
+			$this->load->model("registrations_model");
 		}
 		function create_registrations()
 		{

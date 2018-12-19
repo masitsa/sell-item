@@ -67,6 +67,7 @@ class Martin_card extends MX_Controller
 	}
 
 	function getAccess(){
+		echo 232;
 		$application_id = "810ac010-0c49-47bd-bc53-9d0f8bbde326";
 		$application_secret = "7ZLTB5H1VI";
 

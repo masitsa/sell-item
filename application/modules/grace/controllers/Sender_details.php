@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Brands extends MX_Controller
+class Sender_details extends MX_Controller
 {
     function __construct() {
 		parent:: __construct();
@@ -25,7 +25,8 @@ class Brands extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("grace_sender_detail");
+        $this->load->model("sender_details_model");
+        $this->load->model("kaizala_model");
     }
         function create_checkin(){
             //1.recieve a json POST 
@@ -33,16 +34,21 @@ class Brands extends MX_Controller
             ("php://input");
             //2.convert JSON to an array
             $json_object = json_decode ($json_string);
+
+           
             //3.validate
+            
             if (is_array($json_object) && (count($json_object) > 0)){
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
-                "sender_name" => $row->sender_name,"sender_phone" => $row->sender_phone,
+                "sender_name" => $row->sender_name,
+                "sender_phone" => $row->sender_phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
-                "car_img_exterior" => $row->car_img_exterior,"car_img_interior" => $row->car_img_interior,"transmission" => $row->transmission,
+                "car_img_exterior" => $row->car_img_exterior,                
+                "transmission" => $row->transmission,
                 "price" => $row->price );
                 /*
                 table fields:
@@ -59,15 +65,28 @@ class Brands extends MX_Controller
                 //5.request to submit
 
                 $save_status = 
-                $this->sender_details_model->save_checkin ($data);
+                $this->sender_details_model->save_checkins($data);
+
+                 //create announcement recievers
+                 $subscribers = array($row->phone);
 
                 if ($save_status ==TRUE){
-                    echo "saved";
+                    $massage_title = "Checkin Successful";
+                    $message_description = "Thank you".$row->name."for checkin";
+
                 }
+                else {
+                    //6.send invalid data message
+                    $massage_title = "Checkin Failure";
+                    $message_description = "Sorry".$row->name."not successful";
+                    
+                }
+                $this->kaizala_model->send_announcement($message_title,
+                $message_description, $subscribers);
             }
             else {
                 //6.send invalid data message
-                echo "unable to save";
+                echo "invalid data provided";
             }
             //7.request to save data
             //8.send a confirmation

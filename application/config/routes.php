@@ -67,7 +67,7 @@ $route['translate_uri_dashes'] = false;
  * samuel routes
  */
 $route['samuel/get-brands'] = "samuel/brands/get_brands";
-$route['samuel/save-registration'] = "samuel/registration/create_registration";
+$route['samuel/save-registration'] = "samuel/registrations/create_registrations";
 
 /**
  * Alvaro/grace routes
@@ -83,10 +83,10 @@ $route['philip/save-seller'] = "philip/sender_details/create_seller";
 
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
-$route['cecilia/create-seller'] = "cecilia/brands/create_seller";
+$route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 
-$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
-
+$route['sarafina1/create_action_cards'] = "sarafina1/action_cards/create_action_cards";
+$route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
 /**
  * Martin routes
  */
@@ -106,3 +106,5 @@ $route['moses/create-transaction'] = "moses/transactions/create_transaction";
 
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";
+$route['patricia/create_sell'] = "patricia/sells/create_sell";
+

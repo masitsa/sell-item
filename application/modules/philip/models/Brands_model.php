@@ -19,22 +19,6 @@ class Brands_model extends CI_Model
         return $query;
     }
 
-    // public function retrieve_brands_and_models()
-    // {
-    //     // $this->db->where("brand.brand_id = brand_model.brand_id");
-    //     // $this->db->order_by("brand_name", "ASC");
-    //     // $this->db->order_by("brand_model_name", "DESC");
-    //     // $query = $this->db->get("brand, brand_model");
-
-    //     // $this->db->join("brand_model", "brand.brand_id = brand_model.brand_id", "INNER");
-    //     // $this->db->order_by("brand_name", "ASC");
-    //     // $this->db->order_by("brand_model_name", "DESC");
-    //     // $query = $this->db->get("brand, brand_model");
-        
-
-    //     return $query;
-    // }
-
     public function retrieve_brands_and_models() {
 
         $result = $this->db->query("select brand.brand_name, brand_model.brand_model_name, brand_model.transmission_type from `brand_model` 
@@ -45,3 +29,4 @@ class Brands_model extends CI_Model
 
         }
 }
+?>

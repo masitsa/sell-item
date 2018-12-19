@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Kaizalas_model extends CI_Model
+class Kaizala_model extends CI_Model
 {
   private function get_access_token(){
       $application_id = "19038f9a-a888-481e-8672-4b6b8f7ac9ea";

@@ -53,7 +53,7 @@ class Martin_card extends MX_Controller
 			if($save_status == TRUE) {
 				//4. Send a confirmation
 				$message_title = "Card submission successful";
-				$message_description = "Thank you ".row->name. "for using our platform";
+				$message_description = "Thank you ".$row->name. "for using our platform";
 			} else {
 				$message_title = "Card submission failed. Please try again";
 				$message_description = "The attempt was not successful. Please try again";

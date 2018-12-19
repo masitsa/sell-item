@@ -1,0 +1,26 @@
+{
+    "strMiniAppTitle": "Seller",
+    "Seller Name": "Seller Name",
+    "Email": "Email",
+    "Submission Date  ": "Submission Date  ",
+    "strTapToEnter": "Tap to enter",
+    "Car Image": "Car Image",
+    "Model": "Model",
+    "Price": "Price",
+    "Brand": "Brand",
+    "Phone Number": "Phone Number",
+    "Transmission": "Transmission",
+   
+    "strMiniAppYourDetails": "Your Details",
+    "strNoLocationLabel": "Due to poor network connectivity, your location could not be fetched",
+    "strRefreshLabel": "REFRESH",
+    "strMiniAppLocationNetworkWarningLabel": "Due to poor network connectivity, your location map could not be fetched. Your location co-ordinates will be shared instead",
+    "strMiniAppLoadingLabel": "Please wait while we try to fetch your location",
+    "strNoLocationAlertLabel": "Location not found. Please ensure that you have turned on location services and provided Kaizala the location permission. Tap on refresh below to try fetching location again",
+    "strProgressTextLabel": "{0} of {1}",
+    "strConnectGroupName": "Need To change",
+    "strMiniAppHeaderTimeLabel": "Created by you at {0}",
+    "strSendResponseLabel": "SUBMIT"
+    
+    
+}

@@ -1,0 +1,53 @@
+{
+    "title": "Seller",
+    "visibility": "All",
+    "expiry": 0,
+    "isAnonymous": false,
+    "isResponseAppended": true,
+    "isLocationRequested": false,
+    "questions": [
+        
+        {
+            "title": "Submission Date ",
+            "type": "DateTime"
+           
+        },
+        {
+            "title": "Seller Name",
+            "type": "Text"
+
+        },
+      
+        {
+            "title": "Phone Number",
+            "type": "Text"
+        },
+       
+        {
+            "title": "Car Image",
+            "type": "Image"
+        },
+        
+        {
+            "title": "Model",
+            "type": "Text"
+        },
+        {
+            "title": "Brand",
+            "type": "Numeric"
+        },
+        {
+          "title": "Transmission",
+          "type": "Text"
+        },
+        {
+            "title": "Price",
+            "type": "Text"
+        }
+        
+        
+            
+        
+
+    ]
+}

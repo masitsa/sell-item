@@ -79,6 +79,8 @@ $route['grace/get-brands'] = "grace/brands/get_brands";
  * Moses routes
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
+$route['moses/create-transaction'] = "moses/transactions/create_transaction";
+
 
 $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";

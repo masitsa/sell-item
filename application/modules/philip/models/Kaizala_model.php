@@ -12,8 +12,8 @@ class Kaizala_Model extends CI_Model
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "applicationId: " .$application_id,
-            "applicationSecret:" .$application_secret,
-            "refreshToken:" .$refresh_token,
+            "applicationSecret: " .$application_secret,
+            "refreshToken: " .$refresh_token,
             "Content-Type: application/json"
         ));
 

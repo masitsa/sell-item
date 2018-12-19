@@ -55,6 +55,8 @@ $route['default_controller'] = 'sarafina';
 $route['default_controller'] = 'martin';
 
 $route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/get-brands'] = "samuel/brands/get_brands";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 

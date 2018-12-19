@@ -21,11 +21,11 @@ class Brands_model extends CI_Model
 
     public function get_all_brands_and_models()
     {
+
         $this->db->join("brand_model", "brand.brand_id = brand_model.brand_id", "INNER");
         $this->db->order_by("brand_name", "ASC");
         $this->db->order_by("brand_model_name", "DESC");
-        $query = $this->db->get();
-        
+        $query = $this->db->get("brand");
 
         return $query;
     }

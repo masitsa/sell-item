@@ -45,16 +45,16 @@ class Martin_card extends MX_Controller
 			)
 			//2. Request to submit
 			$save_status = $this->Martin_card_model->save_card($data);
-			//4. Request to save data
+			//3. Request to save data
 			if($save_status == TRUE) {
-				//5. Send a confirmation
+				//4. Send a confirmation
 				echo "Card saved";
 			} else {
 				echo "Unable to save";
 			}
 		}
 		else {
-			//Send invalid data message
+			//5. Send invalid data message
 			echo "Invalid data provided";
 		}		
 	}

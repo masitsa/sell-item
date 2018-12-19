@@ -83,7 +83,7 @@ $route['philip/save-seller'] = "philip/sender_details/create_seller";
 
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
-$route['cecilia/create-seller'] = "cecilia/brands/create_seller";
+$route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 
 $route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
 

@@ -7,7 +7,7 @@ class Brands_model extends CI_Model
  public function retrieve_brands()
  {
     //$this->db->get("brand");
-   
+   //getting brands from database
     $query = $this->db->get("brand");
     return $query;
  }

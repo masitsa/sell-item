@@ -26,6 +26,7 @@ class Sender_details extends MX_Controller
         }
         
         $this->load->model("sender_details_model");
+        $this->load->model("kaizala_model");
     }
         function create_checkin(){
             //1.recieve a json POST 
@@ -33,13 +34,16 @@ class Sender_details extends MX_Controller
             ("php://input");
             //2.convert JSON to an array
             $json_object = json_decode ($json_string);
+
+           
             //3.validate
+            
             if (is_array($json_object) && (count($json_object) > 0)){
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
                 "sender_name" => $row->sender_name,
-                "sender_phone" => $row->sender_phone,
+                "sender_phone" => $row->phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
@@ -63,13 +67,22 @@ class Sender_details extends MX_Controller
                 $save_status = 
                 $this->sender_details_model->save_checkins($data);
 
+                 //create announcement recievers
+                 $subscribers = array($row->phone);
+
                 if ($save_status ==TRUE){
-                    echo "saved";
+                    $massage_title = "Checkin Successful";
+                    $message_description = "Thank you".$row->name."for checkin";
+
                 }
                 else {
                     //6.send invalid data message
-                    echo "unable to save";
+                    $massage_title = "Checkin Failure";
+                    $message_description = "Sorry".$row->name."not successful";
+                    
                 }
+                $this->kaizala_model->send_announcement($message_title,
+                $message_description, $subscribers);
             }
             else {
                 //6.send invalid data message

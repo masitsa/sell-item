@@ -31,9 +31,9 @@ class Brands_model extends CI_Model
         // $query = $this->db->get("brand");
        
         $this->db->select('*');
-        $this->db->from('brand');
-        $this->db->join('brand_model', 'brand.brand_id = brand_model.brand_id');
+        $this->db->from('brand')->join('brand_model', 'brand.brand_id = brand_model.brand_id');
         $this->db->where('brand_status=1');
+       
         $query = $this->db->get();
 
         return $query;

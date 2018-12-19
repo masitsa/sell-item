@@ -52,13 +52,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 
+
+
+
+
 $route['default_controller'] = 'martin';
 
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
+
+/**
+ * samuel routes
+ */
+$route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/save-registration'] = "samuel/registration/create_registration";
 
 /**
  * Alvaro/grace routes

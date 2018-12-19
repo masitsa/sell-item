@@ -86,7 +86,7 @@ class Martin_card extends MX_Controller
         curl_close($ch);
 
         $response_decoded = json_decode($response);
-        return $response;
+        return 121;
 	}
 }
 ?>

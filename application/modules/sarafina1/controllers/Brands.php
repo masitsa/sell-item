@@ -20,7 +20,8 @@ class Brands extends MX_Controller
 				header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
 	
 			if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-				header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+                header("Access-Control-Allow-Headers:  
+                      {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 	
 			exit(0);
         }
@@ -30,18 +31,24 @@ class Brands extends MX_Controller
 
     public function get_brands()
     {
-        $all_brands = $this->brands_model->retrieve_brands();
+        $all_brands = $this->brands_model->get_all_brands_and_models();
 
         if($all_brands->num_rows() > 0)
         {
             $brands = $all_brands->result();
             $brands_encoded = json_encode($brands);
             echo $brands_encoded;
+            $query =$this->db->get("brand");
+            
+            return $query;
         }
 
         else{
             echo "No brands found";
         }
     }
+    
+    
+    
 }
 ?>

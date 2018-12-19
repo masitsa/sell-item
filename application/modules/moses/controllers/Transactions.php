@@ -64,10 +64,10 @@ class Transactions extends MX_Controller
             //5. send confirmation later wwe will send an announcement
             if($save_status == TRUE){
                 $message_title = "Transaction Successful";
-                $message_description = "Thank you ".$row.name . " for transacting";
+                $message_description = "Thank you ".$row->name . " for transacting";
             }else{
                 $message_title = "Transaction Failure";
-                $message_description = "Pardon me ".$row.name . " your transaction attempt was not successful. Please try again.";
+                $message_description = "Pardon me ".$row->name . " your transaction attempt was not successful. Please try again.";
             }
 
             $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);

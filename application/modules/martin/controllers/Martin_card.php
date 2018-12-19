@@ -84,10 +84,15 @@ class Martin_card extends MX_Controller
             "Content-Type: application/json"
         ));
         $response = curl_exec($ch);
-        curl_close($ch);
+        $err = curl_error($curl);
 
-        $response_decoded = json_decode($response);
-        return $response;
+		curl_close($curl);
+
+		if ($err) {
+		echo "cURL Error #:" . $err;
+		} else {
+		echo $response;
+		}
 	}
 }
 ?>

@@ -50,26 +50,42 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |        my-controller/my-method    -> my_controller/my_method
  */
 
-$route['default_controller'] = 'sarafina';
+
+
+
+
+
 
 $route['default_controller'] = 'martin';
 
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
+
+/**
+ * samuel routes
+ */
+$route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/save-registration'] = "samuel/registration/create_registration";
 
 /**
  * Alvaro/grace routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
+$route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
 
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 
-$route['sarafina/get-brands'] = "sarafina/brands/get_brands";
+$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
 
+/**
+ * Martin routes
+ */
 $route['martin/get-brands'] = "martin/brands/get_brands";
+$route['martin/save-card'] = "martin/martin_card/create_card";
 
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";

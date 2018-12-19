@@ -59,10 +59,11 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
 
 /**
- * Alvaro routes
+ * Alvaro/grace routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 
+$route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 

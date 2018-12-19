@@ -30,7 +30,7 @@ class Brands extends MX_Controller
 
     public function get_brands()
     {
-        $all_brands = $this->brands_model->retrieve_brands();
+        $all_brands = $this->brands_model->get_all_brands_and_models();
 
         if($all_brands->num_rows() > 0)
         {
@@ -43,5 +43,6 @@ class Brands extends MX_Controller
             echo "No brands found";
         }
     }
+   
 }
 ?>

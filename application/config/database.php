@@ -75,12 +75,14 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	// 'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
-	// 'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
-	// 'password' => 'appfactory',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
+	// 'database' => 'nanyukiaf',
+	//====Localhost Credentials======
+	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
+	'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
+	'password' => 'appfactory',
 	'database' => 'nanyukiaf',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

@@ -22,7 +22,7 @@ class Kaizalas_model extends CI_Model
       $response = curl_exec($ch);
       curl_close($ch);
       $response_decoded = json_decode($response);
-      return $response_decoded->accesstoken;
+      return $response_decoded->accessToken;
       }
 
       public function send_announcement($title, $message, $receivers){

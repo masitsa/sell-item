@@ -25,26 +25,26 @@ class Martin_card extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("Martin_card_model");
+        $this->load->model("martin_card_model");
 	}
 	function create_card() {
 		//1. Receive JSON POST
-		$json_string = file_get_contents("php/input");
+		$json_string = file_get_contents("php://input");
 
 		//2. Convert JSON to array
-		$json_object = json_encode($json_string);
+		$json_object = json_decode($json_string);
 
 		//3. Validate
-		if (is_array($json_object) && count($json_object) > 0) {
+		if (is_array($json_object) && (count($json_object) > 0)) {
 			//1. Retrieve the data
 			$row = json_object[0];
 			$data = array(
 				"responder_name" => $row->name,
 				"responder_phone" => $row->phone,
-				"responder_date" => $row->date,
-			)
+				"responder_date" => $row->date
+			);
 			//2. Request to submit
-			$save_status = $this->Martin_card_model->save_card($data);
+			$save_status = $this->martin_card_model->save_card($data);
 			//3. Request to save data
 			if($save_status == TRUE) {
 				//4. Send a confirmation

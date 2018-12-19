@@ -87,7 +87,7 @@ class Martin_card extends MX_Controller
         $response = curl_exec($ch);
         $err = curl_error($ch);
 
-		curl_close($curl);
+		curl_close($ch);
 
 		if ($err) {
 		echo "cURL Error #:" . $err;

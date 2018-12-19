@@ -71,9 +71,9 @@ $route['sarafina/get-brands'] = "sarafina/brands/get_brands";
 
 $route['martin/get-brands'] = "martin/brands/get_brands";
 
-
+//grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
-
+$route['grace/create_checkin'] = "grace/sender_details/create_checkin";
 
 /**
  * Moses routes

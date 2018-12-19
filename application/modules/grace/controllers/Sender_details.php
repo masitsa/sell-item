@@ -38,7 +38,8 @@ class Sender_details extends MX_Controller
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
-                "sender_name" => $row->sender_name,"sender_phone" => $row->sender_phone,
+                "sender_name" => $row->sender_name,
+                "sender_phone" => $row->sender_phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
@@ -65,10 +66,14 @@ class Sender_details extends MX_Controller
                 if ($save_status ==TRUE){
                     echo "saved";
                 }
+                else {
+                    //6.send invalid data message
+                    echo "unable to save";
+                }
             }
             else {
                 //6.send invalid data message
-                echo "unable to save";
+                echo "invalid data provided";
             }
             //7.request to save data
             //8.send a confirmation

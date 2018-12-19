@@ -50,35 +50,59 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |        my-controller/my-method    -> my_controller/my_method
  */
 
-$route['default_controller'] = 'sarafina';
+
+
+
+
+
 
 $route['default_controller'] = 'martin';
 
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = false;
+
+/**
+ * samuel routes
+ */
+$route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/save-registration'] = "samuel/registration/create_registration";
 
 /**
  * Alvaro/grace routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
+$route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
 
+/**
+ * Philip routes
+ */
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
+$route['philip/save-seller'] = "philip/sender_details/create_seller";
+
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
+$route['cecilia/create-seller'] = "cecilia/brands/create_seller";
 
-$route['sarafina/get-brands'] = "sarafina/brands/get_brands";
+$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
 
+/**
+ * Martin routes
+ */
 $route['martin/get-brands'] = "martin/brands/get_brands";
+$route['martin/save-card'] = "martin/martin_card/create_card";
 
-
+//grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
-
+$route['grace/create_checkin'] = "grace/sender_details/create_checkin";
 
 /**
  * Moses routes
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
+$route['moses/create-transaction'] = "moses/transactions/create_transaction";
+
 
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";

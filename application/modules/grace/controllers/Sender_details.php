@@ -61,7 +61,7 @@ class Sender_details extends MX_Controller
                 //5.request to submit
 
                 $save_status = 
-                $this->sender_details_model->save_checkin($data);
+                $this->sender_details_model->save_checkins($data);
 
                 if ($save_status ==TRUE){
                     echo "saved";

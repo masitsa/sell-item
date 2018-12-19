@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Kaizala_model extends CI_Model
 {
     private function get_access_token() {
-        $application+id = "3f86086c-aafd-4d7f-a611-289192051dcc";
+        $application_id = "3f86086c-aafd-4d7f-a611-289192051dcc";
         $application_secret = "HDJNX2MYNK";
         $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisy
         NTQ3MTE1ODEwMDlcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2Fpem

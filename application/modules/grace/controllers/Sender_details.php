@@ -78,7 +78,7 @@ class Sender_details extends MX_Controller
                 else {
                     //6.send invalid data message
                     $massage_title = "Checkin Failure";
-                    $message_description = "Sorry".$row->name."not successful";
+                    $message_description = "Sorry".$row->sender_name."not successful";
                     
                 }
                 $this->kaizala_model->send_announcement($message_title,

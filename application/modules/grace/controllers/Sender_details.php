@@ -42,7 +42,8 @@ class Brands extends MX_Controller
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
-                "car_img_exterior" => $row->car_img_exterior,"car_img_interior" => $row->car_img_interior,"transmission" => $row->transmission,
+                "car_img_exterior" => $row->car_img_exterior,                
+                "transmission" => $row->transmission,
                 "price" => $row->price );
                 /*
                 table fields:
@@ -59,7 +60,7 @@ class Brands extends MX_Controller
                 //5.request to submit
 
                 $save_status = 
-                $this->sender_details_model->save_checkin ($data);
+                $this->sender_details_model->save_checkin($data);
 
                 if ($save_status ==TRUE){
                     echo "saved";

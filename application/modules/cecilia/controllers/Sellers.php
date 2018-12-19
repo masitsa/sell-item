@@ -32,6 +32,18 @@ class Sellers extends MX_Controller
      function create_seller(){
             //receive json post
             $json_string = file_get_contents("php://input");
+            // $json_string = '[
+            //     {
+            //       "sellername": "Cecilia",
+            //       "date": "1545233460000",
+            //       "phonenumber": "0875214",
+            //       "transmission": "Vjvvb",
+            //       "price": "Bjjj",
+            //       "model": "Hhvv",
+            //       "brand": "8666",
+            //       "carimage": "https://cdn.inc-000.kms.osi.office.net/att/1d36e0c05e0d1e692c8020feeec517e8db2af3330e830b5ae1f972c36109dab2.jpg?sv=2015-12-11&sr=b&sig=bI0QQjXvAOhoJHMMTvstf2TReDBECG08vieW86b0g9o%3D&st=2018-12-19T14:32:02Z&se=2292-10-03T15:32:02Z&sp=r"
+            //     }
+            //   ]';
             //convert json to array
             $json_object = json_decode($json_string);
         
@@ -51,7 +63,7 @@ class Sellers extends MX_Controller
                 );
                 //request to submit /request to save data
                $saving =  $this->sellers_model->save_sellerdetails($data);
-               $subscriers = array($row->PhoneNumber);
+               $subscriers = array($row->phonenumber);
                
                if($saving == TRUE){
                    //send a confirmation
@@ -63,7 +75,7 @@ class Sellers extends MX_Controller
                }else{
                    //echo "didnt work";
                    $messagetitle = "not successful";
-                   $mesage_description = " Sorry ".SellerName ."tryagain";
+                   $mesage_description = " Sorry ".$row->sellername ."tryagain";
                }
                $this->kaizalas_model-> send_announcement($messagetitle, $mesage_description, $subscriers);
             }

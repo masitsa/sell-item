@@ -63,7 +63,7 @@ class Sender_details extends MX_Controller
                 $message_title = "Checking UnSuccessful";
                 $message_description = "Sorry".$row->name."cant check in.";
             }
-            $this->kaizal_model->send_announcement($message_title, $message_description, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 
         }
         else{

@@ -26,6 +26,7 @@ class Sender_details extends MX_Controller
         }
         
         $this->load->model("sender_details_model");
+        $this->load->model("kaizala_model");
     }
 
     public function create_seller(){
@@ -51,12 +52,18 @@ class Sender_details extends MX_Controller
             // 4. Request to submit
             $save_status = $this->sender_details_model ->save_seller($data);
 
+            //Create announcement receivers
+            $subscribers  = array($row->phone);
+
             if($save_status ==TRUE){
-                echo "saved";
+                $message_title = "Checking Successful";
+                $message_description = "Thank you".$row->name."for checking in.";
             }
             else{
-                echo "unable to save";
+                $message_title = "Checking UnSuccessful";
+                $message_description = "Sorry".$row->name."cant check in.";
             }
+            $this->kaizal_model->send_announcement($message_title, $message_description, $subscribers);
 
         }
         else{

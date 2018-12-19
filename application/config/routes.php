@@ -50,7 +50,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |        my-controller/my-method    -> my_controller/my_method
  */
 
-$route['default_controller'] = 'sarafina';
+
 
 $route['default_controller'] = 'martin';
 
@@ -66,7 +66,7 @@ $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 
-$route['sarafina/get-brands'] = "sarafina/brands/get_brands";
+$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
 
 $route['martin/get-brands'] = "martin/brands/get_brands";
 

@@ -85,20 +85,11 @@ $db['default'] = array(
 	// 'password' => '',
 	// 'database' => 'nanyukiaf',
 	//====Localhost Credentials======
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	//====Localhost Credentials======
-
 	'hostname' => 'nanyukiappfactory-mysqldbserver.mysql.database.azure.com',
 	'username' => 'appfactory@nanyukiappfactory-mysqldbserver',
 	'password' => 'appfactory',
 >>>>>>> 3373f83e1016df33d940049f74feaf663267f616
 	'database' => 'nanyukiaf',
-	// 'hostname' => 'localhost',
-	// 'username' => 'root',
-	// 'password' => '',
-	// 'database' => 'nanyukiaf',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

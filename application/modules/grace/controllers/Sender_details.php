@@ -72,12 +72,12 @@ class Sender_details extends MX_Controller
 
                 if ($save_status ==TRUE){
                     $massage_title = "Checkin Successful";
-                    $message_description = "Thank you".$row->name."for checkin";
+                    $message_description = "Thank you".$row->sender_name."for checkin";
 
                 }
                 else {
                     //6.send invalid data message
-                    $massage_title = "Checkin Failure";
+                    $message_title = "Checkin Failure";
                     $message_description = "Sorry".$row->sender_name."not successful";
                     
                 }

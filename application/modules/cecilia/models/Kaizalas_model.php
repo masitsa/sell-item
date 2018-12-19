@@ -22,13 +22,14 @@ class Kaizalas_model extends CI_Model
       $response = curl_exec($ch);
       curl_close($ch);
       $response_decoded = json_decode($response);
+    //   var_dump($response_decoded); die();
       return $response_decoded->accessToken;
       }
 
       public function send_announcement($title, $message, $receivers){
           $group_id = "0a6e3c2c-93f3-43ed-bd69-b9267b5cf8c6";
-          $url = "https://kms.kaiza.la/v1/groups".$group_id."/actions";
-          $accesstokens = $this->get_access_token();
+          $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
+          $access_token = $this->get_access_token();
           $request_data = array(
               "id" => "com.nanyukiaf.cecilia.announcement.2",
               "sendToAllSubscribers" => false,
@@ -51,17 +52,18 @@ class Kaizalas_model extends CI_Model
 
           $request_json = json_encode($request_data);
           $ch = curl_init($url);
-          curl_setopt($ch, CURLOPT_CUSTOMREQUEST);
-          curl_setopt($ch, CURLOPT_POSTFIELDS);
-          curl_setopt($ch,CURLOPT_RETURNTRANSFER);
+          curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+          curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
           curl_setopt($ch, CURLOPT_HTTPHEADER, array(
               "accessToken:" .$access_token ,
-              "Content-Type: applicatin/json",
+              "Content-Type: application/json",
               "content-length:".strlen($request_json) 
           ));
           $result = curl_exec($ch);
           curl_close($ch);
           $result_object = json_decode($result);
+        //   var_dump($result_object); die();
           return $result_object->actionId;
         }
 }

@@ -11,8 +11,8 @@ private function get_access_token(){
     $ch =curl_init($end_point);
     curl_setopt($ch,CURLOPT_RETURNTRANSFER,TRUE);
     curl_setopt($ch,CURLOPT_HTTPHEADER,array(
-        "applicationId:".$application_id,
-        "applicationSecret:".$applicationn_secret,
+        "applicationId: ".$application_id,
+        "applicationSecret: ".$applicationn_secret,
         "refreshToken: ".$refresh_token,
         "Content-Type: application/json"
 

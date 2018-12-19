@@ -71,7 +71,7 @@ class Sender_details extends MX_Controller
                  $subscribers = array($row->sender_phone);
 
                 if ($save_status ==TRUE){
-                    $massage_title = "Checkin Successful";
+                    $message_title = "Checkin Successful";
                     $message_description = "Thank you".$row->sender_name."for checkin";
 
                 }

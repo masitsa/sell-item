@@ -69,7 +69,11 @@ $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 
 $route['sarafina/get-brands'] = "sarafina/brands/get_brands";
 
+/**
+ * Martin routes
+ */
 $route['martin/get-brands'] = "martin/brands/get_brands";
+$route['martin/save-card'] = "martin/martin_card/create_card";
 
 
 $route['grace/get-brands'] = "grace/brands/get_brands";

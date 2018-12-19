@@ -41,8 +41,8 @@ class Martin_card extends MX_Controller
 			$data = array(
 				"responder_name" => $row->name,
 				"responder_phone" => $row->phone,
-				"responder_date" => $row->date,
-			)
+				"responder_date" => $row->date
+			);
 			//2. Request to submit
 			$save_status = $this->Martin_card_model->save_card($data);
 			//3. Request to save data

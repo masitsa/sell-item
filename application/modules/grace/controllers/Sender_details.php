@@ -43,7 +43,7 @@ class Sender_details extends MX_Controller
                 $row = $json_object[0];
                 $data = array (
                 "sender_name" => $row->sender_name,
-                "sender_phone" => $row->sender_phone,
+                "sender_phone" => $row->phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,

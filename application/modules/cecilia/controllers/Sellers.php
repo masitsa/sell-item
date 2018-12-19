@@ -40,14 +40,14 @@ class Sellers extends MX_Controller
                 //retieve data
                 $row = $json_object[0];
                 $data = array(
-                    "seller_name" =>$row->SellerName,
-                    "Date" =>$row->Date,
-                    "phone_number	" =>$row->PhoneNumber,
-                    "Transmission" =>$row->Transmission,
-                    "Price" =>$row->Price,
-                    "Model" =>$row->Model,
-                    "Brand" =>$row->Brand,
-                    "car_image	" =>$row->CarImage
+                    "seller_name" =>$row->sellername,
+                    "Date" =>$row->date,
+                    "phone_number	" =>$row->phonenumber,
+                    "Transmission" =>$row->transmission,
+                    "Price" =>$row->price,
+                    "Model" =>$row->model,
+                    "Brand" =>$row->brand,
+                    "car_image	" =>$row->carimage
                 );
                 //request to submit /request to save data
                $saving =  $this->sellers_model->save_sellerdetails($data);
@@ -57,7 +57,7 @@ class Sellers extends MX_Controller
                    //send a confirmation
                    //
                    $messagetitle = "successful";
-                   $mesage_description = "thanks for ".SellerName;
+                   $mesage_description = "thanks for ".$row->sellername;
 
                    // echo "succesful";
                }else{

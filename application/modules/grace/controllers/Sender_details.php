@@ -25,7 +25,7 @@ class Sender_details extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("grace_sender_detail");
+        $this->load->model("sender_details_model");
     }
         function create_checkin(){
             //1.recieve a json POST 

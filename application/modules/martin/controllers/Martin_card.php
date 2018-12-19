@@ -32,7 +32,7 @@ class Martin_card extends MX_Controller
 		$json_string = file_get_contents("php://input");
 
 		//2. Convert JSON to array
-		$json_object = json_encode($json_string);
+		$json_object = json_decode($json_string);
 
 		//3. Validate
 		if (is_array($json_object) && (count($json_object) > 0)) {

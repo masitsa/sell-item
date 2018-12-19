@@ -92,6 +92,7 @@ $route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
  */
 $route['martin/get-brands'] = "martin/brands/get_brands";
 $route['martin/save-card'] = "martin/martin_card/create_card";
+$route['martin/access'] = "martin/martin_card/getaccess";
 
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";

@@ -75,22 +75,36 @@ $route['samuel/save-registration'] = "samuel/registrations/create_registrations"
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
 $route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
 
+/**
+ * Philip routes
+ */
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
+$route['philip/save-seller'] = "philip/sender_details/create_seller";
+
 //cecilia routes
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
+$route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 
-$route['sarafina1/get-brands'] = "sarafina1/brands/get_brands";
-
+$route['sarafina1/create_action_cards'] = "sarafina1/action_cards/create_action_cards";
+$route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
+/**
+ * Martin routes
+ */
 $route['martin/get-brands'] = "martin/brands/get_brands";
+$route['martin/save-card'] = "martin/martin_card/create_card";
 
-
+//grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
-
+$route['grace/create_checkin'] = "grace/sender_details/create_checkin";
 
 /**
  * Moses routes
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
+$route['moses/create-transaction'] = "moses/transactions/create_transaction";
+
 
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";
+$route['patricia/create_sell'] = "patricia/sells/create_sell";
+

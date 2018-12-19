@@ -28,7 +28,7 @@ class Sender_details extends MX_Controller
         $this->load->model("sender_details_model");
     }
 
-    public function create_sender(){
+    public function create_seller(){
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
@@ -49,7 +49,7 @@ class Sender_details extends MX_Controller
                 );
 
             // 4. Request to submit
-            $save_status = $this->sender_details_model ->save_sender($data);
+            $save_status = $this->sender_details_model ->save_seller($data);
 
             if($save_status ==TRUE){
                 echo "saved";

@@ -62,6 +62,7 @@ $route['translate_uri_dashes'] = false;
  * Alvaro/grace routes
  */
 $route['alvaro/get-brands'] = "alvaro/brands/get_brands";
+$route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
 
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 //cecilia routes

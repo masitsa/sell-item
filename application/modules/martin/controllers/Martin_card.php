@@ -75,7 +75,8 @@ class Martin_card extends MX_Controller
         $end_point = "https://kms.kaiza.la/v1/accessToken";
         //Calls the endpoint
         $ch = curl_init($end_point);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "applicationId: ".$application_id,
             "applicationSecret: ".$application_secret,

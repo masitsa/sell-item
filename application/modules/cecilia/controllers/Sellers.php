@@ -38,14 +38,14 @@ class Sellers extends MX_Controller
                 //retieve data
                 $row = $json_object[0];
                 $data = array(
-                    "Seller Name" =>$row->SellerName,
+                    "seller_name" =>$row->SellerName,
                     "Date" =>$row->Date,
-                    "Phone Number	" =>$row->PhoneNumber	,
+                    "phone_number	" =>$row->PhoneNumber,
                     "Transmission" =>$row->Transmission,
                     "Price" =>$row->Price,
                     "Model" =>$row->Model,
                     "Brand" =>$row->Brand,
-                    "Car Image	" =>$row->CarImage	,
+                    "car_image	" =>$row->CarImage
                 );
                 //request to submit /request to save data
                $saving =  $this->sellers_model->save_sellerdetails($data);

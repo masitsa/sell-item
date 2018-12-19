@@ -47,6 +47,8 @@ class Brands extends MX_Controller
             echo "No brands found";
         }
     }
+
+    
     
     
     

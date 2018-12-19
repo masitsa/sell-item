@@ -23,7 +23,7 @@ class Kaizala_model extends CI_Model
         curl_close($ch);
 
         $response_decoded = json_decode($response);
-        return $response_decoded->$accessToken;
+        return $response_decoded->accessToken;
     }
     public function send_announcement($title, $message, $receivers) {
         $group_id = "a2648ba2-927d-4c95-a78b-a6dc473fe6f5@2";

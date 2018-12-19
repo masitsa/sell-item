@@ -63,14 +63,13 @@ class Kaizala_model extends CI_Model
             "accessToken: ".$accessToken,
             "Content-Type: application/json",
             "Content-Length: ".strlen($request_json),
-
-            $result = curl_exec($ch),
-            curl_close($ch),
-
-            $result_object = json_decode($result),
-            return $result_object->action_id
-
         ));
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        $result_object = json_decode($result);
+        return $result_object->action_id;
+        
     }
 }
 

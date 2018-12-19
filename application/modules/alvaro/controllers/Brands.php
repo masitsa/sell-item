@@ -39,7 +39,7 @@ class Brands extends MX_Controller
             echo $brands_encoded;
         }
 
-        else{
+        else {
             echo "No brands found";
         }
     }

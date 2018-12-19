@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Brands extends MX_Controller
 {
-    function __construct() {
+    function __construct() { 
 		parent:: __construct();
 
 		// Allow from any origin
@@ -28,33 +28,18 @@ class Brands extends MX_Controller
         $this->load->model("brands_model");
     }
 
-    // public function retrieve_brands_and_models()
-    // {
-    //     $all_brands = $this->brands_model->retrieve_brands();
-
-    //     if($all_brands->num_rows() > 0)
-    //     {
-    //         $brands = $all_brands->result();
-    //         $brands_encoded = json_encode($brands);
-    //         echo $brands_encoded;
-    //     }
-
-    //     else{
-    //         echo "No brands found";
-    //     }
-    // }
-    public function retrieve_brands_and_models()
+    public function get_brands()
     {
-        $queryResult = $this -> brands_model ->retrieve_brands_and_models();
+        $all_brands = $this->brands_model->retrieve_brands();
 
-        if($queryResult->num_rows() > 0)
+        if($all_brands->num_rows() > 0)
         {
-            $brands = $queryResult->result();
+            $brands = $all_brands->result();
             $brands_encoded = json_encode($brands);
             echo $brands_encoded;
         }
 
-        else{
+        else {
             echo "No brands found";
         }
     }

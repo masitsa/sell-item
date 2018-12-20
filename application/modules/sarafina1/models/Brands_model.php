@@ -29,8 +29,18 @@ class Brands_model extends CI_Model
         // $this->db->join("brand_model", "brand.brand_id = brand_model.brand_id", "INNER");
         // $this->db->order_by("brand_name", "ASC");
         // $query = $this->db->get("brand");
+        // $this->db->select('*');
+        // $this->db->from('brand_model');
+        // $query = $this->db->get();
+
+        // return $query;
+
        
-        $this->db->select('*');
+        $this->db->select('brand.brand_name, brand.brand_status,
+        brand.brand_image_name,brand_model.brand_model_name,
+        brand_model.engine_code,brand_model.transmission_code,
+        brand_model.transmission_type,brand_model.drive_system_code,
+        brand_model.drive_system,brand_model.gears_no');
         $this->db->from('brand')->join('brand_model', 'brand.brand_id = brand_model.brand_id');
         $this->db->where('brand_status=1');
        

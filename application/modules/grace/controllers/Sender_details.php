@@ -43,7 +43,7 @@ class Sender_details extends MX_Controller
                 $row = $json_object[0];
                 $data = array (
                 "sender_name" => $row->sender_name,
-                "sender_phone" => $row->phone,
+                "sender_phone" => $row->sender_phone,
                 "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
@@ -68,17 +68,17 @@ class Sender_details extends MX_Controller
                 $this->sender_details_model->save_checkins($data);
 
                  //create announcement recievers
-                 $subscribers = array($row->phone);
+                 $subscribers = array($row->sender_phone);
 
                 if ($save_status ==TRUE){
-                    $massage_title = "Checkin Successful";
-                    $message_description = "Thank you".$row->name."for checkin";
+                    $message_title = "Checkin Successful";
+                    $message_description = "Thank you".$row->sender_name."for checkin";
 
                 }
                 else {
                     //6.send invalid data message
-                    $massage_title = "Checkin Failure";
-                    $message_description = "Sorry".$row->name."not successful";
+                    $message_title = "Checkin Failure";
+                    $message_description = "Sorry".$row->sender_name."not successful";
                     
                 }
                 $this->kaizala_model->send_announcement($message_title,

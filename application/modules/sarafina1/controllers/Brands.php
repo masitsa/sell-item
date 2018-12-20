@@ -38,9 +38,10 @@ class Brands extends MX_Controller
             $brands = $all_brands->result();
             $brands_encoded = json_encode($brands);
             echo $brands_encoded;
-            $query =$this->db->get("brand");
+           // $query =$this->db->get("brand");
+            //$query =$this->db->get();
             
-            return $query;
+           // return $query;
         }
 
         else{

@@ -62,7 +62,7 @@ class Kaizala_model extends CI_Model
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "accessToken: ".$accessToken,
+            "accessToken: ".$access_token,
             "Content-Type: application/json",
             "Content-Length: ".strlen($request_json),
         ));

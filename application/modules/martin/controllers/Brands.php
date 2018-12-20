@@ -1,9 +1,12 @@
 <?php
+/*Defines the base path for security*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*MX_controller stands for Modular Extensions*/
 class Brands extends MX_Controller
 {
     function __construct() { 
+        /*Makes the constructor in the child class to execute the parent constructor*/
 		parent:: __construct();
 
 		// Allow from any origin

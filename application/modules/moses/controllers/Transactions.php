@@ -73,7 +73,7 @@ class Transactions extends MX_Controller
 
             $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
             }catch(Exception $e){
-                echo "Error:  ".$e.getMessgage();
+                echo "Error:  ".$e->getMessage();
             }
 
         }//else{

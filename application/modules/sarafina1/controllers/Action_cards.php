@@ -26,7 +26,7 @@ class Action_cards extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("Action_cards_model");
+        $this->load->model("action_cards_model");
     }
 
    function create_action_cards (){

@@ -40,7 +40,7 @@ class Access extends MX_Controller
         
 
 
-        $end_point = "https://kms.kaiza.la/v1/accessToken";
+        $end_point = "https://kms2.kaiza.la/v1/accessToken";
 
 
 

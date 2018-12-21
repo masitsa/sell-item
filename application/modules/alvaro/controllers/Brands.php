@@ -43,5 +43,20 @@ class Brands extends MX_Controller
             echo "No brands found";
         }
     }
+    public function get_brands_and_models()
+    {
+        $all_brands = $this->brands_model->get_all_brands_models();
+
+        if($all_brands->num_rows() > 0)
+        {
+            $brands = $all_brands->result();
+            $brands_encoded = json_encode($brands);
+            echo $brands_encoded;
+        }
+
+        else {
+            echo "No brands and models found";
+        }
+    }
 }
 ?>

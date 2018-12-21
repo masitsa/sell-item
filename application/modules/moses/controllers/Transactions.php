@@ -47,7 +47,6 @@ class Transactions extends MX_Controller
             $data = array(
                 "brand_name" => $row->brand_name,
                 "brand_model" => $row->brand_model,
-                "brand_name" => $row->brand_name,
                 "purchase_date" => $row->purchase_date,
                 "name" => $row->name,
                 "phone" => $row->phone,
@@ -75,7 +74,7 @@ class Transactions extends MX_Controller
 
         }else{
             // send invalid data message
-            echo "invalid data provided";
+            echo "invalid data provided: ".$data;
         }
         
         

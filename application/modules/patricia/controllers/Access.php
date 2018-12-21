@@ -65,10 +65,9 @@ class Access extends MX_Controller
         ));
 
         $response = curl_exec($ch);
-        
-
         curl_close($ch);
-
+        echo 12;
+        return $response;
 
         $response_decoded = json_decode($response);
 

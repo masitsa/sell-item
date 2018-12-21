@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Martin_card extends MX_Controller
+class Seller_card extends MX_Controller
 {
     function __construct() { 
 		parent:: __construct();
@@ -25,7 +25,7 @@ class Martin_card extends MX_Controller
 			exit(0);
         }
         
-		$this->load->model("martin_card_model");
+		$this->load->model("seller_card_model");
 		$this->load->model("kaizala_model");
 	}
 	function create_card() {
@@ -46,7 +46,7 @@ class Martin_card extends MX_Controller
 				"responder_date" => $row->date
 			);
 			//2. Request to submit
-			$save_status = $this->martin_card_model->save_card($data);
+			$save_status = $this->seller_card_model->save_card($data);
 			// Create announcement receivers
 			$subscribers = array($row->phone);
 			//3. Request to save data
@@ -64,36 +64,6 @@ class Martin_card extends MX_Controller
 			//5. Send invalid data message
 			echo "Invalid data provided";
 		}		
-	}
-
-	function getAccess(){
-		echo 232;
-		$application_id = "810ac010-0c49-47bd-bc53-9d0f8bbde326";
-		$application_secret = "7ZLTB5H1VI";
-
-        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTE1ODEwMDlcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiM2Y4NjA4NmMtYWFmZC00ZDdmLWE2MTEtMjg5MTkyMDUxZGNjXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIk1hcnRpbk5hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6YTk3MDE2MTItMTFiMC00ZDEyLTk1ODMtMDY5YWU1NjU0NDc5QDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ1MjI2ODU3LCJleHAiOjE1NzY3NjI4NTcsImlhdCI6MTU0NTIyNjg1NywiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.xubUdWvXs68jaXCybKXuVyTK4PAx9-fFdVomjUri3-A";
-
-        $end_point = "https://kms.kaiza.la/v1/accessToken";
-        //Calls the endpoint
-        $ch = curl_init($end_point);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-		curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'GET');
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "applicationId: ".$application_id,
-            "applicationSecret: ".$application_secret,
-            "refreshToken: ".$refresh_token,
-            "Content-Type: application/json"
-        ));
-        $response = curl_exec($ch);
-        $err = curl_error($ch);
-
-		curl_close($ch);
-
-		if ($err) {
-		echo "cURL Error #:" . $err;
-		} else {
-		return (json_decode($response))->accessToken;
-		}
-	}
+	}	
 }
 ?>

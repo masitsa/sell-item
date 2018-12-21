@@ -66,7 +66,7 @@ $route['translate_uri_dashes'] = false;
 /**
  * samuel routes
  */
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/get-brands-models'] = "samuel/brands/retrieve_brands_and_models";
 $route['samuel/save-registration'] = "samuel/registrations/create_registrations";
 
 /**
@@ -91,8 +91,8 @@ $route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
  * Martin routes
  */
 $route['martin/get-brands'] = "martin/brands/get_brands";
+$route['martin/get-brands-models'] = "martin/brands/get_all_brands_and_models";
 $route['martin/save-card'] = "martin/martin_card/create_card";
-$route['martin/access'] = "martin/martin_card/getaccess";
 
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";

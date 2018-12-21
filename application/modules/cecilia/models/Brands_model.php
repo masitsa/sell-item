@@ -13,7 +13,7 @@ class Brands_model extends CI_Model
  }*/
  public function getmodelandname()
  {
-   $getboth = $this->db->query("SELECT brand.brand_name, brand_model.brand_model_name from brand_model INNER JOIN brand ON brand.brand_id = brand_model.brand_id WHERE brand.brand_status=1 ");
+   $getboth = $this->db->query("SELECT brand.brand_name,brand_model.transmission_type, brand_model.brand_model_name from brand_model INNER JOIN brand ON brand.brand_id = brand_model.brand_id WHERE brand.brand_status=1 ");
    return $getboth;
  }
 }

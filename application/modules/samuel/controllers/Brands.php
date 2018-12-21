@@ -28,9 +28,9 @@ class Brands extends MX_Controller
         $this->load->model("brands_model");
     }
 
-    public function retrieve_brands_and_models()
+    public function get_brands_and_models()
     {
-        $queryResult = $this -> brands_model ->retrieve_brands_and_models();
+        $queryResult = $this -> brands_model ->get_brands_and_models();
 
         if($queryResult->num_rows() > 0)
         {

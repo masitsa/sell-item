@@ -53,11 +53,11 @@ class Registrations extends MX_Controller
 			"Sales_Area"=>$row->area,
 			"Cluster"=>$row->cluster,
 			);
-			$save_status=
-			$this->registrations_model->save_registration
+			$save_status= $this->registrations_model->save_registration
 			($data);
 
-			$subscriber = arry($row->phone);
+			$subscriber = array($row->phone);
+
 			if($save_status ==TRUE)
 			{
 			$message_title = "registartion successful";

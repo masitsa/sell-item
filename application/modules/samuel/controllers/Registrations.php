@@ -71,7 +71,7 @@ class Registrations extends MX_Controller
 			//request to submit
 			}
 			else{
-				$message_description ="thanks for registration"
+				$message_description ="thanks for registration";
 			}
 			//4. request save data
 			//5. send a confirmation

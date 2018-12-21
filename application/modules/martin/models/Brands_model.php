@@ -30,7 +30,6 @@ class Brands_model extends CI_Model
         $this->db->order_by("brand_name", "ASC");
         
         $this->db->order_by("brand_model_name", "DESC");
-        $this->db->where("brand_model_status = " 1);
         $query = $this->db->get("brand_name", "brand_model", "transmission_type");
 
         return $query;

@@ -29,7 +29,7 @@
      
          public function send_announcement($title, $message, $receivers)
          {
-             $group_id = "44e43039-2ad9-4b29-ae95-4684ff45a91e@2";
+             $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
              $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
              $access_token = $this->get_access_token();
      

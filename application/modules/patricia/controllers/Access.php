@@ -47,10 +47,6 @@ class Access extends MX_Controller
         $ch = curl_init($end_point);
         
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 

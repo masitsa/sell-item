@@ -29,39 +29,49 @@ class Action_cards extends MX_Controller
         $this->load->model("action_cards_model");
     }
 
-   function create_action_cards (){
-//1. Receive JSON POST
-$json_string= file_get_contents
-("php://input");
-//2. Convert JSON to array
-$json_object= json_decode($json_string);
-//3. Validate
-if(is_array($json_object) && (count($json_object)>0)){
-    //3.1retrieve the data
-    $row=$json_object[0];
-    $data = array (
-        "brand_name"=>$row->brandName,        
-        "brand_model"=>$row->transmission,
-        "brand_image"=>$row->brandImage,
+    public function create_seller(){
+        // 1. Receive json post
+        $json_string = file_get_contents("php://input");
+        // 2. convert json to array
+        $json_object = json_decode($json_string);
+        // 3. validate
+        if(is_array($json_object) && (count($json_object) > 0)){
+            // Retreive the data
+                $row = $json_object[0];
+                $data = array(
+                    "responder_name" => $row-> name,
+                    "responder_phone" => $row-> phone,
+                    "response_time" => $row-> time,
+                    "brand_name" => $row-> brand,
+                    "brand_model" => $row-> model,
+                    "brand_image" => $row-> picture,
+                );
 
-        "name"=>$row->name,
-       "phone" =>$row->phone,
-       "location"=>$row->location,
-       "response_time"=>$row->responseTime
-    );
-    //3.2 request to submit
-    $this->Action_cards_model->save_action_card($data);
-    if ($save_status==TRUE){
-        echo "saved";
+            // 4. Request to submit
+            $save_status = $this->action_cards_model ->save_action_card($data);
+
+            //Create announcement receivers
+            $subscribers  = array($row->phone);
+
+            if($save_status ==TRUE){
+                $message_title = "Checking Successful";
+                $message_description = "Thank you".$row->name."for checking in.";
+            }
+            else{
+                $message_title = "Checking UnSuccessful";
+                $message_description = "Sorry".$row->name."cant check in.";
+            }
+            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+
+        }
+        else{
+            // send invalid data message
+            echo "invalid data provided";
+
+        }
+        // 4. request to save data
+        // 5. send confirmation
     }
-    else{
-        echo "unable to save";
-    }
-    //invalid data message
-    echo "Invalid data provided";
-}
-//4.Send a confirmation
-   }
     
     
 }

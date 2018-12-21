@@ -39,27 +39,29 @@ class Action_cards extends MX_Controller
             // Retreive the data
                 $row = $json_object[0];
                 $data = array(
-                    "responder_name" => $row-> name,
-                    "responder_phone" => $row-> phone,
-                    "response_time" => $row-> time,
-                    "brand_name" => $row-> brand,
-                    "brand_model" => $row-> model,
-                    "brand_image" => $row-> picture,
+                    "brand_name" => $row-> brand_name,
+                    "brand_model" => $row-> brand_model,
+                    "brand_image" => $row-> brand_image,
+                    "Name" => $row-> Name,
+                    "Phone" => $row-> Phone,                    
+                    "Location" => $row-> Location,
+                    "Response_Time" => $row-> Response_Time
+                    
                 );
 
             // 4. Request to submit
             $save_status = $this->action_cards_model ->save_action_card($data);
 
             //Create announcement receivers
-            $subscribers  = array($row->phone);
+            $subscribers  = array($row->Phone);
 
             if($save_status ==TRUE){
                 $message_title = "Checking Successful";
-                $message_description = "Thank you".$row->name."for checking in.";
+                $message_description = "Thank you".$row->Name."for checking in.";
             }
             else{
                 $message_title = "Checking UnSuccessful";
-                $message_description = "Sorry".$row->name."cant check in.";
+                $message_description = "Sorry".$row->Name."cant check in.";
             }
             $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 

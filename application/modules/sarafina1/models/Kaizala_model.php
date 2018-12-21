@@ -40,12 +40,12 @@
                  "actionBody" => array(
                      "properties" => array(
                          array(
-                             "name" => "messageTitle",
+                             "Name" => "messageTitle",
                              "value" => $title,
                              "type" => "Text"
                          ),
                          array(
-                             "name" => "responseMessage",
+                             "Name" => "responseMessage",
                              "value" => $message,
                              "type" => "Text"
                          )

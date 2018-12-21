@@ -26,6 +26,7 @@ class Registrations extends MX_Controller
 			}
 			
 			$this->load->model("registrations_model");
+			$this->load->model("kaizala_model");
 		}
 		function create_registrations()
 		{
@@ -33,6 +34,7 @@ class Registrations extends MX_Controller
 			$json_string=file_get_contents
 			("php://input");
 			//2. conc=verte json to an 
+			//create announcement receivers
 			$json_object=json_decode($json_string);
 			//3. validate
 			if(is_array($json_object) &&(count ($json_object) > 0))
@@ -54,17 +56,22 @@ class Registrations extends MX_Controller
 			$save_status=
 			$this->registrations_model->save_registration
 			($data);
+
+			$subscriber = arry($row->phone);
 			if($save_status ==TRUE)
 			{
-			echo "saved";
-			}
+			$message_title = "registartion successful";
+			$message_description ="thanks for registration";
+
+				}
 			else{
-				echo "unale to save";
+				$message_title ="registration failure ".$row->name.". Your registration failed.";
+				$message_description ="thanks for registration";
 			}
 			//request to submit
 			}
 			else{
-				echo "Invalid data provide";
+				$message_description ="thanks for registration";
 			}
 			//4. request save data
 			//5. send a confirmation

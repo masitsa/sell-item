@@ -19,7 +19,7 @@ class Brands_model extends CI_Model
         return $query;
     }
 
-    public function retrieve_brands_and_models() {
+    public function get_brands_and_models() {
 
 
         //  $this->db->select('brand.brand_name, brand.brand_status,

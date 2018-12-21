@@ -79,6 +79,7 @@ $route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
  * Philip routes
  */
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
+$route['philip/get-cars'] = "philip/brands/retrieve_cars";
 $route['philip/save-seller'] = "philip/sender_details/create_seller";
 
 //cecilia routes

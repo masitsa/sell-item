@@ -54,7 +54,7 @@ class Sellers extends MX_Controller
                 $data = array(
                     "seller_name" =>$row->sellername,
                     "Date" =>$row->date,
-                    "phone_number	" =>$row->phonenumber,
+                    "phone_number" =>$row->phonenumber,
                     "Transmission" =>$row->transmission,
                     "Price" =>$row->price,
                     "Model" =>$row->model,

@@ -53,21 +53,12 @@ class Sellers extends MX_Controller
                 $row = $json_object[0];
                 $data = array(
                     "seller_name" =>$row->sellername,
-<<<<<<< HEAD
-                    "Date" =>$row->date,
-                    "phone_number" =>$row->phonenumber,
-                    "Transmission" =>$row->transmission,
-                    "Price" =>$row->price,
-                    "Model" =>$row->model,
-                    "Brand" =>$row->brand,
-=======
                     "date" =>$row->date,
                     "phone_number" =>$row->phonenumber,
                     "transmission" =>$row->transmission,
                     "price" =>$row->price,
                     "model" =>$row->model,
                     "brand" =>$row->brand,
->>>>>>> 9c726054db27fcb368352eaebc2f7f9523b68088
                     "car_image	" =>$row->carimage
                 );
                 //request to submit /request to save data

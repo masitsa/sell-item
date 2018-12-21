@@ -28,7 +28,6 @@ class Brands_model extends CI_Model
 
         $this->db->join("brand_model", "brand.brand_id = brand_model.brand_id", "INNER");
         $this->db->order_by("brand_name", "ASC");
-        
         $this->db->order_by("brand_model_name", "DESC");
         $query = $this->db->get("brand");
 

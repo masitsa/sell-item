@@ -12,3 +12,4 @@ class Sender_Details_Model extends CI_Model
         }
     }
 }
+?>

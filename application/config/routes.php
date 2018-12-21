@@ -85,7 +85,7 @@ $route['philip/save-seller'] = "philip/sender_details/create_seller";
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
 $route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 
-$route['sarafina1/create_action_cards'] = "sarafina1/action_cards/create_action_cards";
+$route['sarafina1/create_action_cards'] = "sarafina1/action_cards/create_seller";
 $route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
 /**
  * Martin routes

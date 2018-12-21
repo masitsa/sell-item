@@ -46,7 +46,7 @@ class Seller_card extends MX_Controller
 				"brand_model" => $row->date,
 				"phone" => $row->phone,
 				"date" => $row->date,
-				"transmission" => $row->phone
+				"transmission_type" => $row->phone
 			);
 			//2. Request to submit
 			$save_status = $this->seller_card_model->save_card($data);

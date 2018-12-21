@@ -43,14 +43,14 @@ class Transactions extends MX_Controller
             $row = $json_object[0];
             //eg $checkin_time = $row -> time_checkin; //repeat for all fields// never mind skipped
 
+            //must match with database
             $data = array(
                 "brand_name" => $row->brand_name,
                 "brand_model" => $row->brand_model,
-                "brand_name" => $row->brand_name,
-                "transmission_type" => $row->transmission_type,
-                "car_image" => $row->car_image,
                 "purchase_date" => $row->purchase_date,
-                "drive_system" => $row->drive_system
+                "name" => $row->name,
+                "phone" => $row->phone,
+                "location" => $row->location
             );
 
 
@@ -74,7 +74,7 @@ class Transactions extends MX_Controller
 
         }else{
             // send invalid data message
-            echo "invalid data provided";
+            echo "invalid data provided: ";
         }
         
         

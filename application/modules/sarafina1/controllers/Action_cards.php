@@ -40,16 +40,17 @@ if(is_array($json_object) && (count($json_object)>0)){
     //3.1retrieve the data
     $row=$json_object[0];
     $data = array (
-        "brand_name"=>$row->brandName,
+        "brand_name"=>$row->brandName,        
+        "brand_model"=>$row->transmission,
         "brand_image"=>$row->brandImage,
-        "transmission"=>$row->transmission,
+
         "name"=>$row->name,
        "phone" =>$row->phone,
        "location"=>$row->location,
        "response_time"=>$row->responseTime
     );
     //3.2 request to submit
-    $this->Action_cards_mmodel->save_Action_cards($data);
+    $this->Action_cards_mmodel->save_action_card($data);
     if ($save_status==TRUE){
         echo "saved";
     }

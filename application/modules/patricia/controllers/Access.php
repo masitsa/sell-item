@@ -36,8 +36,6 @@ class Access extends MX_Controller
 
         $application_secret = "RG85PINOS1";
 
-
-
         $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjkzMDIzNTdcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMWQ4NzFiZDItMjc3Yy00NzNlLWJhY2UtOTI0MGE2MGU1ZmVhXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlBhdHJpY2lhTmFueXVraWFmQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTo5YzZlMzc0Zi1jNzhkLTQ2ZTItOGM5Mi0wYjcxOTdjMTRmNGRAMiIsInZlciI6IjIiLCJuYmYiOjE1NDUzODI2NjYsImV4cCI6MTU3NjkxODY2NiwiaWF0IjoxNTQ1MzgyNjY2LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.4ncsnO1bpYRnlgLBvSUVAzSZVdL_Vgq1jZ44-JJrx2k";
         
 
@@ -47,8 +45,13 @@ class Access extends MX_Controller
 
 
         $ch = curl_init($end_point);
+        echo $end_point;
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
@@ -62,7 +65,7 @@ class Access extends MX_Controller
 
         ));
 
-
+        echo "OKAY";
 
         $response = curl_exec($ch);
         

@@ -63,6 +63,7 @@ class Brands extends MX_Controller
     }
     public function get_posted_cars() {
         $all_get_cars = $this->brands_model->get_cars();
+        echo $all_get_cars;
 
         if($all_get_cars->num_rows() > 0)
         {

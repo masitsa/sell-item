@@ -25,11 +25,11 @@ class Sellers extends MX_Controller
     
             exit(0);
         }
-        $this->load->model("sellers_model");
-        $this->load->model("kaizalas_model");
+        $this->load->model("sellers_model"); //CONNECT/USEMODEL
+        $this->load->model("kaizalas_model");// ""
 }
 //function to load the brands
-     function create_seller(){
+     function create_seller(){//details entered
             //receive json post
             $json_string = file_get_contents("php://input");
             // $json_string = '[

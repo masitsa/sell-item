@@ -50,7 +50,7 @@ if(is_array($json_object) && (count($json_object)>0)){
        "response_time"=>$row->responseTime
     );
     //3.2 request to submit
-    $this->Action_cards_mmodel->save_action_card($data);
+    $this->Action_cards_model->save_action_card($data);
     if ($save_status==TRUE){
         echo "saved";
     }

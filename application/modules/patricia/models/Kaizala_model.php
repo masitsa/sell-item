@@ -72,7 +72,7 @@ class Kaizala_model extends CI_Model
 
         $request_data = array(
 
-            "id" => "com.nanyukiaf.alvaro.announcemnt.2",
+            "id" => "com.nanyukiaf.patricia.announcement",
 
             "sendToAllSubscribers" => false,
 

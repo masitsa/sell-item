@@ -45,7 +45,7 @@ class Access extends MX_Controller
 
 
         $ch = curl_init($end_point);
-
+        
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
@@ -54,11 +54,13 @@ class Access extends MX_Controller
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 
-            "applicationId: ".$application_id,
+            "applicationId: .$application_id ",
 
-            "applicationSecret: ".$application_secret,
+            "applicationSecret: .$application_secret",
 
-            "refreshToken: ".$refresh_token
+            "refreshToken: .$refresh_token",
+
+            "Content-Type: application/json"
 
         ));
 

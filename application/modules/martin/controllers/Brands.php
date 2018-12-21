@@ -1,9 +1,12 @@
 <?php
+/*Defines the base path for security*/
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*MX_controller stands for Modular Extensions*/
 class Brands extends MX_Controller
 {
     function __construct() { 
+        /*Makes the constructor in the child class to execute the parent constructor*/
 		parent:: __construct();
 
 		// Allow from any origin
@@ -41,6 +44,21 @@ class Brands extends MX_Controller
 
         else {
             echo "No brands found";
+        }
+    }
+    public function get_brands_and_models()
+    {
+        $all_brands_and_models = $this->brands_model->get_all_brands_and_models();
+
+        if($all_brands_and_models->num_rows() > 0)
+        {
+            $brands_and_models = $all_brands_and_models->result();
+            $brands_and_models_encoded = json_encode($brands_and_models);
+            echo $brands_and_models_encoded;
+        }
+
+        else {
+            echo "No brands and models found";
         }
     }
 }

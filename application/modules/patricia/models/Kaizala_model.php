@@ -12,14 +12,14 @@ class Kaizala_model extends CI_Model
 
     {
 
-        $application_id = "810ac010-0c49-47bd-bc53-9d0f8bbde326";
+        $application_id = "1d871bd2-277c-473e-bace-9240a60e5fea";
 
-        $application_secret = "7ZLTB5H1VI";
+        $application_secret = "RG85PINOS1";
 
 
 
         $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjYxNDkzNTFcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiODEwYWMwMTAtMGM0OS00N2JkLWJjNTMtOWQwZjhiYmRlMzI2XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkFsdmFyb05hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ODZmZWI1MmMtMTRkNS00YTdkLTk4ZGEtYmEyYWI0NDBmMDhmIiwidmVyIjoiMiIsIm5iZiI6MTU0NTIyNjY4NSwiZXhwIjoxNTc2NzYyNjg1LCJpYXQiOjE1NDUyMjY2ODUsImlzcyI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIiwiYXVkIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8ifQ.K0pacDSS8LT4UrQye0UCtV7uDvEGNhIne1j5VUKSqJ4";
-
+        
 
 
         $end_point = "https://kms.kaiza.la/v1/accessToken";
@@ -62,7 +62,7 @@ class Kaizala_model extends CI_Model
 
     {
 
-        $group_id = "c601e0e3-2d41-4a02-88a2-f7e4949dc706";
+        $group_id = "101e078a-089b-4351-b6a4-7f4df129eb3a@2";
 
         $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
 

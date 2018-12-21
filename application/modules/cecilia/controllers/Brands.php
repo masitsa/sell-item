@@ -30,7 +30,7 @@ class Brands extends MX_Controller
 //function to load the brands
 public function get_brands(){
     //call function from brands model 
-    $get_all = $this->brands_model->retrieve_brands();
+    $get_all = $this->brands_model->getmodelandname();
     if ($get_all->num_rows()> 0) {
         $all_brands = $get_all->result();
         $encoded_brands = json_encode($all_brands);

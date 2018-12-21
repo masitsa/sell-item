@@ -28,5 +28,13 @@ class Brands_model extends CI_Model
         return $result;
 
         }
+
+        public function retrieve_cars()
+    {
+        // $this->db->select("brand_name, brand_image_name");
+        $query = $this->db->get("philip_sender_detail");
+
+        return $query;
+    }
 }
 ?>

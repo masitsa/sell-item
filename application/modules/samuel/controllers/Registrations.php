@@ -58,6 +58,7 @@ class Registrations extends MX_Controller
 			($data);
 
 			$subscriber = array($row->phone);
+			
 			if($save_status ==TRUE)
 			{
 			$message_title = "registartion successful";

@@ -60,7 +60,8 @@ class Transactions extends MX_Controller
             //create announcement receivers
             $subscribers = array($row->phone);
 
-
+            try{
+                
             //5. send confirmation later wwe will send an announcement
             if($save_status == TRUE){
                 $message_title = "Transaction Successful";
@@ -71,11 +72,14 @@ class Transactions extends MX_Controller
             }
 
             $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+            }catch(Exception $e){
+                echo "Error:  ".$e.getMessgage();
+            }
 
-        }else{
-            // send invalid data message
-            echo "invalid data provided: ".$data;
-        }
+        }//else{
+        //     // send invalid data message
+        //     echo "invalid data provided: ";
+        // }
         
         
     }

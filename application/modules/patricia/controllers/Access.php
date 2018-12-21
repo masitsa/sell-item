@@ -45,7 +45,6 @@ class Access extends MX_Controller
 
 
         $ch = curl_init($end_point);
-        echo $end_point;
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
@@ -59,20 +58,14 @@ class Access extends MX_Controller
 
             "applicationSecret: ".$application_secret,
 
-            "refreshToken: ".$refresh_token,
-
-            "Content-Type: application/json"
+            "refreshToken: ".$refresh_token
 
         ));
-
-        echo "OKAY";
 
         $response = curl_exec($ch);
         
 
         curl_close($ch);
-
-        return $response;
 
 
         $response_decoded = json_decode($response);

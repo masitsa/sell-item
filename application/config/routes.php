@@ -66,7 +66,7 @@ $route['translate_uri_dashes'] = false;
 /**
  * samuel routes
  */
-$route['samuel/get-brands'] = "samuel/brands/get_brands";
+$route['samuel/get-brands-models'] = "samuel/brands/retrieve_brands_and_models";
 $route['samuel/save-registration'] = "samuel/registrations/create_registrations";
 
 /**

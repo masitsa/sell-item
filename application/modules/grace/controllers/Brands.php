@@ -45,13 +45,13 @@ class Brands extends MX_Controller
     }
     public function Seller_Details()
     {
-        $all_brands = $this->brands_model->get_all_sender_details();
+        $all_brands = $this->brands_model->Seller_Details();
 
-        if($all_brands->num_rows() > 0)
+        if($all_seller_details->num_rows() > 0)
         {
-            $brands = $all_brands->result();
-            $brands_encoded = json_encode($brands);
-            echo $brands_encoded;
+            $seller_details =$all_seller_details->result();
+            $seller_details_encoded = json_encode($seller_details);
+            echo $seller_details_encoded;
         }
 
         else{

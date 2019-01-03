@@ -62,7 +62,7 @@ class Action_cards extends MX_Controller
                }else{
                  
                 $message_title="Sells Failure";
-                $message_description="dint login".$row->name.".try again";
+                $message_description="dint login".$row->Name.".try again";
                }
                
                $this->kaizala_model->send_announcement($message_title,

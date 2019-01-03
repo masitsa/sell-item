@@ -52,11 +52,11 @@ class Action_cards extends MX_Controller
                 //4.Request to submit
                $save_status= $this->action_cards_model->save_action_card($data);
                
-               $subcribers =array($row->phone);
+               $subcribers =array($row->Phone);
     
                if($save_status ==TRUE){
                  $message_title ="Sells Successfull";
-                 $message_description ="Thankyou ".$row->name.".for checking in";
+                 $message_description ="Thankyou ".$row->Name.".for checking in";
     
     
                }else{

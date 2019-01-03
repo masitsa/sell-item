@@ -27,9 +27,10 @@ class Action_cards extends MX_Controller
         }
         
         $this->load->model("action_cards_model");
+        $this->load->model("kaizala_model");
     }
 
-    public function create_seller(){
+    public function create_seller_action_card(){
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
@@ -39,12 +40,14 @@ class Action_cards extends MX_Controller
             // Retreive the data
                 $row = $json_object[0];
                 $data = array(
-                    "responder_name" => $row-> name,
-                    "responder_phone" => $row-> phone,
-                    "response_time" => $row-> time,
-                    "brand_name" => $row-> brand,
-                    "brand_model" => $row-> model,
-                    "brand_image" => $row-> picture,
+                    "brand_name" => $row-> brand_name,
+                    "brand_model" => $row-> brand_model,
+                    "brand_image" => $row-> brand_image,
+                    "Name" => $row-> Name,
+                    "Phone" => $row-> Phone,                    
+                    "Location" => $row-> Location,
+                    "Response_Time" => $row-> Response_Time
+                    
                 );
 
             // 4. Request to submit

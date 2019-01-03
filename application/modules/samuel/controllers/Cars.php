@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Registrations extends MX_Controller
+class Cars extends MX_Controller
 {
 		function __construct() {
 			parent:: __construct();
@@ -26,9 +26,10 @@ class Registrations extends MX_Controller
 			}
 			
 			$this->load->model("registrations_model");
-			$this->load->model("kaizala_model");
+            $this->load->model("kaizala_model");
+            $this->load->model("cars_model");
 		}
-		function create_registrations()
+		function create_cars()
 		{
 			//1. receive a JSON POST
 			$json_string=file_get_contents
@@ -42,37 +43,34 @@ class Registrations extends MX_Controller
 			//retrieve date
 			$row=$json_object[0];
 			$data=array(
-			"responder_name"=>$row->responder_name,
-			"responder_phone"=>$row->phone,
-			"responder_time"=>$row->time,
-			"Age"=>$row->Age,
-			"Email"=>$row->email,
-			"Profile_image"=>$row->image,
-			"Gender"=>$row->gender,
-			"Region"=>$row->region,
-			"Sales_Area"=>$row->area,
-			"Cluster"=>$row->cluster,
+			"brand_id"=>$row->model,
+			"brand_model_id"=>$row->model,
+			"date_created"=>$row->date,
+			"seller_name"=>$row->name,
+			"seller_phone"=>$row->phone,
+			"samuel_car_price"=>$row->price,
+			"samuel_car_transmission"=>$row->transmission,
+			"samuel_car_image"=>$row->image,
 			);
-			$save_status= $this->registrations_model->save_registration
+			$save_status= $this->cars_model->save_car
 			($data);
 
 			$subscriber = array($row->phone);
 
 			if($save_status ==TRUE)
 			{
-			$message_title = "registartion successful";
-			$message_description ="thanks for registration";
+			$message_title = "save successful";
+			$message_description ="you can now send to buyers";
 
 				}
 			else{
-				$message_title ="registration failure ".$row->name.". Your registration failed.";
-				$message_description ="thanks for registration";
+				$message_title ="Hello ".$row->name.". Your save failed.";
+				$message_description ="Please try again";
 			}
 			//request to submit
-			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 			}
 			else{
-				$message_description ="invalid data provided";
+				$message_description ="thanks for submiting a new car";
 			}
 			//4. request save data
 			//5. send a confirmation

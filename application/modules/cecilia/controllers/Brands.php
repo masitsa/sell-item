@@ -38,5 +38,16 @@ public function get_brands(){
         
     }
 }
+public function getcars(){
+    //call function from brands model 
+    $get_all = $this->brands_model->get_cars();
+    
+    if ($get_all->num_rows()> 0) {
+        $all_brands = $get_all->result();
+        $encoded_brands = json_encode($all_brands);
+        echo $encoded_brands;
+        
+    }
+}
 }
 ?>

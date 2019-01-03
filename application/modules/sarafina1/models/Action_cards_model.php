@@ -11,6 +11,12 @@ class Action_Cards_Model extends CI_Model{
             return FALSE;
         }
     }
+    public function retrieveSoldCars()
+    {
+        // $this->db->select("brand_name, brand_image_name");
+        $query = $this->db->get("sarafina_action_card");
 
+        return $query;
+    }
 }
 ?>

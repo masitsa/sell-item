@@ -42,14 +42,18 @@ class Sender_details extends MX_Controller
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
-                "sender_name" => $row->sender_name,
-                "sender_phone" => $row->sender_phone,
-                "date_submitted" => $row->date_submitted,
                 "brand" => $row->brand,
                 "model" => $row->model,
-                "car_img_exterior" => $row->car_img_exterior,                
+                "car_img_exterior" => $row->car_img_exterior, 
                 "transmission" => $row->transmission,
-                "price" => $row->price );
+                "price" => $row->price,                
+                "sender_name" => $row->sender_name,
+                "sender_phone" => $row->sender_phone,
+                "date_submitted" => $row->date_submitted
+                
+            );
+                               
+                
                 /*
                 table fields:
                 sender_name

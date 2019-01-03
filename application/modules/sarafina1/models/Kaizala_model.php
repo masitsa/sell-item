@@ -4,26 +4,52 @@
      class Kaizala_model extends CI_Model 
      {
          private function get_access_token(){
-             $application_id = "9851e0ed-e774-414b-acd9-4f64cef369f8";
-             $application_secret = "QSG1WATUWH";
+            //  $application_id = "9851e0ed-e774-414b-acd9-4f64cef369f8";
+            //  $application_secret = "QSG1WATUWH";
               
-             $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOTg1MWUwZWQtZTc3NC00MTRiLWFjZDktNGY2NGNlZjM2OWY4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlNhcmFmaW5hTmFueXVraUNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ZjQ3MWQ3NzktMDg2OS00ODdmLTkyNjMtN2RkNGNkZTljMjcwQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ1MzI4MzE4LCJleHAiOjE1NzY4NjQzMTgsImlhdCI6MTU0NTMyODMxOCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.gsuB0qfQgooUuWrKwfHCJakFrVw5E4tCV0r6DWpVQYQ";
-             $end_point = "https://kms.kaiza.la/v1/accessToken";
+            //  $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOTg1MWUwZWQtZTc3NC00MTRiLWFjZDktNGY2NGNlZjM2OWY4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlNhcmFmaW5hTmFueXVraUNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ZjQ3MWQ3NzktMDg2OS00ODdmLTkyNjMtN2RkNGNkZTljMjcwQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ2NTI5MTYwLCJleHAiOjE1NzgwNjUxNjAsImlhdCI6MTU0NjUyOTE2MCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.H_GbZNNu276pZFooc8yxgfF1hRK3ceohvVFMYue4giE";
+            //  $end_point = "https://kms.kaiza.la/v1/accessToken";
 
 
-             $ch = curl_init($end_point);
-             curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                 "applicationId: ".$application_id,
-                 "applicationSecret: ".$application_secret,
-                 "refreshToken: ".$refresh_token,
-                 "Content-Type: application/json"
-             ));
+            //  $ch = curl_init($end_point);
+             
+            //  curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            //  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+            //  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            //      "applicationId: ".$application_id,
+            //      "applicationSecret: ".$application_secret,
+            //      "refreshToken: ".$refresh_token,
+            //      "Content-Type: application/json"
+            //  ));
      
-             $response = curl_exec($ch);
-             curl_close($ch);
+            //  $response = curl_exec($ch);
+            //  curl_close($ch);
      
-             $response_decoded = json_decode($response);
+            //  $response_decoded = json_decode($response);
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://kms2.kaiza.la/v1/accessToken",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "GET",
+            CURLOPT_POSTFIELDS => "",
+            CURLOPT_HTTPHEADER => array(
+                "applicationId: 9851e0ed-e774-414b-acd9-4f64cef369f8",
+                "applicationSecret: QSG1WATUWH",
+                "refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOTg1MWUwZWQtZTc3NC00MTRiLWFjZDktNGY2NGNlZjM2OWY4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlNhcmFmaW5hTmFueXVraUNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ZjQ3MWQ3NzktMDg2OS00ODdmLTkyNjMtN2RkNGNkZTljMjcwQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ2NTI5MTYwLCJleHAiOjE1NzgwNjUxNjAsImlhdCI6MTU0NjUyOTE2MCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.H_GbZNNu276pZFooc8yxgfF1hRK3ceohvVFMYue4giE"
+            ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            $response_decoded = json_decode($response);
              return $response_decoded->accessToken;
          }
      
@@ -61,8 +87,7 @@
              curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
              curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                  "accessToken: ".$access_token,
-                 "Content-Type: application/json",
-                 "Content-Length: ".strlen($request_json)
+                 "Content-Type: application/json"
              ));
      
              $result = curl_exec($ch);

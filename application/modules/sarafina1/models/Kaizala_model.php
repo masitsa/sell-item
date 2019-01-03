@@ -59,27 +59,27 @@
             //  $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
             //  $access_token = $this->get_access_token();
      
-            //  $request_data = array(
-            //      "id" => "com.nanyukiaf.sarafina.announcement.2",
-            //      "sendToAllSubscribers" => false,
-            //      "subscribers" => $receivers,
-            //      "actionBody" => array(
-            //          "properties" => array(
-            //              array(
-            //                  "name" => "messageTitle",
-            //                  "value" => $title,
-            //                  "type" => "Text"
-            //              ),
-            //              array(
-            //                  "name" => "responseMessage",
-            //                  "value" => $message,
-            //                  "type" => "Text"
-            //              )
-            //          )
-            //      )
-            //  );
+             $request_data = array(
+                 "id" => "com.nanyukiaf.sarafina.announcement.2",
+                 "sendToAllSubscribers" => false,
+                 "subscribers" => $receivers,
+                 "actionBody" => array(
+                     "properties" => array(
+                         array(
+                             "name" => "messageTitle",
+                             "value" => $title,
+                             "type" => "Text"
+                         ),
+                         array(
+                             "name" => "responseMessage",
+                             "value" => $message,
+                             "type" => "Text"
+                         )
+                     )
+                 )
+             );
      
-            //  $request_json = json_encode($request_data);
+             $request_json = json_encode($request_data);
      
             //  $ch = curl_init($url);
             //  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
@@ -103,7 +103,7 @@
             CURLOPT_TIMEOUT => 30,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => "POST",
-            CURLOPT_POSTFIELDS => "{id:\"com.microsoft.kaizala.miniapps.BdayMessage.12\", actionBody:{properties:[{name:\"name\",value:\"TestTitle\",type:\"Text\"},{name:\"occasion\",value:\"birthday\",type:\"Text\"},{name:\"message\",value:\"Test message\",type:\"Text\"}]}}",
+            CURLOPT_POSTFIELDS => $request_json,
             CURLOPT_HTTPHEADER => array(
                 "Content-Type: application/json",
                 "Postman-Token: 97a07a55-a741-486b-bdd6-6d192d01cd7d",

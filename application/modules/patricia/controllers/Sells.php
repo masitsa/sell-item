@@ -43,8 +43,8 @@ class Sells extends MX_Controller
                 "price"=>$row->price,
                 "color"=>$row->color,
                 "profile_image"=>$row->picture,
-                "responder_name"=>$row->name,
                 "responder_phone"=>$row->phone,
+                "responder_name"=>$row->name,
                 "response_time"=>$row->time,
 
             );

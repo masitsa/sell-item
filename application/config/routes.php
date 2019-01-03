@@ -106,7 +106,7 @@ $route['martin/save-card'] = "martin/seller_card/create_card";
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
 $route['grace/create_checkin'] = "grace/sender_details/create_checkin";
-$route['grace/Seller_Details'] = "grace/sender_details/Seller_Details";
+$route['grace/Seller_Details'] = "grace/brands/Seller_Details";
 
 /**
  * Moses routes

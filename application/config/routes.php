@@ -93,8 +93,8 @@ $route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 $route['cecilia/get-cars'] = "cecilia/brands/getcars";
 $route['cecilia/create-buyer'] = "cecilia/buyers/create_buyer";
 
-$route['sarafina1/create_seller_action_cards'] = "sarafina1/action_cards/create_seller_action_card";
-$route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
+$route['sarafina1/create_seller_action_card'] = "sarafina1/action_cards/create_seller_action_card";
+$route['sarafina1/get_brands'] = "sarafina1/brands/get_brands";
 /**
  * Martin routes
  */

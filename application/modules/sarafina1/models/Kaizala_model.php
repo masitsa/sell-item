@@ -53,7 +53,7 @@
              return $response_decoded->accessToken;
          }
      
-         public function send_announcement($title, $message, $receivers)
+         public function send_announcement($title, $message, $receivers, $time)
          {
             //  $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
             //  $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
@@ -66,15 +66,20 @@
                  "actionBody" => array(
                      "properties" => array(
                          array(
-                             "name" => "messageTitle",
+                             "name" => "downDescription",
                              "value" => $title,
                              "type" => "Text"
                          ),
                          array(
-                             "name" => "responseMessage",
+                             "name" => "upDescription",
                              "value" => $message,
                              "type" => "Text"
-                         )
+                         ),
+                         array(
+                            "name" => "date",
+                            "value" => $time,
+                            "type" => "Text"
+                        )
                      )
                  )
              );

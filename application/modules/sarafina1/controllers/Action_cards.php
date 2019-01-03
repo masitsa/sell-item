@@ -39,6 +39,7 @@ class Action_cards extends MX_Controller
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
                 $row = $json_object[0];
+                $time = $row->Response_Time;
                 $data = array(
                     "brand_name" =>$row->brand_name,
                     "brand_model" =>$row->brand_model,
@@ -66,7 +67,7 @@ class Action_cards extends MX_Controller
                }
                
                $this->kaizala_model->send_announcement($message_title,
-               $message_description,$subcribers);
+               $message_description,$subcribers,$time);
     
             }
             else{

@@ -117,5 +117,5 @@ $route['moses/create-transaction'] = "moses/transactions/create_transaction";
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";
 $route['patricia/create_sell'] = "patricia/sells/create_sell";
-$route['patricia/retrieve_cars'] = "patricia/brands/retrieve_cars";
+$route['patricia/retrieveSoldCars'] = "patricia/brands/retrieveSoldCars";
 //$route['patricia/access'] = "patricia/access/getAccess";

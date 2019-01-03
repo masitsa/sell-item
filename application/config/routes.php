@@ -84,8 +84,11 @@ $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 $route['philip/get-cars'] = "philip/brands/retrieve_cars";
 $route['philip/save-seller'] = "philip/sender_details/create_seller";
 
-//cecilia routes
+/**
+ * cecilia routes
+ */
 $route['cecilia/get-brands'] = "cecilia/brands/get_brands";
+$route['cecilia/get-modelandname'] = "cecilia/brands/getmodelandname";
 $route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 $route['cecilia/get-cars'] = "cecilia/brands/getcars";
 $route['cecilia/create-buyer'] = "cecilia/buyers/create_buyer";

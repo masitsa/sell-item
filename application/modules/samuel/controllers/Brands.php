@@ -42,7 +42,7 @@ class Brands extends MX_Controller
         else{
             echo "No brands found";
         }}
-        public function getPostedCars(){
+        public function get_posted_cars(){
         $queryResult = $this -> brands_model ->get_posted_cars();
 
         if($queryResult->num_rows() > 0)

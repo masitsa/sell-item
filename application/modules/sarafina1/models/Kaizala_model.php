@@ -55,46 +55,76 @@
      
          public function send_announcement($title, $message, $receivers)
          {
-             $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
-             $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
-             $access_token = $this->get_access_token();
+            //  $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
+            //  $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
+            //  $access_token = $this->get_access_token();
      
-             $request_data = array(
-                 "id" => "com.nanyukiaf.sarafina.announcement.2",
-                 "sendToAllSubscribers" => false,
-                 "subscribers" => $receivers,
-                 "actionBody" => array(
-                     "properties" => array(
-                         array(
-                             "name" => "messageTitle",
-                             "value" => $title,
-                             "type" => "Text"
-                         ),
-                         array(
-                             "name" => "responseMessage",
-                             "value" => $message,
-                             "type" => "Text"
-                         )
-                     )
-                 )
-             );
+            //  $request_data = array(
+            //      "id" => "com.nanyukiaf.sarafina.announcement.2",
+            //      "sendToAllSubscribers" => false,
+            //      "subscribers" => $receivers,
+            //      "actionBody" => array(
+            //          "properties" => array(
+            //              array(
+            //                  "name" => "messageTitle",
+            //                  "value" => $title,
+            //                  "type" => "Text"
+            //              ),
+            //              array(
+            //                  "name" => "responseMessage",
+            //                  "value" => $message,
+            //                  "type" => "Text"
+            //              )
+            //          )
+            //      )
+            //  );
      
-             $request_json = json_encode($request_data);
+            //  $request_json = json_encode($request_data);
      
-             $ch = curl_init($url);
-             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-             curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
-             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                 "accessToken: ".$access_token,
-                 "Content-Type: application/json"
-             ));
+            //  $ch = curl_init($url);
+            //  curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            //  curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+            //  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            //  curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            //      "accessToken: ".$access_token,
+            //      "Content-Type: application/json"
+            //  ));
      
-             $result = curl_exec($ch);
-             curl_close($ch);
+            //  $result = curl_exec($ch);
+            //  curl_close($ch);
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+            CURLOPT_URL => "https://kms2.kaiza.la/v1/groups/d498658f-2362-46f5-85e6-7f8d8a3e6b75@2/actions",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "{id:\"com.microsoft.kaizala.miniapps.BdayMessage.12\", actionBody:{properties:[{name:\"name\",value:\"TestTitle\",type:\"Text\"},{name:\"occasion\",value:\"birthday\",type:\"Text\"},{name:\"message\",value:\"Test message\",type:\"Text\"}]}}",
+            CURLOPT_HTTPHEADER => array(
+                "Content-Type: application/json",
+                "Postman-Token: 97a07a55-a741-486b-bdd6-6d192d01cd7d",
+                "accessToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOTg1MWUwZWQtZTc3NC00MTRiLWFjZDktNGY2NGNlZjM2OWY4XCIsXCJwZXJtaXNzaW9uc1wiOlwiMi4zMDozLjMwOjQuMTA6Ni4yMjo1LjQ6OS4yOjE1LjMwOjE0LjMwOjE5LjMwOjI0LjMwXCIsXCJhcHBsaWNhdGlvblR5cGVcIjozLFwiZGF0YVwiOlwie1xcXCJBcHBOYW1lXFxcIjpcXFwiU2FyYWZpbmFOYW55dWtpQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTpmNDcxZDc3OS0wODY5LTQ4N2YtOTI2My03ZGQ0Y2RlOWMyNzBAMiIsInZlciI6IjIiLCJuYmYiOjE1NDY1MjkxNjksImV4cCI6MTU0NjYxNTU2OSwiaWF0IjoxNTQ2NTI5MTY5LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.xbiTayf4gRJRMrrgVM-PbhzO4vnR7n3fuGh1FSz_RDo",
+                "cache-control: no-cache"
+            ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+            echo "cURL Error #:" . $err;
+            } else {
+                $result_object = json_decode($response);
+                return $result_object->actionId;
+            }
      
-             $result_object = json_decode($result);
-             return $result_object->actionId;
+             
          }
      }
          

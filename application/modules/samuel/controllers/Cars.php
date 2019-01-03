@@ -43,7 +43,6 @@ class Cars extends MX_Controller
 			//retrieve date
 			$row=$json_object[0];
 			$data=array(
-			"brand_id"=>$row->model,
 			"brand_model_id"=>$row->model,
 			"date_created"=>$row->date,
 			"seller_name"=>$row->name,

@@ -47,7 +47,7 @@ class Brands extends MX_Controller
 
     public function retrieve_cars()
     {
-        $queryResult = $this -> brands_model ->retrieve_cars();
+        $queryResult = $this ->brands_model->retrieve_cars();
 
         if($queryResult->num_rows() > 0)
         {

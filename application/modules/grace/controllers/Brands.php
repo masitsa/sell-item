@@ -45,7 +45,7 @@ class Brands extends MX_Controller
     }
     public function Seller_Details()
     {
-        $all_brands = $this->brands_model->Seller_Details();
+        $all_seller_details = $this->brands_model->Seller_Details();
 
         if($all_seller_details->num_rows() > 0)
         {

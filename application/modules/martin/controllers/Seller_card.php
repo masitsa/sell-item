@@ -44,6 +44,7 @@ class Seller_card extends MX_Controller
 				"name" => $row->name,
 				"brand_name" => $row->brand_name,
 				"brand_model" => $row->brand_model,
+				"price" => $row->price,
 				"phone" => $row->phone,
 				"date" => $row->date,
 				"transmission_type" => $row->transmission_type

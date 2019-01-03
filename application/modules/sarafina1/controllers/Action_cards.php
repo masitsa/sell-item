@@ -90,8 +90,8 @@ class Action_cards extends MX_Controller
     
         //     else{
         //         echo "No cars found";
-        //     }
+        //     } }
         }
-    }
+    
         
     ?>

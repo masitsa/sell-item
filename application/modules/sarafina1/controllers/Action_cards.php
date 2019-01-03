@@ -77,21 +77,21 @@ class Action_cards extends MX_Controller
             //5.send a confirmation
         }
         //retrieve
-        // public function retrieveSoldCars()
-        // {
-        //     $queryResult = $this ->brands_model->retrieveSoldCars();
+        public function retrieveSoldCars()
+        {
+            $queryResult = $this ->brands_model->retrieveSoldCars();
     
-        //     if($queryResult->num_rows() > 0)
-        //     {
-        //         $cars = $queryResult->result();
-        //         $cars_encoded = json_encode($cars);
-        //         echo $cars_encoded;
-        //     }
+            if($queryResult->num_rows() > 0)
+            {
+                $cars = $queryResult->result();
+                $cars_encoded = json_encode($cars);
+                echo $cars_encoded;
+            }
     
-        //     else{
-        //         echo "No cars found";
-        //     } }
+            else{
+                echo "No cars found";
+            }
         }
-    
+    }
         
     ?>

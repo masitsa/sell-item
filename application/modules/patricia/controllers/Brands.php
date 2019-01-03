@@ -44,5 +44,21 @@ class Brands extends MX_Controller
             echo "No brands found";
         }
     }
+
+    public function retrieve_cars()
+    {
+        $queryResult = $this -> brands_model ->retrieve_cars();
+
+        if($queryResult->num_rows() > 0)
+        {
+            $cars = $queryResult->result();
+            $cars_encoded = json_encode($cars);
+            echo $cars_encoded;
+        }
+
+        else{
+            echo "No cars found";
+        }
+    }
 }
 ?>

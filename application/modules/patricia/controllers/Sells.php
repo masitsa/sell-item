@@ -29,7 +29,8 @@ class Sells extends MX_Controller
         $this->load->model("kaizala_model");
     }
 // save seller
-    function create_sell(){//receive JSON POST
+    function create_sell(){
+        //receive JSON POST
         $json_string = file_get_contents("php://input");
         //2.convert JSON to an array
         $json_object =json_decode($json_string);   
@@ -43,8 +44,8 @@ class Sells extends MX_Controller
                 "price"=>$row->price,
                 "color"=>$row->color,
                 "profile_image"=>$row->picture,
-                "responder_name"=>$row->name,
                 "responder_phone"=>$row->phone,
+                "responder_name"=>$row->name,
                 "response_time"=>$row->time,
 
             );

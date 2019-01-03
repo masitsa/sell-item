@@ -93,8 +93,10 @@ $route['cecilia/create-seller'] = "cecilia/sellers/create_seller";
 $route['cecilia/get-cars'] = "cecilia/brands/getcars";
 $route['cecilia/create-buyer'] = "cecilia/buyers/create_buyer";
 
-$route['sarafina1/create_seller_action_cards'] = "sarafina1/action_cards/create_seller_action_card";
-$route['sarafina1/get_all_brands_and_models'] = "sarafina1/brands/get_brands";
+$route['sarafina1/create_seller_action_card'] = "sarafina1/action_cards/create_seller_action_card";
+$route['sarafina1/get_brands'] = "sarafina1/brands/get_brands";
+$route['sarafina1/retrieveSoldCars'] = "sarafina1/action_cards/retrieveSoldCars";
+
 /**
  * Martin routes
  */
@@ -106,7 +108,7 @@ $route['martin/save-card'] = "martin/seller_card/create_card";
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
 $route['grace/create_checkin'] = "grace/sender_details/create_checkin";
-$route['grace/Seller_Details'] = "grace/sender_details/Seller_Details";
+$route['grace/Seller_Details'] = "grace/brands/Seller_Details";
 
 /**
  * Moses routes

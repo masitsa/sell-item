@@ -8,7 +8,7 @@
              $application_secret = "QSG1WATUWH";
               
              $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOTg1MWUwZWQtZTc3NC00MTRiLWFjZDktNGY2NGNlZjM2OWY4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlNhcmFmaW5hTmFueXVraUNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ZjQ3MWQ3NzktMDg2OS00ODdmLTkyNjMtN2RkNGNkZTljMjcwQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ1MzI4MzE4LCJleHAiOjE1NzY4NjQzMTgsImlhdCI6MTU0NTMyODMxOCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.gsuB0qfQgooUuWrKwfHCJakFrVw5E4tCV0r6DWpVQYQ";
-             $endpoint = "https://kms.kaiza.la/v1/accessToken";
+             $end_point = "https://kms.kaiza.la/v1/accessToken";
 
 
              $ch = curl_init($end_point);

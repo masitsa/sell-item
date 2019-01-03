@@ -30,7 +30,7 @@ class Action_cards extends MX_Controller
         $this->load->model("kaizala_model");
     }
 
-    public function create_seller_action_card(){
+    public function create_seller_action(){
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
@@ -54,15 +54,15 @@ class Action_cards extends MX_Controller
             $save_status = $this->action_cards_model ->save_action_card($data);
 
             //Create announcement receivers
-            $subscribers  = array($row->phone);
+            $subscribers  = array($row->Phone);
 
             if($save_status ==TRUE){
                 $message_title = "Checking Successful";
-                $message_description = "Thank you".$row->name."for checking in.";
+                $message_description = "Thank you".$row->Name."for checking in.";
             }
             else{
                 $message_title = "Checking UnSuccessful";
-                $message_description = "Sorry".$row->name."cant check in.";
+                $message_description = "Sorry".$row->Name."cant check in.";
             }
             $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 

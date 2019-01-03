@@ -101,7 +101,7 @@
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-            CURLOPT_URL => "https://kms2.kaiza.la/v1/groups/44e43039-2ad9-4b29-ae95-4684ff45a91e@2/actions",
+            CURLOPT_URL => "https://kms2.kaiza.la/v1/groups/d498658f-2362-46f5-85e6-7f8d8a3e6b75@2/actions",
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => "",
             CURLOPT_MAXREDIRS => 10,
@@ -120,7 +120,6 @@
             $err = curl_error($curl);
 
             curl_close($curl);
-            var_dump($response );die();
             if ($err) {
             echo "cURL Error #:" . $err;
             } else {

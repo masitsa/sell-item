@@ -74,7 +74,7 @@ class Transactions extends MX_Controller
 
         }else{
             // send invalid data message
-            echo "invalid data provided: ".$data;
+            echo "invalid data provided: ";
         }
         
         

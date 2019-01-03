@@ -50,7 +50,7 @@ class Action_cards extends MX_Controller
                     
                 );
                 //4.Request to submit
-               $save_status= $this->sells_model->save_sell($data);
+               $save_status= $this->action_cards_model->save_action_card($data);
                
                $subcribers =array($row->phone);
     
@@ -76,22 +76,22 @@ class Action_cards extends MX_Controller
             //4.Request to save data
             //5.send a confirmation
         }
-        //retrieve
-        public function retrieveSoldCars()
-        {
-            $queryResult = $this ->brands_model->retrieveSoldCars();
+        //retrieve in json format from browser
+        // public function retrieveSoldCars()
+        // {
+        //     $queryResult = $this ->action_cards_model->retrieveSoldCars();
     
-            if($queryResult->num_rows() > 0)
-            {
-                $cars = $queryResult->result();
-                $cars_encoded = json_encode($cars);
-                echo $cars_encoded;
-            }
+        //     if($queryResult->num_rows() > 0)
+        //     {
+        //         $cars = $queryResult->result();
+        //         $cars_encoded = json_encode($cars);
+        //         echo $cars_encoded;
+        //     }
     
-            else{
-                echo "No cars found";
-            }
-        }
+        //     else{
+        //         echo "No cars found";
+        //     }
+        // }
     }
         
     ?>

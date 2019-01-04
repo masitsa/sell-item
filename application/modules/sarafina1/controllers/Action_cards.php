@@ -39,7 +39,7 @@ class Action_cards extends MX_Controller
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
                 $row = $json_object[0];
-                $time = date('Y/m/d H:i:s', $row->Response_Time) ;
+                $time = date('Y/m/d H:i:s', $row->Response_Time);
                 $data = array(
                     "brand_name" =>$row->brand_name,
                     "brand_model" =>$row->brand_model,
@@ -77,22 +77,7 @@ class Action_cards extends MX_Controller
             //4.Request to save data
             //5.send a confirmation
         }
-        //retrieve in json format from browser
-        // public function retrieveSoldCars()
-        // {
-        //     $queryResult = $this ->action_cards_model->retrieveSoldCars();
-    
-        //     if($queryResult->num_rows() > 0)
-        //     {
-        //         $cars = $queryResult->result();
-        //         $cars_encoded = json_encode($cars);
-        //         echo $cars_encoded;
-        //     }
-    
-        //     else{
-        //         echo "No cars found";
-        //     }
-        // }
+      
     }
         
     ?>

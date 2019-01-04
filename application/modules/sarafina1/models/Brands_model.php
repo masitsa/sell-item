@@ -50,5 +50,11 @@ class Brands_model extends CI_Model
         
        
     }
+    public function get_Cars()
+    {
+       $query = $this->db->get("sarafina_action_card");
+
+        return $query;
+    }
     
 }

@@ -5,7 +5,7 @@ class Sender_details_model extends CI_Model
 {
     public function save_checkins($save_data)
     {
-      if ($this->db->insert("grace_sender_detail", $save_data)){
+      if ($this->db->insert("grace_sender_details", $save_data)){
           return TRUE;
       }
         else {

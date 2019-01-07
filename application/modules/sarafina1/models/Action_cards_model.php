@@ -11,6 +11,5 @@ class Action_Cards_Model extends CI_Model{
             return FALSE;
         }
     }
-
 }
 ?>

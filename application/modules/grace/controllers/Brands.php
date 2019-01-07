@@ -43,6 +43,21 @@ class Brands extends MX_Controller
             echo "No brands found";
         }
     }
-   
+    public function Seller_Details()
+    {
+        $all_seller_details = $this->brands_model->Seller_Details();
+
+        if($all_seller_details->num_rows() > 0)
+        {
+            $seller_details =$all_seller_details->result();
+            $seller_details_encoded = json_encode($seller_details);
+            echo $seller_details_encoded;
+        }
+
+        else{
+            echo "No seller details found";
+        }
+
+    }
 }
 ?>

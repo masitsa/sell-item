@@ -39,43 +39,45 @@ class Action_cards extends MX_Controller
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
                 $row = $json_object[0];
+                $time = date('Y/m/d H:i:s', $row->Response_Time);
                 $data = array(
-                    "brand_name" => $row-> brand_name,
-                    "brand_model" => $row-> brand_model,
-                    "brand_image" => $row-> brand_image,
-                    "Name" => $row-> Name,
-                    "Phone" => $row-> Phone,                    
-                    "Location" => $row-> Location,
-                    "Response_Time" => $row-> Response_Time
+                    "brand_name" =>$row->brand_name,
+                    "brand_model" =>$row->brand_model,
+                    "brand_image" =>$row->brand_image,
+                    "Name" =>$row->Name,
+                    "Phone" =>$row->Phone,                    
+                    "Location" =>$row->Location,
+                    "Response_Time" =>$row->Response_Time
                     
                 );
-
-            // 4. Request to submit
-            $save_status = $this->action_cards_model ->save_action_card($data);
-
-            //Create announcement receivers
-            $subscribers  = array($row->phone);
-
-            if($save_status ==TRUE){
-                $message_title = "Checking Successful";
-                $message_description = "Thank you".$row->name."for checking in.";
+                //4.Request to submit
+               $save_status= $this->action_cards_model->save_action_card($data);
+               
+               $subcribers =array($row->Phone);
+    
+               if($save_status ==TRUE){
+                 $message_title ="Sells Successfull";
+                 $message_description ="Thankyou ".$row->Name.".for checking in";
+    
+    
+               }else{
+                 
+                $message_title="Sells Failure";
+                $message_description="dint login".$row->Name.".try again";
+               }
+               
+               $this->kaizala_model->send_announcement($message_title,
+               $message_description,$subcribers,$time);
+    
             }
             else{
-                $message_title = "Checking UnSuccessful";
-                $message_description = "Sorry".$row->name."cant check in.";
+                //send invalid data message
+                echo"invalid data provided";
             }
-            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
-
+            //4.Request to save data
+            //5.send a confirmation
         }
-        else{
-            // send invalid data message
-            echo "invalid data provided";
-
-        }
-        // 4. request to save data
-        // 5. send confirmation
+      
     }
-    
-    
-}
-?>
+        
+    ?>

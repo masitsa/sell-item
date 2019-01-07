@@ -10,7 +10,7 @@ date_default_timezone_set('Africa/Nairobi');
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|    http://example.com/
+|    http://examples.com/
 |
 | WARNING: You MUST set this value!
 |

@@ -28,6 +28,7 @@ class Cars extends MX_Controller
 			$this->load->model("registrations_model");
             $this->load->model("kaizala_model");
             $this->load->model("cars_model");
+            $this->load->model("orders_model");
 		}
 		function create_cars()
 		{
@@ -44,16 +45,16 @@ class Cars extends MX_Controller
 			$row=$json_object[0];
 			$dateCreated = date('Y/m/d H:i:s', $row->date);
 			$data=array(
-			"model"=>$row->model,
-			"brand"=>$row->brand,
-			"samuel_car_image"=>$row->image,
-			"samuel_car_transmission"=>$row->transmission,
-			"samuel_car_price"=>$row->price,
-			"seller_name"=>$row->name,
-			"seller_phone"=>$row->phone,
-			"date_created"=>$dateCreated,
+            "order_date"=>$row->date,
+			"customer_name"=>$row->name,
+			"customer_phone"=>$row->phone,
+			"customer_location"=>$row->location,
+			"car_brand"=>$row->brand,
+			"car_model"=>$row->model,
+			"car_image"=>$row->image,
+			"car_price "=>$row->price,
 			);
-			$save_status= $this->cars_model->save_car
+			$save_status= $this->orders_model->save_order
 			($data);
 
 			$subscriber = array($row->phone);
@@ -61,17 +62,17 @@ class Cars extends MX_Controller
 			if($save_status ==TRUE)
 			{
 			$message_title = "save successful";
-			$message_description ="you can now send to buyers";
+			$message_description ="you can now send order";
 
 				}
 			else{
-				$message_title ="Hello ".$row->name.". Your save failed.";
+				$message_title ="Hello ".$row->name.". your order failed.";
 				$message_description ="Please try again";
 			}
 			//request to submit
 			}
 			else{
-				$message_description ="thanks for submiting a new car";
+				$message_description ="your order was successfully sent";
 			}
 			//4. request save data
 			//5. send a confirmation

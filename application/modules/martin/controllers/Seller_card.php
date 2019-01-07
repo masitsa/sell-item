@@ -42,11 +42,12 @@ class Seller_card extends MX_Controller
 			$row = $json_object[0];
 			$data = array(
 				"name" => $row->name,
-				"brand_name" => $row->phone,
-				"brand_model" => $row->date,
+				"brand_name" => $row->brand_name,
+				"brand_model" => $row->brand_model,
+				"price" => $row->price,
 				"phone" => $row->phone,
 				"date" => $row->date,
-				"transmission_type" => $row->phone
+				"transmission_type" => $row->transmission_type
 			);
 			//2. Request to submit
 			$save_status = $this->seller_card_model->save_card($data);

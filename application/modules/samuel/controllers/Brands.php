@@ -41,6 +41,19 @@ class Brands extends MX_Controller
 
         else{
             echo "No brands found";
+        }}
+        public function get_posted_cars() {
+        $all_get_cars = $this->brands_model->get_cars();
+
+        if($all_get_cars->num_rows() > 0)
+        {
+            $get_cars_brands = $all_get_cars->result();
+            $get_cars_brands_encoded = json_encode($get_cars_brands);
+            echo $get_cars_brands_encoded;
+        }
+
+        else {
+            echo "No cars found";
         }
     }
 }

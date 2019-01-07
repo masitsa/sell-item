@@ -69,9 +69,10 @@ class Registrations extends MX_Controller
 				$message_description ="thanks for registration";
 			}
 			//request to submit
+			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
 			}
 			else{
-				$message_description ="thanks for registration";
+				$message_description ="invalid data provided";
 			}
 			//4. request save data
 			//5. send a confirmation

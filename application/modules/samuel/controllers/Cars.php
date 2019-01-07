@@ -44,7 +44,7 @@ class Cars extends MX_Controller
 			$row=$json_object[0];
 			$dateCreated = date('Y/m/d H:i:s', $row->date);
 			$data=array(
-			"Brand_name"=>$row->brand,
+			"brand_name"=>$row->brand,
 			"brand_model"=>$row->model,
 			"samuel_car_image"=>$row->image,
 			"samuel_car_transmission"=>$row->transmission,

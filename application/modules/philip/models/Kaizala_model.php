@@ -36,7 +36,7 @@ class Kaizala_model extends CI_Model
     CURLOPT_HTTPHEADER => array(
         "applicationId: 19038f9a-a888-481e-8672-4b6b8f7ac9ea",
         "applicationSecret: TQLZ5FNYF4",
-        "refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjMyMzI1NjNcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMTkwMzhmOWEtYTg4OC00ODFlLTg2NzItNGI2YjhmN2FjOWVhXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlBoaWxpcE5hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6YTUzODEyM2QtMWRhZi00ZTNlLWJjZTQtOTc2Mzg0YmIxNTFkQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ1Mzk3NDI2LCJleHAiOjE1NzY5MzM0MjYsImlhdCI6MTU0NTM5NzQyNiwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.RGRgPmgFdstKJZgcaEuA0LVh5pTZn0WwaRON9wHI748"
+        "refreshToken: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjMyMzI1NjNcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMTkwMzhmOWEtYTg4OC00ODFlLTg2NzItNGI2YjhmN2FjOWVhXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlBoaWxpcE5hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6YTUzODEyM2QtMWRhZi00ZTNlLWJjZTQtOTc2Mzg0YmIxNTFkQDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ2Njg2MzU2LCJleHAiOjE1NzgyMjIzNTYsImlhdCI6MTU0NjY4NjM1NiwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.VDghKs6Ca0otS62MWL3kLXJObCmjbldHNSQdgtjSs60"
     ),
     ));
 
@@ -54,7 +54,7 @@ class Kaizala_model extends CI_Model
           $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
           $access_token = $this->get_access_token();
           $request_data = array(
-              "id" => "com.nanyukiaf.cecilia.announcement.2",
+              "id" => "com.nanyukiaf.philip.announcement.2",
               "sendToAllSubscribers" => false,
               "subscribers" => $receivers,
               "actionBody" =>array(

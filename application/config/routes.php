@@ -70,6 +70,7 @@ $route['samuel/get-brands-models'] = "samuel/brands/get_brands_and_models";
 $route['samuel/save-registration'] = "samuel/registrations/create_registrations";
 $route['samuel/save-car'] = "samuel/cars/create_cars";
 $route['samuel/get-posted-cars'] = "samuel/brands/get_posted_cars";
+$route['samuel/save-order'] = "samuel/orders/create_orders";
 
 
 /**
@@ -96,7 +97,7 @@ $route['cecilia/create-buyer'] = "cecilia/buyers/create_buyer";
 
 $route['sarafina1/create_seller_action_card'] = "sarafina1/action_cards/create_seller_action_card";
 $route['sarafina1/get_brands'] = "sarafina1/brands/get_brands";
-$route['sarafina1/retrievecarsale'] = "sarafina1/brands/retrievecarsale";
+$route['sarafina1/retrieveSoldCars'] = "sarafina1/action_cards/retrieveSoldCars";
 
 /**
  * Martin routes
@@ -116,6 +117,8 @@ $route['grace/Seller_Details'] = "grace/brands/Seller_Details";
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
 $route['moses/create-transaction'] = "moses/transactions/create_transaction";
+
+
 
 
 // $route['philip/get-brands'] = "philip/brands/get_brands";

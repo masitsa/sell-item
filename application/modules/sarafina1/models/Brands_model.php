@@ -36,7 +36,7 @@ class Brands_model extends CI_Model
         // return $query;
 
        
-        $this->db->select('brand.brand_name, brand.brand_status,
+        $this->db->select('brand.brand_id, brand.brand_name, brand.brand_status,
         brand.brand_image_name,brand_model.brand_model_name,
         brand_model.engine_code,brand_model.transmission_code,
         brand_model.transmission_type,brand_model.drive_system_code,

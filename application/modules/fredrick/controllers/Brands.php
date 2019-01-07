@@ -28,33 +28,52 @@ class Brands extends MX_Controller
         $this->load->model("brands_model");
     }
 
-    public function get_brands_and_models()
+    public function get_brands()
     {
-        $queryResult = $this -> brands_model ->get_brands_and_models();
+        $all_brands = $this->brands_model->get_all_brands_and_models();
 
-        if($queryResult->num_rows() > 0)
+        if($all_brands->num_rows() > 0)
         {
-            $brands = $queryResult->result();
+            $brands = $all_brands->result();
             $brands_encoded = json_encode($brands);
             echo $brands_encoded;
         }
 
         else{
             echo "No brands found";
-        }}
-        public function get_posted_cars() {
-        $all_get_cars = $this->brands_model->get_posted_cars();
+        }
+    }
+    public function Seller_Details()
+    {
+        $all_seller_details = $this->brands_model->Seller_Details();
 
-        if($all_get_cars->num_rows() > 0)
+        if($all_seller_details->num_rows() > 0)
         {
-            $get_cars_brands = $all_get_cars->result();
-            $get_cars_brands_encoded = json_encode($get_cars_brands);
-            echo $get_cars_brands_encoded;
+            $seller_details =$all_seller_details->result();
+            $seller_details_encoded = json_encode($seller_details);
+            echo $seller_details_encoded;
         }
 
-        else {
-            echo "No cars found";
+        else{
+            echo "No seller details found";
         }
+
+    }
+    public function retrieveBrand()
+    {
+        $all_seller_details = $this->brands_model->new();
+
+        if($all_seller_details->num_rows() > 0)
+        {
+            $retrieveBrand =$all_seller_details->result();
+            $retrieveBrand_encoded = json_encode($retrieveBrand);
+            echo $retrieveBrand_encoded;
+        }
+
+        else{
+            echo "No seller details found";
+        }
+
     }
 }
 ?>

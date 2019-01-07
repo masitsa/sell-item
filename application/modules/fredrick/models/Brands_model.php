@@ -38,7 +38,14 @@ class Brands_model extends CI_Model
     public function Seller_Details()
     {
        // $this->db->where("brand_id = ".$brand_id);
-        $query = $this->db->get("grace_sender_detail");
+        $query = $this->db->get("fredrick_sender_details");
+
+        return $query;
+    }
+    public function new()
+    {
+       // $this->db->where("brand_id = ".$brand_id);
+        $query = $this->db->get("brand");
 
         return $query;
     }

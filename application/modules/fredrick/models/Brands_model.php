@@ -28,33 +28,25 @@ class Brands_model extends CI_Model
 
         // $this->db->join("brand_model", "brand.brand_id = brand_model.brand_id", "INNER");
         // $this->db->order_by("brand_name", "ASC");
+        // $this->db->order_by("brand_model_name", "DESC");
         // $query = $this->db->get("brand");
-        // $this->db->select('*');
-        // $this->db->from('brand_model');
-        // $query = $this->db->get();
 
-        // return $query;
+        $combinedBrandAndModel =$this->db-> query("SELECT brand.brand_name, brand_model.brand_model_name from brand_model INNER JOIN brand ON brand.brand_id = brand_model.brand_id WHERE brand.brand_status = 1");
 
-       
-        $this->db->select('brand.brand_id, brand.brand_name, brand.brand_status,
-        brand.brand_image_name,brand_model.brand_model_name,
-        brand_model.engine_code,brand_model.transmission_code,
-        brand_model.transmission_type,brand_model.drive_system_code,
-        brand_model.drive_system,brand_model.gears_no');
-        $this->db->from('brand')->join('brand_model', 'brand.brand_id = brand_model.brand_id');
-        $this->db->where('brand_status=1');
-       
-        $query = $this->db->get();
-
-        return $query;
-        
-       
+        return $combinedBrandAndModel;
     }
-    public function get_Cars()
+    public function Seller_Details()
     {
-       $query = $this->db->get("sarafina_action_card");
+       // $this->db->where("brand_id = ".$brand_id);
+        $query = $this->db->get("fredrick_sender_details");
 
         return $query;
     }
-    
+    public function new()
+    {
+       // $this->db->where("brand_id = ".$brand_id);
+        $query = $this->db->get("brand");
+
+        return $query;
+    }
 }

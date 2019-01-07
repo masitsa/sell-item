@@ -35,7 +35,10 @@ class Brands_model extends CI_Model
              
 
         return $result;
-
+        }
+        public function get_posted_cars() {
+        $query = $this->db->get("samuel_car");
+        return $query;
         }
 }
 ?>

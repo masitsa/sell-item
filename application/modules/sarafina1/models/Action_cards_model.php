@@ -12,5 +12,13 @@ class Action_Cards_Model extends CI_Model{
         }
     }
 
+function save_Buyer ($save_data){
+    if ($this->db->insert("sarafina_buyer", $save_data)){
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
+}
 }
 ?>

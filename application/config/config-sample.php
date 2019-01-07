@@ -10,7 +10,7 @@ date_default_timezone_set('Africa/Nairobi');
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|    http://example.com/
+|    http://examples.com/
 |
 | WARNING: You MUST set this value!
 |
@@ -24,8 +24,9 @@ date_default_timezone_set('Africa/Nairobi');
 | a PHP script and you can easily do that on your own.
 |
  */
-//$config['base_url'] = 'https://sell-item.azurewebsites.net/';
- $config['base_url'] = 'http://localhost/sell-item/';
+// MARTIN CONFIG FILE. PLEASE DO NOT EDIT
+$config['base_url'] = 'https://sell-item.azurewebsites.net/';
+
 
 /*
 |--------------------------------------------------------------------------

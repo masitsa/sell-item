@@ -20,8 +20,7 @@ class Brands extends MX_Controller
 				header("Access-Control-Allow-Methods: GET, POST, OPTIONS");         
 	
 			if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
-                header("Access-Control-Allow-Headers:  
-                      {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+				header("Access-Control-Allow-Headers:        {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
 	
 			exit(0);
         }
@@ -38,34 +37,43 @@ class Brands extends MX_Controller
             $brands = $all_brands->result();
             $brands_encoded = json_encode($brands);
             echo $brands_encoded;
-           // $query =$this->db->get("brand");
-            //$query =$this->db->get();
-            
-           // return $query;
         }
 
         else{
             echo "No brands found";
         }
     }
-    public function retrievecarsale()
+    public function Seller_Details()
     {
-        $queryResult = $this ->brands_model->get_Cars();
+        $all_seller_details = $this->brands_model->Seller_Details();
 
-        if($queryResult->num_rows() > 0)
+        if($all_seller_details->num_rows() > 0)
         {
-            $cars = $queryResult->result();
-            $cars_encoded = json_encode($cars);
-            echo $cars_encoded;
+            $seller_details =$all_seller_details->result();
+            $seller_details_encoded = json_encode($seller_details);
+            echo $seller_details_encoded;
         }
 
         else{
-            echo "We are out of stock!";
+            echo "No seller details found";
         }
+
     }
-    
-    
-    
-    
+    public function retrieveBrand()
+    {
+        $all_seller_details = $this->brands_model->new();
+
+        if($all_seller_details->num_rows() > 0)
+        {
+            $retrieveBrand =$all_seller_details->result();
+            $retrieveBrand_encoded = json_encode($retrieveBrand);
+            echo $retrieveBrand_encoded;
+        }
+
+        else{
+            echo "No seller details found";
+        }
+
+    }
 }
 ?>

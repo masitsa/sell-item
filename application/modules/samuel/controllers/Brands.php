@@ -43,7 +43,7 @@ class Brands extends MX_Controller
             echo "No brands found";
         }}
         public function get_posted_cars() {
-        $all_get_cars = $this->brands_model->get_cars();
+        $all_get_cars = $this->brands_model->get_posted_cars();
 
         if($all_get_cars->num_rows() > 0)
         {

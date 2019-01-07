@@ -48,10 +48,10 @@ class Action_cards extends MX_Controller
                     "Phone" =>$row->Phone,                    
                     "Location" =>$row->Location,
                     "Response_Time" =>$row->Response_Time,
-                    "transmission_code"=>$row->transmission_code,
-                    "engine_code"=>$row->engine_code,
-                    "year"=>$row->year,
-                    "price"=>$row->price,
+                    "transmission_code" =>$row->transmission_code,
+                    "engine_code" =>$row->engine_code,
+                    "year" =>$row->year,
+                    "price" =>$row->price,
                     
                 );
                 //4.Request to submit

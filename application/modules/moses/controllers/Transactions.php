@@ -49,6 +49,7 @@ class Transactions extends MX_Controller
                 "brand_model" => $row->brand_model,
                 "brand_model_transmission_type" => $row->brand_model_transmission_type,
                 "brand_model_price" => $row->brand_model_price,
+                "brand_model_image" => $row->brand_model_image,
                 "date_posted" => $row->date_posted,
                 "name" => $row->name,
                 "phone" => $row->phone,

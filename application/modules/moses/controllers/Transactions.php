@@ -47,7 +47,8 @@ class Transactions extends MX_Controller
             $data = array(
                 "brand_name" => $row->brand_name,
                 "brand_model" => $row->brand_model,
-                "purchase_date" => $row->purchase_date,
+                "brand_model" => $row->brand_model_price,
+                "purchase_date" => $row->date_posted,
                 "name" => $row->name,
                 "phone" => $row->phone,
                 "location" => $row->location

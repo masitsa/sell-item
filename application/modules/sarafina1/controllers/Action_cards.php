@@ -32,18 +32,21 @@ class Action_cards extends MX_Controller
 
     public function create_seller_action_card(){
         // 1. Receive json post
-        // $json_string = file_get_contents("php://input");
-        $json_string = '[
-            {
-              "brand_name": "Ford",
-              "brand_model": "Edge",
-              "brand_image": "image_2014_05_18_08_10_12.png",
-              "Name": "Sarafina",
-              "Phone": "+254715527120",
-              "Location": "{\"lt\":0.0182416,\"lg\":37.0740701,\"n\":\"0.0182416, 37.0740701\",\"acc\":14.868000030517578}",
-              "Response_Time": "1546931439606"
-            }
-          ]';
+        $json_string = file_get_contents("php://input");
+        //  $json_string = '[
+        //     {
+        //         "brand_name": "Honda",
+        //         "brand_model": "A6 quattro",
+        //         "transmission_code": "CEUB",
+        //         "brand_image": "https://cdn.inc-000.kms.osi.office.net/att/8a2a4b107d1eecd52a3acc2108e84ce975e87c454512f49a7a21d19812f2c9e5.jpg?sv=2015-12-11&sr=b&sig=3ypBoG8Te%2FdES%2BenLq%2Ba2iKvfbO3HCM2f%2F5%2F47XHLBM%3D&st=2019-01-08T14:39:43Z&se=2292-10-23T15:39:43Z&sp=r",
+        //         "year": "2018",
+        //         "price": "2012",
+        //         "Name": "Sarafina",
+        //         "Phone": "+254715527120",
+        //         "Location": "{\"lt\":0.0182211,\"lg\":37.0740429,\"n\":\"0.0182211, 37.0740429\",\"acc\":14.753000259399414}",
+        //         "Response_Time": "1546961980906"
+        //     }
+        // ]';
         // 2. convert json to array
         $json_object = json_decode($json_string);
         // 3. validate

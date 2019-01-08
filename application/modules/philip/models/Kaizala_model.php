@@ -88,3 +88,4 @@ class Kaizala_model extends CI_Model
         return $result_object->actionId;
     }
 }
+?>

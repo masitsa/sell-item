@@ -27,6 +27,8 @@ class Cars extends MX_Controller
         }
         $this->load->model("cars_model"); //CONNECT/USEMODEL
         $this->load->model("kaizalas_model");// ""
+
+        
 }
 //function to load the brands
      function create_car(){//details entered
@@ -53,7 +55,10 @@ class Cars extends MX_Controller
                 //request to submit /request to save data
                $saving =  $this->cars_model->save_cardetails($data);
                $subscribers = array($row->phonenumber);
-               
+              // $brand_name = $this->brands_model->getmodelandname()
+              $message_fields = array(
+               // "brand" =>;
+            );
                if($saving == TRUE){
                    //send a confirmation
                    //

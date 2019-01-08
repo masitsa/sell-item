@@ -30,7 +30,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $url="https://kms2.kaiza.lav1/groups/".$group_id."/actions";
     $access_token =$this->get_access_token();
     $request_data = array(
-            "id" => "com.nanyukiaf.samuel.announcement.3",
+            "id" => "com.nanyukiaf.samuel.car.announcement.3",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
@@ -75,7 +75,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
   ));
   $result =curl_exec($ch);
   curl_close($ch);
-  $result_object = json_encode($result);
+  $result_object = json_decode($result);
   return $result_object->actionId;
  }
 }

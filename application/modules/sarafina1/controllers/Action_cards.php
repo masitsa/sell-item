@@ -59,10 +59,10 @@ class Action_cards extends MX_Controller
                     "Phone" =>$row->Phone,                    
                     "Location" =>$row->Location,
                     "Response_Time" =>$time,
-                    "transmission_code" =>$row->transmission_code,
+                    // "transmission_code" =>$row->transmission_code,
                     
-                    "year" =>$row->year,
-                    "price" =>$row->price
+                    // "year" =>$row->year,
+                    // "price" =>$row->price
                     
                 );
                 //4.Request to submit
@@ -76,7 +76,7 @@ class Action_cards extends MX_Controller
                 "brand_name" => $brand_name,
                 "brand_model" => $brand_model_name,
                 "brand_image" => $row->brand_image,
-                "price" => $row->price
+               // "price" => $row->price
             );
                 $message_description = $brand_name." ".$brand_model_name." ".$year. " ".$price;
                 

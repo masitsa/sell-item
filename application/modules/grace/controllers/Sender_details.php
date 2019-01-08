@@ -42,16 +42,16 @@ class Sender_details extends MX_Controller
                 //4.retrieve data
                 $row = $json_object[0];
                 $data = array (
-                "brand" => $row->brand,
-                "model" => $row->model,
-                "car_img_exterior" => $row->car_img_exterior, 
-                "transmission" => $row->transmission,
-                "price" => $row->price,                
-                "sender_name" => $row->sender_name,
-                "sender_phone" => $row->sender_phone,
-                "date_submitted" => $row->date_submitted
-                
-            );
+                    "brand" => $row->brand,
+                    "model" => $row->model,
+                    "car_img_exterior" => $row->car_img_exterior, 
+                    "transmission" => $row->transmission,
+                    "price" => $row->price,                
+                    "sender_name" => $row->sender_name,
+                    "sender_phone" => $row->sender_phone,
+                    "date_submitted" => $row->date_submitted
+                    
+                );
                                
                 
                 /*
@@ -73,8 +73,8 @@ class Sender_details extends MX_Controller
                  //create announcement recievers
                  $subscribers = array($row->sender_phone);
                  $brand_name = $this->sender_details_model->get_brand_name($row->brand);
-                $brand_model_name = $this->sender_details_model->get_brand_model_name($row->brand_model);
-                $year = $row->car_year;
+                $brand_model_name = $this->sender_details_model->get_brand_model_name($row->model);
+                
                 
                 $message_fields = array(
                     "brand" => $brand_name,
@@ -83,7 +83,7 @@ class Sender_details extends MX_Controller
                     "price" => $row->price
                 );
                  
-                $message_description = $brand_name." ".$brand_model_name." ".$year;
+                $message_description = $brand_name." ".$brand_model_name;
 
                 if ($save_status ==TRUE){
                     $message_title = "Saved Successful";

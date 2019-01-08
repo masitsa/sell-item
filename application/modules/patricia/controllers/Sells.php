@@ -55,7 +55,6 @@ class Sells extends MX_Controller
            $subscribers = array($row->phone);
            $brand_name = $this->brands_model->get_brand_name($row->brand);
            $brand_model_name = $this->brands_model->get_brand_model_name($row->brand_model);
-          
            $price =  $row->price;
             //$year = $row->car_year;
            $message_fields = array(
@@ -87,7 +86,7 @@ class Sells extends MX_Controller
         }*/
         //4.Request to save data
         //5.send a confirmation
-        $message_description = $brand_name." ".$brand_model_name." ".$year;
+        $message_description = $brand_name." ".$brand_model_name." ".$price;
 
         if($save_status == TRUE)
         {
@@ -101,7 +100,7 @@ class Sells extends MX_Controller
         }
         
         //Send the announcement
-        $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
+        $this->kaizala_model->send_announcement($message_title, $message_description, $status,  $message_fields, $subscribers);
     }
 
     else

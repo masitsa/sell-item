@@ -66,7 +66,7 @@ class Cars extends MX_Controller
 				"transmission_type" => $row->transmission_type
 			);
 
-			$message_description = $brand_name." ".$brand_model_name." ".$year;
+			$message_description = $brand_name." ".$brand_model_name;
 
 			//3. Request to save data
 			if($save_status == TRUE) {

@@ -28,14 +28,14 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
     }
 
-    public function send_announcement($title, $description, $status, $date, $fields_json, $receivers)
+    public function send_announcement($title, $description, $status, $date, $fields, $receivers)
     {
         $group_id = "8f754b3d-6460-4be5-a9f2-d40142555483@2";
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.philip.announcement",
+            "id" => "com.nanyukiaf.philip.announcement.3",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(

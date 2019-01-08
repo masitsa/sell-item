@@ -27,7 +27,7 @@ class Sells extends MX_Controller
         
         $this->load->model("sells_model");
         $this->load->model("kaizala_model");
-        $this->load->model("brands_modelg");
+        $this->load->model("brands_model");
     }
 // save seller
     function create_sell(){

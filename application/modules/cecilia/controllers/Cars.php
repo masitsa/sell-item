@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sellers extends MX_Controller
+class Cars extends MX_Controller
 {
     
     function __construct() {
@@ -25,15 +25,15 @@ class Sellers extends MX_Controller
     
             exit(0);
         }
-        $this->load->model("sellers_model"); //CONNECT/USEMODEL
+        $this->load->model("cars_model"); //CONNECT/USEMODEL
         $this->load->model("kaizalas_model");// ""
 }
 //function to load the brands
-     function create_seller(){//details entered
+     function create_car(){//details entered
             //receive json post
             $json_string = file_get_contents("php://input");
            
-            //convert json string  to array
+            //convert json string  to array && encode cahngea to string
             $json_object = json_decode($json_string);
         
             //validate
@@ -51,22 +51,24 @@ class Sellers extends MX_Controller
                     "car_image	" =>$row->carimage
                 );
                 //request to submit /request to save data
-               $saving =  $this->sellers_model->save_sellerdetails($data);
+               $saving =  $this->cars_model->save_cardetails($data);
                $subscribers = array($row->phonenumber);
                
                if($saving == TRUE){
                    //send a confirmation
                    //
                    $messagetitle = " Post has been Accepted";
-                   $mesage_description = "thanks  ".$row->sellername;
+                   $description = "thanks  ".$row->sellername;
+
+                 //  $brand = ;
 
                    // echo "succesful";
                }else{
                    //echo "didnt work";
-                   $messagetitle = "not successful";
-                   $mesage_description = " Sorry ".$row->sellername ."tryagain";
+                   $messagetitle = "Your Post wasnt successful";
+                   $description = " Sorry ".$row->sellername ."tryagain";
                }
-               $this->kaizalas_model-> send_announcement($messagetitle, $mesage_description, $subscribers);
+               $this->kaizalas_model-> send_announcement($title, $description, $status, $date, $fields, $subscribers);
             }
             else {
                     echo " Invalid data/error occured somewhere";

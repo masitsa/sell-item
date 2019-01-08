@@ -4,11 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Kaizalas_model extends CI_Model
 {
   private function get_access_token(){
-      $application_id = "45c3294a-9473-4897-9cc9-e33873bf0eb2";//from connector
-      $application_secret = "STCFQHG6JB";               //       FROM COONNECTOR
+      $application_id = "887d2bb5-3865-42a4-a6a0-d66a7d3944a4";//from connector
+      $application_secret = "5WFIVU07SU";               //       FROM COONNECTOR
                 //FROM POSTMAN
-      $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MDgxMDUzMjdcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiNDVjMzI5NGEtOTQ3My00ODk3LTljYzktZTMzODczYmYwZWIyXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkNlY2lsaWFuYW55dWtpYWZjb25uZWN0b3JcXFwifVwifSIsInVpZCI6Ik1vYmlsZUFwcHNTZXJ2aWNlOmYyZjJkY2UyLTFiNmMtNDY1NC05YTA0LTJhZGZkMDQyM2NjZSIsInZlciI6IjIiLCJuYmYiOjE1NDU0MDUyNjEsImV4cCI6MTU3Njk0MTI2MSwiaWF0IjoxNTQ1NDA1MjYxLCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.Ifg5D4VEFHiZL4tUthvHBcf_smwaB46Fy775f4Ry00A";
-
+      $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MDgxMDUzMjdcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiODg3ZDJiYjUtMzg2NS00MmE0LWE2YTAtZDY2YTdkMzk0NGE0XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkthaXphbGEgRWNvbW1lcmNlXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTpmMmYyZGNlMi0xYjZjLTQ2NTQtOWEwNC0yYWRmZDA0MjNjY2UiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ2OTM1Mzk0LCJleHAiOjE1Nzg0NzEzOTQsImlhdCI6MTU0NjkzNTM5NCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.lY_VR8k_ddO48rD1sI-UkF418GP7ZqFcfNiSD6fQ8b4";
+     
       $end_point = "https://kms.kaiza.la/v1/accessToken";
       $ch = curl_init($end_point);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -26,24 +26,39 @@ class Kaizalas_model extends CI_Model
       return $response_decoded->accessToken;
       }
 
-      public function send_announcement($title, $message, $receivers){
+      public function send_announcement($title, $description, $status, $date, $fields, $receivers){
           $group_id = "0a6e3c2c-93f3-43ed-bd69-b9267b5cf8c6";
           $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
           $access_token = $this->get_access_token();
           $request_data = array(        //SEND ANNOUNCEMENT WITH FOLLOWING DATA
-              "id" => "com.nanyukiaf.cecilia.announcement.2",
+              "id" => "com.nanyukiaf.cecilia.announcement.3",
               "sendToAllSubscribers" => false,
               "subscribers" => $receivers,
               "actionBody" =>array(
                 "properties" => array(
                     array(
-                       "name" => "messageTitle",
+                       "name" => "sellerTitle",
                        "value"=> $title ,
                        "type" =>"Text"
                     ),
                     array(
-                        "name" => "responseMessage",
-                        "value" => $message,
+                        "name" => "carDescription",
+                        "value" => $description,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "carStatus",
+                        "value" => $status,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "date",
+                        "value" => $date,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "carjson",
+                        "value" => $fields,
                         "type" => "Text"
                     )
                 )

@@ -84,7 +84,7 @@ class Action_cards extends MX_Controller
             );
                 $message_description = $brand_name." ".$brand_model_name." ".$year;
                 
-               $subcribers =array($row->Phone);
+               $subscribers =array($row->Phone);
     
                if($save_status ==TRUE){
                  $message_title ="Your post has been accepted";
@@ -99,7 +99,7 @@ class Action_cards extends MX_Controller
                }
                
                $this->kaizala_model->send_announcement($message_title,
-               $message_description, $status, $time, $message_fields, $subcribers);
+               $message_description, $status, $time, $message_fields, $subscribers);
             }
             else{
                 //send invalid data message

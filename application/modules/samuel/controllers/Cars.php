@@ -44,8 +44,8 @@ class Cars extends MX_Controller
 			$row=$json_object[0];
 			$dateCreated = date('Y/m/d H:i:s', $row->date);
 			$data=array(
-			"model"=>$row->model,
-			"brand"=>$row->brand,
+			"brand_name"=>$row->brand,
+			"brand_model"=>$row->model,
 			"samuel_car_image"=>$row->image,
 			"samuel_car_transmission"=>$row->transmission,
 			"samuel_car_price"=>$row->price,
@@ -65,10 +65,11 @@ class Cars extends MX_Controller
 
 				}
 			else{
-				$message_title ="Hello ".$row->name.". Your save failed.";
+				$message_title ="Hello ".$row->name.". Your post has been accepted.";
 				$message_description ="Please try again";
 			}
 			//request to submit
+			$this->kaizala_model->send_announcement($$title, $description,$status,$date,  $message,$receivers);
 			}
 			else{
 				$message_description ="thanks for submiting a new car";

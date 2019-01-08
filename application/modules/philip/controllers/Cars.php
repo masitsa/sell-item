@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Sender_details extends MX_Controller
+class Cars extends MX_Controller
 {
     function __construct() {
 		parent:: __construct();
@@ -25,7 +25,7 @@ class Sender_details extends MX_Controller
 			exit(0);
         }
         
-        $this->load->model("sender_details_model");
+        $this->load->model("cars_model");
         $this->load->model("kaizala_model");
     }
 
@@ -50,7 +50,7 @@ class Sender_details extends MX_Controller
                 );
 
             // 4. Request to submit
-            $save_status = $this->sender_details_model ->save_seller($data);
+            $save_status = $this->cars_model ->save_seller($data);
 
             //Create announcement receivers
             $subscribers  = array($row->phone);
@@ -63,7 +63,7 @@ class Sender_details extends MX_Controller
                 $message_title = "Checking UnSuccessful";
                 $message_description = "Sorry".$row->name."cant check in.";
             }
-            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers, $status, $date, $fields);
 
         }
         else{

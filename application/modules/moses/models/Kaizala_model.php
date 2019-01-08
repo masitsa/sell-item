@@ -19,7 +19,7 @@ class Kaizala_model extends CI_Model
         $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3NzM3ODIzMTBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiYTNiYmJiZDktM2Y2Yi00Y2RiLTkzZDgtMWI4ZjE0Mzg3ZDQ0XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIk1vc2VzTXlTaW1wbGVQcm9qZXRzQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTo2MGJkMmZkOS1mZWVkLTRlZmItOTA2Zi1jNWVlNDU2M2FhOGVAMiIsInZlciI6IjIiLCJuYmYiOjE1NDY4NDI4ODIsImV4cCI6MTU3ODM3ODg4MiwiaWF0IjoxNTQ2ODQyODgyLCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.-a7J3UtZVEE7Rq9mtHmmbILkJSJmptH0CNS5QoLaz8o";
 
 
-        $end_point = "https://kms.kaiza.la/v1/accessToken";
+        $end_point = "https://kms2.kaiza.la/v1/accessToken";
         $ch = curl_init($end_point);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
@@ -40,7 +40,7 @@ class Kaizala_model extends CI_Model
     public function send_announcement($title, $message, $receivers){
         $group_id  = "5b9411dd-0e0d-40b1-9752-c24d9ed19f0f@2";
 
-        $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
+        $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
         $access_token = $this->get_access_token();
 
         $request_data = array(

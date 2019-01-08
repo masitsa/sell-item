@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_card extends MX_Controller
+class Cars extends MX_Controller
 {
     function __construct() { 
 		parent:: __construct();
@@ -25,7 +25,7 @@ class Seller_card extends MX_Controller
 			exit(0);
         }
         
-		$this->load->model("seller_card_model");
+		$this->load->model("cars_model");
 		$this->load->model("kaizala_model");
 	}
 	function create_card() {
@@ -50,13 +50,16 @@ class Seller_card extends MX_Controller
 				"transmission_type" => $row->transmission_type
 			);
 			//2. Request to submit
-			$save_status = $this->seller_card_model->save_card($data);
+			$save_status = $this->seller_car_model->save_card($data);
+
+
+
 			// Create announcement receivers
 			$subscribers = array($row->phone);
 			//3. Request to save data
 			if($save_status == TRUE) {
 				//4. Send a confirmation
-				$message_title = "Card submission successful";
+				$message_title = "Your post has been accepted";
 				$message_description = "Thank you ".$row->name. "for using our platform";
 			} else {
 				$message_title = "Card submission failed. Please try again";

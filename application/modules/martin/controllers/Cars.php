@@ -56,8 +56,8 @@ class Cars extends MX_Controller
 
 			// Create announcement receivers
 			$subscribers = array($row->phone);
-			$brand_name = $this->cars_model->get_brand_name($row->brand_id);
-			$brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
+			$brand_name = $this->cars_model->get_brand_name($row->$brand_id);
+			$brand_model_name = $this->cars_model->get_brand_model_name($row->$brand_model);
 				
 			$message_fields = array(
 				"brand" => $brand_name,
@@ -66,7 +66,7 @@ class Cars extends MX_Controller
 				"transmission_type" => $row->transmission_type
 			);
 
-			$message_description = $brand_name." ".$brand_model_name." ".$year;
+			$message_description = $brand_name." ".$brand_model_name;
 
 			//3. Request to save data
 			if($save_status == TRUE) {

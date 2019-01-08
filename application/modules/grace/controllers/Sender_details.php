@@ -74,7 +74,7 @@ class Sender_details extends MX_Controller
                  $subscribers = array($row->sender_phone);
                  $brand_name = $this->sender_details_model->get_brand_name($row->brand);
                 $brand_model_name = $this->sender_details_model->get_brand_model_name($row->model);
-                $year = $row->car_year;
+                
                 
                 $message_fields = array(
                     "brand" => $brand_name,
@@ -83,7 +83,7 @@ class Sender_details extends MX_Controller
                     "price" => $row->price
                 );
                  
-                $message_description = $brand_name." ".$brand_model_name." ".$year;
+                $message_description = $brand_name." ".$brand_model_name;
 
                 if ($save_status ==TRUE){
                     $message_title = "Saved Successful";

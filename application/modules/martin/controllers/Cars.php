@@ -56,7 +56,7 @@ class Cars extends MX_Controller
 
 			// Create announcement receivers
 			$subscribers = array($row->phone);
-			$brand_name = $this->cars_model->get_brand_name($row->brand);
+			$brand_name = $this->cars_model->get_brand_name($row->brand_name);
 			$brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
 				
 			$message_fields = array(

@@ -43,7 +43,9 @@ class Cars extends MX_Controller
             $row = $json_object[0];
 
             //show the data thene comment out and update
-            print_r($row);
+            echo print_r($arr, true); 
+  
+            
             
             $date_submitted = date("Y-m-d H:i:s");
 

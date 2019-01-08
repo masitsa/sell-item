@@ -7,7 +7,7 @@ class Action_Cards_Model extends CI_Model{
     
 
     function save_action_card($save_data){
-        if ($this->db->insert("sarafina_action_card", $save_data)){
+        if ($this->db->set("sarafina_action_card", $save_data)){
             return TRUE;
         }
         else {

@@ -63,7 +63,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
                 )
             )
         );
-  $request_data= json_encode($request_data);
+  $request_json= json_encode($request_data);
   $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST,
   "POST");

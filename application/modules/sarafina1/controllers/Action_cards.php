@@ -79,10 +79,10 @@ class Action_cards extends MX_Controller
                 "brand_name" => $brand_name,
                 "brand_model" => $brand_model_name,
                 "brand_image" => $row->brand_image,
-               "price" => $row->price,
-               "year" => $row->year,
+                "price" => $row->price,
+                "year" => $row->year,
             );
-                $message_description = $brand_name." ".$brand_model_name." ".$brand_image." ".$price. " " .$year;
+                $message_description = $brand_name." ".$brand_model_name." ".$year;
                 
                $subcribers =array($row->Phone);
     

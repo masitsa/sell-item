@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Action_cards extends MX_Controller
+class Cars extends MX_Controller
 {
     function __construct() {
 		parent:: __construct();
@@ -66,7 +66,7 @@ class Action_cards extends MX_Controller
     
                }else{
                  
-                $message_title="Error";
+                $message_title="Sells Failure";
                 $message_description="din't login".$row->Name.".try again";
                }
                

@@ -12,21 +12,22 @@ class Kaizala_model extends CI_Model
 
     {
 
-        $application_id = "1d871bd2-277c-473e-bace-9240a60e5fea";
+        $application_id = "6ad59200-d579-4291-9e45-c14c6c2f1380";
 
-        $application_secret = "RG85PINOS1";
+        $application_secret = "UP9WM4YJS2 ";
 
 
 
-        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjkzMDIzNTdcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMWQ4NzFiZDItMjc3Yy00NzNlLWJhY2UtOTI0MGE2MGU1ZmVhXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlBhdHJpY2lhTmFueXVraWFmQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTo5YzZlMzc0Zi1jNzhkLTQ2ZTItOGM5Mi0wYjcxOTdjMTRmNGRAMiIsInZlciI6IjIiLCJuYmYiOjE1NDUzODI2NjYsImV4cCI6MTU3NjkxODY2NiwiaWF0IjoxNTQ1MzgyNjY2LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.4ncsnO1bpYRnlgLBvSUVAzSZVdL_Vgq1jZ44-JJrx2k";
+        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjkzMDIzNTdcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMWQ4NzFiZDItMjc3Yy00NzNlLWJhY2UtOTI0MGE2MGU1ZmVhXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIlBhdHJpY2lhTmFueXVraWFmQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTo5YzZlMzc0Zi1jNzhkLTQ2ZTItOGM5Mi0wYjcxOTdjMTRmNGRAMiIsInZlciI6IjIiLCJuYmYiOjE1NDY5MzUwNjYsImV4cCI6MTU3ODQ3MTA2NiwiaWF0IjoxNTQ2OTM1MDY2LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.ZtcK1xfKnpSeHvPi53pa-1el_uY19ELeC6EVc_6Uns8";
         
 
 
-        $end_point = "https://kms.kaiza.la/v1/accessToken";
+        $end_point = "https://kms2.kaiza.la/v1/accessToken";
 
-
+//webservice to query above server end point
 
         $ch = curl_init($end_point);
+        //curl sending data in headers
 
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
 
@@ -45,11 +46,12 @@ class Kaizala_model extends CI_Model
 
 
         $response = curl_exec($ch);
+        //security feature
 
         curl_close($ch);
 
 
-
+//change to array  from json
         $response_decoded = json_decode($response);
 
         return $response_decoded->accessToken;
@@ -57,14 +59,15 @@ class Kaizala_model extends CI_Model
     }
 
 
-
-    public function send_announcement($title, $message, $receivers)
+//use 4 filds title,descri in your new file you will create
+    public function send_announcement($title,$description,$status,$date,$fields,$receivers)
+   // ($title, $message, $receivers)
 
     {
 
         $group_id = "101e078a-089b-4351-b6a4-7f4df129eb3a@2";
 
-        $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
+        $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
 
         $access_token = $this->get_access_token();
 
@@ -84,7 +87,7 @@ class Kaizala_model extends CI_Model
 
                     array(
 
-                        "name" => "messageTitle",
+                        "name" => "sellerTitle",
 
                         "value" => $title,
 
@@ -94,9 +97,45 @@ class Kaizala_model extends CI_Model
 
                     array(
 
-                        "name" => "responseMessage",
+                        "name" => "carDescription",
 
-                        "value" => $message,
+                        "value" => $description,
+
+                        "type" => "Text"
+
+                    ),
+                    array(
+
+                        "name" => "carStatusDescription",
+
+                        "value" =>$status,
+
+                        "type" => "Text"
+
+                    ),
+                    array(
+
+                        "name" => "date",
+
+                        "value" =>$date,
+
+                        "type" => "Text"
+
+                    ),
+                    array(
+
+                        "name" => "date",
+
+                        "value" =>$date,
+
+                        "type" => "Text"
+
+                    ),
+                    array(
+
+                        "name" => "car",
+
+                        "value" =>$fields,
 
                         "type" => "Text"
 

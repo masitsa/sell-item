@@ -61,8 +61,7 @@ class Sender_details extends MX_Controller
                 date_submitted
                 brand
                 model
-                car_img_exterior
-                car_img_interior
+                car_img_exterior               
                 transmission
                 price
                 */
@@ -75,13 +74,13 @@ class Sender_details extends MX_Controller
                  $subscribers = array($row->sender_phone);
 
                 if ($save_status ==TRUE){
-                    $message_title = "Checkin Successful";
+                    $message_title = "Saved Successful";
                     $message_description = "Thank you".$row->sender_name."for checkin";
 
                 }
                 else {
                     //6.send invalid data message
-                    $message_title = "Checkin Failure";
+                    $message_title = "Failed to save";
                     $message_description = "Sorry".$row->sender_name."not successful";
                     
                 }

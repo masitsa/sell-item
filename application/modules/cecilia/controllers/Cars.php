@@ -27,7 +27,7 @@ class Cars extends MX_Controller
         }
         $this->load->model("cars_model"); //CONNECT/USEMODEL
         $this->load->model("kaizalas_model");// ""
-
+        $this->load->model("brands_model");
         
 }
 //function to load the brands
@@ -55,25 +55,31 @@ class Cars extends MX_Controller
                 //request to submit /request to save data
                $saving =  $this->cars_model->save_cardetails($data);
                $subscribers = array($row->phonenumber);
-              // $brand_name = $this->brands_model->getmodelandname()
-              $message_fields = array(
-               // "brand" =>;
-            );
+              
+               $message_fields = array(
+                "model" =>$row->model,
+                "brand" =>$row->brand,
+                "price" =>$row->price,
+                "car_image	" =>$row->carimage
+               );
+               $year = 2013;
+               $message_description = $row->brand." ".$row->model." ".$year;
+
+           
                if($saving == TRUE){
                    //send a confirmation
                    //
                    $messagetitle = " Post has been Accepted";
-                   $description = "thanks  ".$row->sellername;
+                   $status = "successful";
 
-                 //  $brand = ;
 
                    // echo "succesful";
                }else{
                    //echo "didnt work";
                    $messagetitle = "Your Post wasnt successful";
-                   $description = " Sorry ".$row->sellername ."tryagain";
+                   $status = " error";
                }
-               $this->kaizalas_model-> send_announcement($title, $description, $status, $date, $fields, $subscribers);
+               $this->kaizalas_model-> send_announcement($messagetitle, $message_description, $status, $date, $message_fields, $subscribers);
             }
             else {
                     echo " Invalid data/error occured somewhere";

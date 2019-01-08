@@ -52,7 +52,7 @@ class Cars extends MX_Controller
 
 			$date_submitted = date('Y-m-d H:i:s');
 			//2. Request to submit
-			$save_status = $this->seller_car_model->save_card($data);
+			$save_status = $this->cars_model->save_card($data);
 
 			// Create announcement receivers
 			$subscribers = array($row->phone);

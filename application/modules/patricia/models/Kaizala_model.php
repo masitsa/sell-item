@@ -60,7 +60,7 @@ class Kaizala_model extends CI_Model
 
 
 //use 4 filds title,descri in your new file you will create
-public function send_announcement($title, $description, $status, $date, $fields, $receivers)
+public function send_announcement($title, $description, $status,  $fields, $receivers)
    // ($title, $message, $receivers)
 
     {

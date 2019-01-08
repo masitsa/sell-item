@@ -68,8 +68,8 @@ class Cars extends MX_Controller
 				$message_title ="Hello ".$row->name.". Your post has been accepted.";
 				$message_description ="Please try again";
 			}
-			//request to submit
-			$this->kaizala_model->send_announcement($title, $description,$status,$date,  $message, $receivers);
+			//Send the announcement
+			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
 			}
 			else{
 				$message_description ="thanks for submiting a new car";

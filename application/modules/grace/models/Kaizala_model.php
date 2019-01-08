@@ -45,12 +45,8 @@ class Kaizala_model extends CI_Model
             "name"=>"carStatus",
             "value"=> $status,
             "type"=>"Text"
-           ),
-           array (
-            "name"=>"date",
-            "value"=> $date,
-            "type"=>"Text"
            )
+           
         
 
         ));

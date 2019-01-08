@@ -62,13 +62,13 @@ class Kaizala_model extends CI_Model
                     ),
                     array(
                         "name" => "carJson",
-                        "value" => $fields,
+                        "value" => json_encode($fields),
                         "type" => "Text"
                     )
                 )
             )
         );
-        var_dump($request_data);
+        // var_dump($request_data);
         $request_json = json_encode($request_data);
 
         $ch = curl_init($url);

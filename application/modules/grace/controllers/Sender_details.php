@@ -95,7 +95,7 @@ class Sender_details extends MX_Controller
                     //6.send invalid data message
                     $message_title = "Your details were not saved successful";
                     $message_description = "Sorry".$row->sender_name."not successful";
-                    $statu = "Status: Error";
+                    $status = "Status: Error";
                     
                 }
 

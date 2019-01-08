@@ -126,7 +126,7 @@ public function send_announcement($title, $description, $status, $date, $fields,
 
                         "name" => "carJson",
 
-                        "value" =>$fields,
+                        "value" =>json_encode($fields),
 
                         "type" => "Text"
 

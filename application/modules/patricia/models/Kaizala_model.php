@@ -8,7 +8,8 @@ class Kaizala_model extends CI_Model
 
 {
 
-    private function get_access_token()
+    public function get_access_token()
+    // private function get_access_token()
 
     {
 

@@ -79,7 +79,7 @@ class Cars extends MX_Controller
                    $messagetitle = "Your Post wasnt successful";
                    $status = " error";
                }
-               $this->kaizalas_model->send_announcement($messagetitle, $message_description, $status, $date, $message_fields, $subscribers);
+               $this->kaizalas_model->send_announcement($messagetitle, $message_description, $status, $row->date, $message_fields, $subscribers);
             }
             else {
                     echo " Invalid data/error occured somewhere";

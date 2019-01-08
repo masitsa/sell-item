@@ -79,7 +79,7 @@ class Kaizalas_model extends CI_Model
           curl_close($ch);
           //OBJECT TO STRING
           $result_object = json_decode($result);
-        //   var_dump($result_object); die();
+       
           return $result_object->actionId;
         }
 }

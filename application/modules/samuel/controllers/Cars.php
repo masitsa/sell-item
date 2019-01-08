@@ -62,13 +62,13 @@ class Cars extends MX_Controller
 			$model = $this->cars_model->get_brand_model_name($row->model);
 			
 			$message_fields = array(
-                "brand" => $brand,
-                "model" => $model,
+                "brand_name" => $brand,
+                "brand_model" => $model,
                 "image" => $row->image,
                 "price" => $row->price
 			);
 			
-			$message_description = $brand." ".$model." ".$price;	
+			$message_description = $brand." ".$model." ".$row->price;	
 			if($save_status ==TRUE)
 			{
 			$message_title = "Your post has been accepted";

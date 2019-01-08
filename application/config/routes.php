@@ -105,12 +105,18 @@ $route['sarafina1/retrieveSoldCars'] = "sarafina1/action_cards/retrieveSoldCars"
 $route['martin/get-brands'] = "martin/brands/get_brands";
 $route['martin/brands-models'] = "martin/brands/get_brands_and_models";
 $route['martin/get-cars'] = "martin/brands/get_posted_cars";
-$route['martin/save-card'] = "martin/seller_car/create_card";
+$route['martin/save-card'] = "martin/cars/create_card";
 
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
 $route['grace/create_checkin'] = "grace/sender_details/create_checkin";
 $route['grace/Seller_Details'] = "grace/brands/Seller_Details";
+
+
+//grace routes
+$route['fredrick/get-brands'] = "grace/brands/get_brands";
+$route['fredrick/create_checkin'] = "grace/sender_details/create_checkin";
+$route['fredrick/Seller_Details'] = "grace/brands/Seller_Details";
 
 /**
  * Moses routes
@@ -119,6 +125,11 @@ $route['moses/get-brands'] = "moses/brands/get_brands";
 $route['moses/create-transaction'] = "moses/transactions/create_transaction";
 $route['moses/create-car'] = "moses/cars/create_car";
 
+//fredrick routes
+$route['fredrick/get-brands'] = "fredrick/brands/get_brands";
+$route['fredrick/create_checkin'] = "fredrick/sender_details/create_checkin";
+$route['fredrick/Seller_Details'] = "fredrick/brands/Seller_Details";
+$route['fredrick/create-car'] = "fredrick/cars/create_car";
 
 
 

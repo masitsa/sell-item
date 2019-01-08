@@ -35,7 +35,7 @@ class Kaizala_model extends CI_Model
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.sarafina.announcemnt.3",
+            "id" => "com.nanyukiaf.sarafina.car.announcement.2",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
@@ -62,7 +62,7 @@ class Kaizala_model extends CI_Model
                     ),
                     array(
                         "name" => "carJson",
-                        "value" => $fields,
+                        "value" => json_encode($fields),
                         "type" => "Text"
                     )
                 )

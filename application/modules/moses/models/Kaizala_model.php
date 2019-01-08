@@ -33,7 +33,7 @@ class Kaizala_model extends CI_Model
         $group_id  = "5b9411dd-0e0d-40b1-9752-c24d9ed19f0f@2";
 
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
-        $access_token = $this->get_access_token();
+        $accessToken = $this->get_access_token();
 
         $request_data = array(
             "id" => "com.nanyukiaf.moses.car.announcement",
@@ -75,9 +75,10 @@ class Kaizala_model extends CI_Model
         $request_json = json_encode($request_data);
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLPOT_POSTFIELDS, $request_json);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, arra(
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             "accessToken: ".$accessToken,
             "Content-Type: application/json",
             "Content-Length: ".strlen($request_json)

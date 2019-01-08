@@ -47,17 +47,18 @@ class Cars extends MX_Controller
   
             
             
-            $date_submitted = date("Y-m-d H:i:s");
+            $date_created= date("Y-m-d H:i:s");
 
             //must match with database
             $data = array(
-                "brand_model_id" => $row->brand_model,
-                "date_created" => $row->date_submitted,
-                "seller_name" => $row->name,
-                "seller_phone" => $row->phone,
-                "moses_car_price" => $row->car_price,
-                "moses_car_transmission" => $row->car_transmission,
-                "moses_car_image" => $row->car_image          
+                "brand_model_id" => $row->brand_model_id,
+                "date_created" => $row->date_created,
+                "seller_name" => $row->seller_name,
+                "seller_phone" => $row->seller_phone,
+                "moses_car_price" => $row->moses_car_price,
+                "moses_car_transmission" => $row->moses_car_transmission,
+                "moses_car_image" => $row->moses_car_image,
+                "moses_car_year" => $row->moses_car_year          
 
             );
 
@@ -66,16 +67,16 @@ class Cars extends MX_Controller
             $save_status = $this->cars_model->save_car($data);
 
             //Create announcement data
-			$subscribers = array($row->phone);
-            $brand_name = $this->cars_model->get_brand_name($row->brand);
-            $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
-            $year = $row->car_year;
+			$subscribers = array($row->seller_phone);
+            $brand_name = $this->cars_model->get_brand_name($row->brand_model_id);
+            $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model_id);
+            $year = $row->moses_car_year;
 
             $message_fields = array(
                 "brand" => $brand_name,
                 "brand_model" => $brand_model_name,
-                "image" => $row->picture,
-                "price" => $row->car_price
+                "image" => $row->moses_car_image,
+                "price" => $row->moses_car_price
             );
             
             $message_description = $brand_name." ".$brand_model_name." ".$year;
@@ -90,7 +91,7 @@ class Cars extends MX_Controller
                 $status = "Status: Error";
             }
 
-            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_created, $message_fields, $subscribers);
 
         }else{
             // send invalid data message

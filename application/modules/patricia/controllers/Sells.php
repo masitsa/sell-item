@@ -39,6 +39,7 @@ class Sells extends MX_Controller
         if(is_array($json_object) && (count($json_object)>0)){
             //retrieve data
             $row=$json_object[0];
+            $date_submitted = date("Y-m-d H:i:s");
             $data =array(
                 "Brand_name" =>$row->Brand,
                 "Brand_model_name"=>$row->model,
@@ -53,10 +54,10 @@ class Sells extends MX_Controller
            $save_status= $this->sells_model->save_sell($data);
            //create announcement data
            $subscribers = array($row->phone);
-           $brand_name =  $row->Brand;
+           $brand_name = $row->Brand;
            $brand_model_name = $row->model;
-           $price =  $row->price;
-          //$year = $row->car_year;
+     
+    
            $message_fields = array(
             "brand" => $brand_name,
             "brand_model" => $brand_model_name,
@@ -86,7 +87,7 @@ class Sells extends MX_Controller
         }*/
         //4.Request to save data
         //5.send a confirmation
-        $message_description = $brand_name." ".$brand_model_name." ".$price;
+        $message_description = $brand_name." ".$brand_model_name;
 
         if($save_status == TRUE)
         {
@@ -100,7 +101,7 @@ class Sells extends MX_Controller
         }
         
         //Send the announcement
-        $this->kaizala_model->send_announcement($message_title, $message_description, $status,  $message_fields, $subscribers);
+        $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers, $status, $date_submitted, $message_fields);
     }
 
     else

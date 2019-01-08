@@ -56,7 +56,7 @@ class Sells extends MX_Controller
 
            if($save_status ==TRUE){
              $message_title ="Sells Successfull";
-             $message_description ="Thankyou ".$row->name.".for checking in";
+             $message_description ="Thankyou ".$row->name.".for your car.";
 
 
            }else{
@@ -65,8 +65,8 @@ class Sells extends MX_Controller
             $message_description="dint login".$row->name.".try again";
            }
            
-           $this->kaizala_model->send_announcement($message_title,
-           $message_description,$subcribers);
+           $this->kaizala_model->send_announcement($title,$description,$status,$date,$fields,$receivers);
+           //($message_title, $message_description,$subcribers)
 
         }
         else{

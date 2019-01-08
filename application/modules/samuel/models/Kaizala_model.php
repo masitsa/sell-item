@@ -64,12 +64,11 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
             )
         );
   $request_json= json_encode($request_data);
-  $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST,
-  "POST");
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
-  cur_setopt($ch, CURLOPT_HTTPHEADER, array(
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
       "accessToken:".$access_token,
       "content_Type:application/json",
       "content_Length:".strlen($request_json)

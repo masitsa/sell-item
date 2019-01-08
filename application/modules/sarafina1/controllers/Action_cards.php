@@ -70,7 +70,7 @@ class Action_cards extends MX_Controller
                //Create announcement data
                $brand_name = $this->action_cards_model->get_brand_name($row->brand_name);
                $brand_model_name = $this->action_cards_model->get_brand_model_name($row->brand_model_name);
-               $year = $row->year;
+               //$year = $row->year;
 
                $message_fields = array(
                 "brand_name" => $brand_name,
@@ -78,7 +78,7 @@ class Action_cards extends MX_Controller
                 "brand_image" => $row->brand_image,
                // "price" => $row->price
             );
-                $message_description = $brand_name." ".$brand_model_name." ".$year. " ".$price;
+                $message_description = $brand_name." ".$brand_model_name;//." ".$year. " ".$price;
                 
                $subcribers =array($row->Phone);
     

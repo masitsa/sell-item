@@ -63,7 +63,7 @@ class Cars extends MX_Controller
 			
 			$message_fields = array(
                 "brand" => $brand_name,
-                "brand_model" => $brand_model_name,
+                "model" => $brand_model_name,
                 "image" => $row->image,
                 "price" => $row->price
 			);

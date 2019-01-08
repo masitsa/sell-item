@@ -35,7 +35,7 @@ class Kaizala_model extends CI_Model
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.philip.announcement",
+            "id" => "com.nanyukiaf.philip.announcement.4",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
@@ -88,3 +88,4 @@ class Kaizala_model extends CI_Model
         return $result_object->actionId;
     }
 }
+?>

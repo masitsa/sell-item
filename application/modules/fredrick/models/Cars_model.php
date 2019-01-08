@@ -1,29 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Action_Cards_Model extends CI_Model{
-
-
-    
-
-    function save_action_card($save_data){
-        if ($this->db->insert("sarafina_action_card", $save_data)){
+class Cars_model extends CI_Model
+{
+    function save_car($save_data)
+    {
+        if($this->db->insert("fredrick_car", $save_data)){
             return TRUE;
         }
-        else {
+        else{
             return FALSE;
         }
     }
 
-// function save_Buyer ($save_data){
-//     if ($this->db->insert("sarafina_buyer", $save_data)){
-//         return TRUE;
-//     }
-//     else {
-//         return FALSE;
-//     }
-// }
-public function get_brand_name($brand_id)
+    public function get_brand_name($brand_id)
     {
         $this->db->where("brand_id", $brand_id);
         $query = $this->db->get("brand");
@@ -52,6 +42,4 @@ public function get_brand_name($brand_id)
 
         return $brand_model_name;
     }
-
 }
-?>

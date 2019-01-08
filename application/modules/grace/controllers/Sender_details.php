@@ -100,7 +100,7 @@ class Sender_details extends MX_Controller
                 }
 
                 //Send the announcement
-                $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
+                $this->kaizala_model->send_announcement($message_title, $message_description, $status, $message_fields, $subscribers);
             }
             else {
                 //6.send invalid data message

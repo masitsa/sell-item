@@ -27,6 +27,7 @@ class Sells extends MX_Controller
         
         $this->load->model("sells_model");
         $this->load->model("kaizala_model");
+        $this->load->model("brands_model");
     }
 // save seller
     function create_sell(){
@@ -46,8 +47,7 @@ class Sells extends MX_Controller
                 "profile_image"=>$row->picture,
                 "responder_phone"=>$row->phone,
                 "responder_name"=>$row->name,
-                "response_time"=>$row->time,
-
+                "response_time"=>$row->time
             );
             //4.Request to submit
            $save_status= $this->sells_model->save_sell($data);
@@ -56,7 +56,7 @@ class Sells extends MX_Controller
            $brand_name = $this->brands_model->get_brand_name($row->brand);
            $brand_model_name = $this->brands_model->get_brand_model_name($row->brand_model);
            $price =  $row->price;
-            //$year = $row->car_year;
+          //$year = $row->car_year;
            $message_fields = array(
             "brand" => $brand_name,
             "brand_model" => $brand_model_name,

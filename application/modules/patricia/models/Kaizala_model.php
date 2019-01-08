@@ -8,7 +8,8 @@ class Kaizala_model extends CI_Model
 
 {
 
-    private function get_access_token()
+    public function get_access_token()
+    // private function get_access_token()
 
     {
 
@@ -60,7 +61,7 @@ class Kaizala_model extends CI_Model
 
 
 //use 4 filds title,descri in your new file you will create
-    public function send_announcement($title,$description,$status,$date,$fields,$receivers)
+public function send_announcement($title, $description, $status,  $fields, $receivers)
    // ($title, $message, $receivers)
 
     {
@@ -75,7 +76,7 @@ class Kaizala_model extends CI_Model
 
         $request_data = array(
 
-            "id" => "com.nanyukiaf.patricia.announcement",
+            "id" => "com.nanyukiaf.patricia.car.announcement",
 
             "sendToAllSubscribers" => false,
 
@@ -124,22 +125,14 @@ class Kaizala_model extends CI_Model
                     ),
                     array(
 
-                        "name" => "date",
+                        "name" => "carJson",
 
-                        "value" =>$date,
-
-                        "type" => "Text"
-
-                    ),
-                    array(
-
-                        "name" => "car",
-
-                        "value" =>$fields,
+                        "value" =>json_encode($fields),
 
                         "type" => "Text"
 
                     )
+                   
 
                 )
 

@@ -56,27 +56,38 @@ class Cars extends MX_Controller
 			$save_status= $this->cars_model->save_car
 			($data);
 
-			$subscriber = array($row->phone);
-
+			//Here we create the announcement data
+			$subscribers = array($row->phone);
+            $brand = $this->cars_model->get_brand_name($row->brand);
+			$model = $this->cars_model->get_brand_model_name($row->model);
+			
+			$message_fields = array(
+                "brand" => $brand,
+                "model" => $model,
+                "image" => $row->image,
+                "price" => $row->price
+			);
+			
+			$message_description = $brand." ".$model." ".$price;	
 			if($save_status ==TRUE)
 			{
-			$message_title = "save successful";
-			$message_description ="you can now send to buyers";
+			$message_title = "Your post has been accepted";
+			$status ="Status: Published";
 
 				}
-			else{
-				$message_title ="Hello ".$row->name.". Your post has been accepted.";
-				$message_description ="Please try again";
+			else
+				{
+				$message_title = "Your post was not successful";
+                $status = "Status: Error";
 			}
-			//request to submit
-			$this->kaizala_model->send_announcement($title, $description,$status,$date,  $message, $receivers);
+			//Send the announcement
+			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $date, $message_fields, $subscribers);
 			}
-			else{
-				$message_description ="thanks for submiting a new car";
-			}
-			//4. request save data
-			//5. send a confirmation
+			else
+		{
+			//Send invalid data message
+			echo "Invalid data provided";
 		}
-
-    }
+	}
+}
 ?>

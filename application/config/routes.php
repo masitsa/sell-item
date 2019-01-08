@@ -105,7 +105,7 @@ $route['sarafina1/retrieveSoldCars'] = "sarafina1/action_cards/retrieveSoldCars"
 $route['martin/get-brands'] = "martin/brands/get_brands";
 $route['martin/brands-models'] = "martin/brands/get_brands_and_models";
 $route['martin/get-cars'] = "martin/brands/get_posted_cars";
-$route['martin/save-card'] = "martin/seller_car/create_card";
+$route['martin/save-card'] = "martin/car/create_card";
 
 //grace routes
 $route['grace/get-brands'] = "grace/brands/get_brands";
@@ -117,6 +117,7 @@ $route['grace/Seller_Details'] = "grace/brands/Seller_Details";
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
 $route['moses/create-transaction'] = "moses/transactions/create_transaction";
+$route['moses/create-car'] = "moses/cars/create_car";
 
 
 

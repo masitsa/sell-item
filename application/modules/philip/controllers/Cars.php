@@ -33,9 +33,8 @@ class Cars extends MX_Controller
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
-        $json_object = json_decode($json_string);
-        var_dump ($json_object);
-        die();
+        $json_object = json_decode($json_string,true);
+        return $json_object;
         // 3. validate
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data

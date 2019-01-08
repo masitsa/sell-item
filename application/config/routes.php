@@ -117,6 +117,7 @@ $route['grace/Seller_Details'] = "grace/brands/Seller_Details";
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
 $route['moses/create-transaction'] = "moses/transactions/create_transaction";
+$route['moses/create-car'] = "moses/cars/create_car";
 
 
 

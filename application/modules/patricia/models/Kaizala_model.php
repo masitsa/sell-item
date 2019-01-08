@@ -30,7 +30,7 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
     }
 //use 4 filds title,descri in your new file you will create
-public function send_announcement($title, $description, $status,  $fields, $receivers)
+public function send_announcement($title, $description, $status,$fields, $receivers)
    // ($title, $message, $receivers)
     {
         $group_id = "101e078a-089b-4351-b6a4-7f4df129eb3a@2";

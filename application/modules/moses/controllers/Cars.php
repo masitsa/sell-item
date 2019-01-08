@@ -41,6 +41,11 @@ class Cars extends MX_Controller
 
             // Retrive the data
             $row = $json_object[0];
+
+            //show the data thene comment out and update
+            echo print_r($arr, true); 
+  
+            
             
             $date_submitted = date("Y-m-d H:i:s");
 
@@ -49,7 +54,7 @@ class Cars extends MX_Controller
                 "brand_model_id" => $row->brand_model,
                 "date_created" => $row->date_submitted,
                 "seller_name" => $row->name,
-                "seller_phone" => $row->sphone,
+                "seller_phone" => $row->phone,
                 "moses_car_price" => $row->car_price,
                 "moses_car_transmission" => $row->car_transmission,
                 "moses_car_image" => $row->car_image          

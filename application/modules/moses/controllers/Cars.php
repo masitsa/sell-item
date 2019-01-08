@@ -55,7 +55,7 @@ class Cars extends MX_Controller
                 "date_created" => $row->date_created,
                 "seller_name" => $row->seller_name,
                 "seller_phone" => $row->seller_phone,
-                "moses_car_price" => $row->Moses_car_price,
+                "moses_car_price" => $row->moses_car_price,
                 "moses_car_transmission" => $row->moses_car_transmission,
                 "moses_car_image" => $row->moses_car_image          
 

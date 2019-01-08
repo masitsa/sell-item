@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Seller_car_model extends CI_Model
+class Car_model extends CI_Model
 {
     function save_card($save_data) {
         if($this->db->insert("martin_car", $save_data)) {
@@ -10,6 +10,7 @@ class Seller_car_model extends CI_Model
             return false;
         }
     }
+
     public function get_brand_name() {
         $this->db->where("brand_id", $brand_id);
         $query = $this->db->get("brand");

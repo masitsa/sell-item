@@ -11,6 +11,10 @@ class Cars_Model extends CI_Model
             return FALSE;
         }
     }
+    public function sth(){
+        $query = $this->db->get("philip_car");
+        return $query;
+    }
     public function get_brand_name($sender_id)
     {
         $this->db->where("sender_id", $sender_id);

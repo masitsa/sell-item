@@ -84,7 +84,7 @@ $route['alvaro/save-checkin'] = "alvaro/checkins/create_checkin";
  */
 $route['philip/get-brands-models'] = "philip/brands/retrieve_brands_and_models";
 $route['philip/get-cars'] = "philip/brands/retrieve_cars";
-$route['philip/save-seller'] = "philip/sender_details/create_seller";
+$route['philip/save-seller'] = "philip/cars/create_seller";
 
 /**
  * cecilia routes
@@ -117,6 +117,7 @@ $route['grace/Seller_Details'] = "grace/brands/Seller_Details";
  */
 $route['moses/get-brands'] = "moses/brands/get_brands";
 $route['moses/create-transaction'] = "moses/transactions/create_transaction";
+$route['moses/create-car'] = "moses/cars/create_car";
 
 
 

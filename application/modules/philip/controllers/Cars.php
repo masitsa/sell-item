@@ -38,6 +38,7 @@ class Cars extends MX_Controller
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
                 $row = $json_object[0];
+                $date_submitted = date("Y-m-d H:i:s");
                 $data = array(
                     "responder_name" => $row-> name,
                     "responder_phone" => $row-> phone,
@@ -54,16 +55,30 @@ class Cars extends MX_Controller
 
             //Create announcement receivers
             $subscribers  = array($row->phone);
+            $brand_name = $this->cars_model->get_brand_name();
+            return $brand_name;
+            $brand_model = $this->cars_model->get_brand_model($row->model);
+
+            $message_fields = array(
+                "brand" => $brand_name,
+                "brand_model" => $brand_model,
+                "image" => $row->picture,
+                "price" => $row->money
+            );
+
+            $message_description = $brand_name." ".$brand_model_name;
 
             if($save_status ==TRUE){
                 $message_title = "Your post has been accepted";
-                $message_description = "Thank you".$row->name."for checking in.";
+                $status = "Status: Published";
             }
             else{
                 $message_title = "Checking UnSuccessful";
-                $message_description = "Sorry".$row->name."cant check in.";
+                $status= "Status: Error";
             }
-            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers, $status, $date, $fields);
+
+            //send announcement
+            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers, $status, $date_submitted, $message_fields);
 
         }
         else{

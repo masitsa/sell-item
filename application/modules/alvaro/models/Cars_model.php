@@ -1,20 +1,22 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Cars_Model extends CI_Model
+class Cars_model extends CI_Model
 {
-    function save_seller($save_data){
-        if($this->db->insert("philip_car",$save_data)){
+    function save_car($save_data)
+    {
+        if($this->db->insert("alvaro_car", $save_data)){
             return TRUE;
         }
         else{
             return FALSE;
         }
     }
-    public function get_brand_name($sender_id)
+
+    public function get_brand_name($brand_id)
     {
-        $this->db->where("sender_id", $sender_id);
-        $query = $this->db->get("brand_name");
+        $this->db->where("brand_id", $brand_id);
+        $query = $this->db->get("brand");
         $brand_name = "";
 
         if($query->num_rows() > 0)
@@ -25,18 +27,19 @@ class Cars_Model extends CI_Model
 
         return $brand_name;
     }
-    public function get_brand_model($sender_id)
+
+    public function get_brand_model_name($brand_model_id)
     {
-        $this->db->where("sender_id", $sender_id);
+        $this->db->where("brand_model_id", $brand_model_id);
         $query = $this->db->get("brand_model");
-        $brand_model = "";
+        $brand_model_name = "";
 
         if($query->num_rows() > 0)
         {
             $row = $query->row();
-            $brand_model = $row->brand_model;
+            $brand_model_name = $row->brand_model_name;
         }
 
-        return $brand_model;
+        return $brand_model_name;
     }
 }

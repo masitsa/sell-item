@@ -5,10 +5,10 @@ class Kaizala_model extends CI_Model
 {
     private function get_access_token()
     {
-        $application_id = "810ac010-0c49-47bd-bc53-9d0f8bbde326";
-        $application_secret = "7ZLTB5H1VI";
+        $application_id = "c8e05d1f-9e90-4c67-b468-15d7278d16f3";
+        $application_secret = "TVBARIQHVG";
 
-        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjYxNDkzNTFcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiODEwYWMwMTAtMGM0OS00N2JkLWJjNTMtOWQwZjhiYmRlMzI2XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkFsdmFyb05hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6ODZmZWI1MmMtMTRkNS00YTdkLTk4ZGEtYmEyYWI0NDBmMDhmIiwidmVyIjoiMiIsIm5iZiI6MTU0NTIyNjY4NSwiZXhwIjoxNTc2NzYyNjg1LCJpYXQiOjE1NDUyMjY2ODUsImlzcyI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIiwiYXVkIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8ifQ.K0pacDSS8LT4UrQye0UCtV7uDvEGNhIne1j5VUKSqJ4";
+        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MjYxNDkzNTFcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiYzhlMDVkMWYtOWU5MC00YzY3LWI0NjgtMTVkNzI3OGQxNmYzXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkthaXphbGEgRWNvbW1lcmNlXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTo4NmZlYjUyYy0xNGQ1LTRhN2QtOThkYS1iYTJhYjQ0MGYwOGYiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ2OTM1MDU4LCJleHAiOjE1Nzg0NzEwNTgsImlhdCI6MTU0NjkzNTA1OCwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.BDRUxM7bjq3GZl_HV7vFWo0vQAi74vIKfH_k195dfIs";
 
         $end_point = "https://kms.kaiza.la/v1/accessToken";
 
@@ -28,26 +28,41 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
     }
 
-    public function send_announcement($title, $message, $receivers)
+    public function send_announcement($title, $description, $status, $date, $fields, $receivers)
     {
         $group_id = "c601e0e3-2d41-4a02-88a2-f7e4949dc706";
         $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.alvaro.announcemnt.2",
+            "id" => "com.nanyukiaf.alvaro.announcemnt.3",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
                 "properties" => array(
                     array(
-                        "name" => "messageTitle",
+                        "name" => "sellerTitle",
                         "value" => $title,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "responseMessage",
-                        "value" => $message,
+                        "name" => "carDescription",
+                        "value" => $description,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "carStatus",
+                        "value" => $status,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "date",
+                        "value" => $date,
+                        "type" => "Text"
+                    ),
+                    array(
+                        "name" => "carJson",
+                        "value" => $fields,
                         "type" => "Text"
                     )
                 )
@@ -57,7 +72,7 @@ class Kaizala_model extends CI_Model
         $request_json = json_encode($request_data);
 
         $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POgitST");
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(

@@ -43,7 +43,7 @@ class Cars extends MX_Controller
             $row = $json_object[0];
 
             //show the data thene comment out and update
-            echo print_r($arr, true); 
+           // echo print_r($arr, true); 
   
             
             

@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kaizala_model extends CI_Model
 {
- private function get_access_code()
+ private function get_access_token()
  {
 $application_id="0252de3e-8862-407b-b53d-b4b0d72ce491";
 $application_secret="5QQWX9004W ";
@@ -57,7 +57,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
                     ),
                     array(
                         "name" => "carJson",
-                        "value" => $json_encode($fields),
+                        "value" => json_encode($fields),
                         "type" => "Text"
                     )
                 )

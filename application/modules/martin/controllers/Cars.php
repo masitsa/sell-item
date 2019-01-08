@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Car extends MX_Controller
+class Cars extends MX_Controller
 {
     function __construct() { 
 		parent:: __construct();
@@ -9,7 +9,7 @@ class Car extends MX_Controller
 		// Allow from any origin
 		if (isset($_SERVER['HTTP_ORIGIN'])) {
 			header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
-			header('Access-Control-Allow-Credentials: true');
+			header('Access-Control-Allow-Credentials: true'); 
 			header('Access-Control-Max-Age: 86400');    // cache for 1 day
 		}
 	
@@ -25,7 +25,7 @@ class Car extends MX_Controller
 			exit(0);
         }
         
-		$this->load->model("car_model");
+		$this->load->model("cars_model");
 		$this->load->model("kaizala_model");
 	}
 	function create_card() {
@@ -40,7 +40,6 @@ class Car extends MX_Controller
 		if (is_array($json_object) && (count($json_object) > 0)) {
 			//1. Retrieve the data
 			$row = $json_object[0];
-			$date_submitted = date('Y-m-d H:i:s');
 			$data = array(
 				"name" => $row->name,
 				"brand_name" => $row->brand_name,
@@ -51,13 +50,14 @@ class Car extends MX_Controller
 				"transmission_type" => $row->transmission_type
 			);
 
+			$date_submitted = date('Y-m-d H:i:s');
 			//2. Request to submit
-			$save_status = $this->car_model->save_card($data);
+			$save_status = $this->cars_model->save_card($data);
 
 			// Create announcement receivers
 			$subscribers = array($row->phone);
-			$brand_name = $this->car_model->get_brand_name($row->brand);
-			$brand_model_name = $this->car_model->get_brand_model_name($row->brand_model);
+			$brand_name = $row->brand_name;
+			$brand_model_name = $row->brand_model;
 				
 			$message_fields = array(
 				"brand" => $brand_name,

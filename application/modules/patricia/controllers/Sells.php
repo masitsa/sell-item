@@ -53,8 +53,8 @@ class Sells extends MX_Controller
            $save_status= $this->sells_model->save_sell($data);
            //create announcement data
            $subscribers = array($row->phone);
-           $brand_name = $this->brands_model->get_brand_name($row->Brand);
-           $brand_model_name = $this->brands_model->get_brand_model_name($row->model);
+           $brand_name = $row->Brand;
+           $brand_model_name = $row->model;
      
     
            $message_fields = array(

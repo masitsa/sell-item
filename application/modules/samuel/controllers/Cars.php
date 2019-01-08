@@ -68,7 +68,7 @@ class Cars extends MX_Controller
                 "price" => $row->price
 			);
 			
-			$message_description = $brand." ".$model." ".$price;	
+			$message_description = $brand." ".$model." ".$row->price;	
 			if($save_status ==TRUE)
 			{
 			$message_title = "Your post has been accepted";
@@ -81,7 +81,7 @@ class Cars extends MX_Controller
                 $status = "Status: Error";
 			}
 			//Send the announcement
-			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $date, $message_fields, $subscribers);
+			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $row->date, $message_fields, $subscribers);
 			}
 			else
 		{

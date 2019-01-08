@@ -23,12 +23,12 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
    }
 
-        public function send_announcement ($title, $description, $status, $date, $fields, $recievers){
+        public function send_announcement ($title, $description, $status, $fields, $receivers){
             $group_id = "c8003f67-2ab5-43a0-bce2-611ee31d10f4@2";
             $url = "https://kms2.kaiza.la/v1/groups".$group_id."/actions";
             $access_token = $this->get_access_token();
 
-            $request_data = array ("id"=>"com.nanyukiaf.grace.announcement.3",
+            $request_data = array ("id"=>"com.nanyukiaf.grace.car.announcement",
             "sendToAllSubscribers"=>false, "subscribers"=>$receivers,
             "actionBody"=>array(
             "properties"=>
@@ -46,11 +46,12 @@ class Kaizala_model extends CI_Model
             "value"=> $status,
             "type"=>"Text"
            ),
-           array (
-            "name"=>"date",
-            "value"=> $date,
-            "type"=>"Text"
-           )
+           array(
+            "name" => "carJson",
+            "value" => json_encode($fields),
+            "type" => "Text"
+        )
+           
         
 
         ));

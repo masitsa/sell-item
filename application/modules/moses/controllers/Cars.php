@@ -29,7 +29,7 @@ class Cars extends MX_Controller
         $this->load->model("kaizala_model");
     }
 
-    function create_cars(){
+    function create_car(){
         //1. Recieve a JSON POST
         $json_string = file_get_contents("php://input");
 
@@ -41,17 +41,23 @@ class Cars extends MX_Controller
 
             // Retrive the data
             $row = $json_object[0];
-            //eg $checkin_time = $row -> time_checkin; //repeat for all fields// never mind skipped
+
+            //show the data thene comment out and update
+           // echo print_r($arr, true); 
+  
+            
+            
+            $date_submitted = date("Y-m-d H:i:s");
 
             //must match with database
             $data = array(
-                "brand_model_id" => $row->brand_model_id,
-                "date_created" => $row->date_created,
-                "seller_name" => $row->seller_name,
-                "seller_phone" => $row->seller_phone,
-                "moses_car_price" => $row->moses_car_price,
-                "moses_car_transmission" => $row->moses_car_transmission,
-                "moses_car_image" => $row->moses_car_image          
+                "brand_model_id" => $row->brand_model,
+                "date_created" => $row->date_submitted,
+                "seller_name" => $row->name,
+                "seller_phone" => $row->phone,
+                "moses_car_price" => $row->car_price,
+                "moses_car_transmission" => $row->car_transmission,
+                "moses_car_image" => $row->car_image          
 
             );
 
@@ -59,24 +65,32 @@ class Cars extends MX_Controller
             //4. Request to submit
             $save_status = $this->cars_model->save_car($data);
 
-            //create announcement receivers
-            $subscribers = array($row->phone);
+            //Create announcement data
+			$subscribers = array($row->phone);
+            $brand_name = $this->cars_model->get_brand_name($row->brand);
+            $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
+            $year = $row->car_year;
+
+            $message_fields = array(
+                "brand" => $brand_name,
+                "brand_model" => $brand_model_name,
+                "image" => $row->picture,
+                "price" => $row->car_price
+            );
+            
+            $message_description = $brand_name." ".$brand_model_name." ".$year;
 
 
             //5. send confirmation later we will send an announcement
             if($save_status == TRUE){
-                $title = "your post was successful";
-                $description = "Thank you ".$row->name." for posting";
-                $status = "published";
-                $date = null;
-                $fields = null;
-                $receivers = null;
+                $message_title = "Your post has been accepted";
+                $status = "Status: Published";
             }else{
-                $title = "error";
-                $description = "Pardon me ".$row->name." your post attempt was not successful. Please try again.";
+                $message_title = "Your post was not successful";
+                $status = "Status: Error";
             }
 
-            $this->kaizala_model->send_announcement($title, $description, $status, $date, $fields, $receivers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
 
         }else{
             // send invalid data message

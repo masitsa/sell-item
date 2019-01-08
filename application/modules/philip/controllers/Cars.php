@@ -33,9 +33,8 @@ class Cars extends MX_Controller
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
-        $json_object = json_decode($json_string,true);
-       var_dump($json_object);
-       die();
+        $json_object = json_decode($json_string);
+      
         // 3. validate
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
@@ -58,6 +57,7 @@ class Cars extends MX_Controller
             //Create announcement receivers
             $subscribers  = array($row->phone);
             $brand_name = $this->cars_model->get_brand_name($row->brand);
+            var_dump($brand_name);
             $brand_model = $this->cars_model->get_brand_model($row->model);
 
             $message_fields = array(

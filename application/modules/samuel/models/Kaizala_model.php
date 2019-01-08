@@ -75,7 +75,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
   ));
   $result =curl_exec($ch);
   curl_close($ch);
-  $result_object = json_encode($result);
+  $result_object = json_decode($result);
   return $result_object->actionId;
  }
 }

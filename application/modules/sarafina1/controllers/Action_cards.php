@@ -58,32 +58,44 @@ class Action_cards extends MX_Controller
                     "Name" =>$row->Name,
                     "Phone" =>$row->Phone,                    
                     "Location" =>$row->Location,
-                    "Response_Time" =>$time
+                    "Response_Time" =>$time,
                     // "transmission_code" =>$row->transmission_code,
-                    // "engine_code" =>$row->engine_code,
+                    
                     // "year" =>$row->year,
-                    // "price" =>$row->price,
+                    // "price" =>$row->price
                     
                 );
                 //4.Request to submit
                $save_status= $this->action_cards_model->save_action_card($data);
-               
+               //Create announcement data
+               $brand_name = $this->action_cards_model->get_brand_name($row->brand_name);
+               $brand_model_name = $this->action_cards_model->get_brand_model_name($row->brand_model_name);
+               $year = $row->year;
+
+               $message_fields = array(
+                "brand_name" => $brand_name,
+                "brand_model" => $brand_model_name,
+                "brand_image" => $row->brand_image,
+               // "price" => $row->price
+            );
+                $message_description = $brand_name." ".$brand_model_name." ".$year. " ".$price;
+                
                $subcribers =array($row->Phone);
     
                if($save_status ==TRUE){
                  $message_title ="Your post has been accepted";
-                 $message_description ="Thankyou ".$row->Name.".for checking in";
-    
+                 $status = "Status: Published";
+                
     
                }else{
                  
                 $message_title="Error";
-                $message_description="din't login".$row->Name.".try again";
+                $message_description= "Sorry". $row->Name. "you couldn't login, try again";
+                $status = "Status: Error";
                }
                
                $this->kaizala_model->send_announcement($message_title,
-               $message_description,$subcribers,$time);
-    
+               $message_description, $status, $time, $message_fields, $subcribers);
             }
             else{
                 //send invalid data message

@@ -45,7 +45,12 @@ class Kaizala_model extends CI_Model
             "name"=>"carStatus",
             "value"=> $status,
             "type"=>"Text"
-           )
+           ),
+           array(
+            "name" => "carJson",
+            "value" => json_encode($fields),
+            "type" => "Text"
+        )
            
         
 

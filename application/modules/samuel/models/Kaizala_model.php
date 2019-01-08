@@ -24,7 +24,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $response_decoded=json_decode($response);
     return $response_decoded->accessToken;
     }  
-    public function send_announcement($title, $description,$status,$date,  $message,$receivers)
+    public function send_announcement($title, $description,$status,$date, $fields, $receivers)
     {
     $group_id ="a0090dec-78b5-4914-b61b-241638e22862@2";
     $url="https://kms2.kaiza.lav1/groups/".$group_id."/actions";

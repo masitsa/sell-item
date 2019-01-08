@@ -49,10 +49,20 @@ class Cars extends MX_Controller
 				"date" => $row->date,
 				"transmission_type" => $row->transmission_type
 			);
+
+			$date = date('Y-m-d H:i:s');
 			//2. Request to submit
 			$save_status = $this->seller_car_model->save_card($data);
 
-
+			$message_fields = array(
+				"name" => $row->name,
+				"brand_name" => $row->brand_name,
+				"brand_model" => $row->brand_model,
+				"price" => $row->price,
+				"phone" => $row->phone,
+				"date" => $row->date,
+				"transmission_type" => $row->transmission_type
+			);
 
 			// Create announcement receivers
 			$subscribers = array($row->phone);
@@ -61,11 +71,13 @@ class Cars extends MX_Controller
 				//4. Send a confirmation
 				$message_title = "Your post has been accepted";
 				$message_description = "Thank you ".$row->name. "for using our platform";
+				$status = "Sent successfully";
 			} else {
 				$message_title = "Card submission failed. Please try again";
 				$message_description = "The attempt was not successful. Please try again";
+				$status = "Error";
 			}
-			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $date, $message_fields, $subscribers);
 		}
 		else {
 			//5. Send invalid data message

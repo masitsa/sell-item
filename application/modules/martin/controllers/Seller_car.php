@@ -65,7 +65,7 @@ class Seller_car extends MX_Controller
 				$message_title = "Card submission failed. Please try again";
 				$message_description = "The attempt was not successful. Please try again";
 			}
-			$this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $date, $message_fields, $receivers);
 		}
 		else {
 			//5. Send invalid data message

@@ -28,10 +28,7 @@ class Cars extends MX_Controller
         $this->load->model("cars_model");
         $this->load->model("kaizala_model");
     }
-    public function sththings(){
-        $brand_name = $this->cars_model->sth();
-        return $brand_name;
-    }
+
     public function create_seller(){
         // 1. Receive json post
         $json_string = file_get_contents("php://input");
@@ -70,7 +67,7 @@ class Cars extends MX_Controller
                 "price" => $row->money
             );
 
-            $message_description = $brand_name." ".$brand_model;
+            $message_description = $brand_name." ".$brand_model_name;
 
             if($save_status ==TRUE){
                 $message_title = "Your post has been accepted";

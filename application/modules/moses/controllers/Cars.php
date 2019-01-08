@@ -57,7 +57,8 @@ class Cars extends MX_Controller
                 "seller_phone" => $row->seller_phone,
                 "moses_car_price" => $row->moses_car_price,
                 "moses_car_transmission" => $row->moses_car_transmission,
-                "moses_car_image" => $row->moses_car_image          
+                "moses_car_image" => $row->moses_car_image,
+                "moses_car_year" => $row->moses_car_year          
 
             );
 
@@ -67,9 +68,9 @@ class Cars extends MX_Controller
 
             //Create announcement data
 			$subscribers = array($row->seller_phone);
-            $brand_name = $this->cars_model->get_brand_name($row->brand_name);
+            $brand_name = $this->cars_model->get_brand_name($row->brand_model_id);
             $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model_id);
-            $year = $row->car_year;
+            $year = $row->moses_car_year;
 
             $message_fields = array(
                 "brand" => $brand_name,
@@ -90,7 +91,7 @@ class Cars extends MX_Controller
                 $status = "Status: Error";
             }
 
-            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_created, $message_fields, $subscribers);
 
         }else{
             // send invalid data message

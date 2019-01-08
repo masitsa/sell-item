@@ -42,27 +42,27 @@ class Kaizala_model extends CI_Model
                 "properties" => array(
                     array(
                         "name" => "sellerTitle",
-                        "value" => $title,
+                        "value" => json_encode($title),
                         "type" => "Text"
                     ),
                     array(
                         "name" => "carDescription",
-                        "value" => $description,
+                        "value" => json_encode($description),
                         "type" => "Text"
                     ),
                     array(
                         "name" => "carStatus",
-                        "value" => $status,
+                        "value" => json_encode($status),
                         "type" => "Text"
                     ),
                     array(
                         "name" => "date",
-                        "value" => $date,
+                        "value" => json_encode($date),
                         "type" => "Text"
                     ),
                     array(
                         "name" => "carJson",
-                        "value" => $fields,
+                        "value" =>json_encode($fields),
                         "type" => "Text"
                     )
                 )

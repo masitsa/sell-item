@@ -82,6 +82,7 @@ class Cars extends MX_Controller
 			}
 			//Send the announcement
 			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $row->date, $message_fields, $subscribers);
+			
 			}
 			else
 		{

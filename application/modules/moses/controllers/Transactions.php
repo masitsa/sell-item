@@ -64,7 +64,7 @@ class Transactions extends MX_Controller
             $subscribers = array($row->phone);
 
 
-            //5. send confirmation later wwe will send an announcement
+            //5. send confirmation later we will send an announcement
             if($save_status == TRUE){
                 $message_title = "Transaction Successful";
                 $message_description = "Thank you ".$row->name." for transacting";
@@ -78,6 +78,12 @@ class Transactions extends MX_Controller
         }else{
             // send invalid data message
             echo "invalid data provided: ";
+            $error = $this->db->error();
+            if($error['message']){
+                echo $error["message"];
+            }
+            
+            
         }
         
         

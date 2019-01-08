@@ -61,7 +61,7 @@ class Kaizala_model extends CI_Model
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "carJsonn",
+                        "name" => "carJson",
                         "value" => $fields,
                         "type" => "Text"
                     )

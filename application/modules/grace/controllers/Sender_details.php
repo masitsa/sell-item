@@ -72,20 +72,35 @@ class Sender_details extends MX_Controller
 
                  //create announcement recievers
                  $subscribers = array($row->sender_phone);
+                 $brand_name = $this->sender_details_model->get_brand_name($row->brand);
+                $brand_model_name = $this->sender_details_model->get_brand_model_name($row->brand_model);
+                $year = $row->car_year;
+                
+                $message_fields = array(
+                    "brand" => $brand_name,
+                    "brand_model" => $brand_model_name,
+                    "image" => $row->car_img_exterior,
+                    "price" => $row->price
+                );
+                 
+                $message_description = $brand_name." ".$brand_model_name." ".$year;
 
                 if ($save_status ==TRUE){
                     $message_title = "Saved Successful";
                     $message_description = "Thank you".$row->sender_name."for checkin";
+                    $status = "Status: Published";
 
                 }
                 else {
                     //6.send invalid data message
-                    $message_title = "Failed to save";
+                    $message_title = "Your details were not saved successful";
                     $message_description = "Sorry".$row->sender_name."not successful";
+                    $statu = "Status: Error";
                     
                 }
-                $this->kaizala_model->send_announcement($message_title,
-                $message_description, $subscribers);
+
+                //Send the announcement
+                $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_submitted, $message_fields, $subscribers);
             }
             else {
                 //6.send invalid data message

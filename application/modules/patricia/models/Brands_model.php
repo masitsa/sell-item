@@ -33,11 +33,44 @@ class Brands_model extends CI_Model
 
       //  return $query;
     //}
+    //retrieves brands and brands model
     public function retrieveMakeAndModel(){
 
         $result = $this->db->query("SELECT brand.brand_name, brand_model.brand_model_name from brand_model INNER JOIN brand ON brand.brand_id = brand_model.brand_id WHERE brand.brand_status=1");
+
         return $result;
     }
+    //retrieve brands_name only
+    public function get_brand_name($brand_id)
+    {
+        $this->db->where("brand_id", $brand_id);
+        $query = $this->db->get("brand");
+        $brand_name = "";
+
+        if($query->num_rows() > 0)
+        {
+            $row = $query->row();
+            $brand_name = $row->brand_name;
+        }
+
+        return $brand_name;
+    }
+    //retrieve brand_model_id
+    public function get_brand_model_name($brand_model_id)
+    {
+        $this->db->where("brand_model_id", $brand_model_id);
+        $query = $this->db->get("brand_model");
+        $brand_model_name = "";
+
+        if($query->num_rows() > 0)
+        {
+            $row = $query->row();
+            $brand_model_name = $row->brand_model_name;
+        }
+
+        return $brand_model_name;
+    }
+
     public function retrieveSoldCars()
     {
         // $this->db->select("brand_name, brand_image_name");

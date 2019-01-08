@@ -17,29 +17,29 @@ class Cars_model extends CI_Model
     {
         $this->db->where("brand_id", $brand_id);
         $query = $this->db->get("brand");
-        $brand_name = "";
+        $brand = "";
 
         if($query->num_rows() > 0)
         {
             $row = $query->row();
-            $brand_name = $row->brand_name;
+            $brand = $row->brand_name;
         }
 
-        return $brand_name;
+        return $brand;
     }
 
     public function get_brand_model_name($brand_model_id)
     {
         $this->db->where("brand_model_id", $brand_model_id);
         $query = $this->db->get("brand_model");
-        $brand_model_name = "";
+        $model = "";
 
         if($query->num_rows() > 0)
         {
             $row = $query->row();
-            $brand_model_name = $row->brand_model_name;
+            $model = $row->brand_model_name;
         }
 
-        return $brand_model_name;
+        return $model;
     }
 }

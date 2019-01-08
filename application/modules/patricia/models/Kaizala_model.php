@@ -59,12 +59,7 @@ public function send_announcement($title, $description, $status,  $fields, $rece
                         "value" =>$status,
                         "type" => "Text"
                     ),
-                    array(
-                        "name" => "date",
-                        "value" =>$date,
-                        "type" => "Text"
-
-                    ),
+                    
                     array(
                         "name" => "carJson",
                         "value" =>json_encode($fields),

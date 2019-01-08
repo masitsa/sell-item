@@ -21,7 +21,7 @@ class Brands_model extends CI_Model
  {
     //$this->db->get("brand");
    //getting brands from database
-    $query = $this->db->get("cecilia_seller");
+    $query = $this->db->get("cecilia_car");
     return $query;
  }
 }

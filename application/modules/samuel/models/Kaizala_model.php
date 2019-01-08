@@ -29,6 +29,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $group_id ="a0090dec-78b5-4914-b61b-241638e22862@2";
     $url="https://kms2.kaiza.lav1/groups/".$group_id."/actions";
     $access_token =$this->get_access_token();
+    
     $request_data = array(
             "id" => "com.nanyukiaf.samuel.car.announcement.4",
             "sendToAllSubscribers" => false,

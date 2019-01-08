@@ -66,7 +66,7 @@ class Action_cards extends MX_Controller
                     
                 );
                 //4.Request to submit
-               $save_status= $this->action_cards_model->save_action_card($save_data);
+               $save_status= $this->action_cards_model->save_action_card($data);
                //Create announcement data
                $brand_name = $this->action_cards_model->get_brand_name($row->brand_name);
                $brand_model_name = $this->action_cards_model->get_brand_model_name($row->brand_model_name);

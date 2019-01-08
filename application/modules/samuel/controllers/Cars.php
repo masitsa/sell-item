@@ -68,7 +68,7 @@ class Cars extends MX_Controller
                 "price" => $row->price
 			);
 			
-			$message_description = $brand." ".$model." ".$price;	
+			$message_description = $brand." ".$model." ".$row->price;	
 			if($save_status ==TRUE)
 			{
 			$message_title = "Your post has been accepted";

@@ -57,7 +57,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
                     ),
                     array(
                         "name" => "carJson",
-                        "value" => $json_encode($fields),
+                        "value" => json_encode($fields),
                         "type" => "Text"
                     )
                 )

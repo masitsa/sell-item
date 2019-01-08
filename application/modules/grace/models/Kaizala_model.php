@@ -6,9 +6,9 @@ class Kaizala_model extends CI_Model
    private function get_access_token(){
        $application_id = "8c522b66-ff1b-4d48-8c77-22b70c13ae18";
        $application_secret = "T2XQMKT9Q5";
-       $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MDg4MDc0MDNcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOGM1MjJiNjYtZmYxYi00ZDQ4LThjNzctMjJiNzBjMTNhZTE4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkdyYWNlTmFueXVraUFmQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTozYzNiNzU0Yi0zNjE3LTQwZjUtODQ5Ni03ZDJlYTdmZDU0ZjBAMiIsInZlciI6IjIiLCJuYmYiOjE1NDUyMjY3MTYsImV4cCI6MTU3Njc2MjcxNiwiaWF0IjoxNTQ1MjI2NzE2LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.alR4H8QP4tN2CPa9SsVM4ptQZ18AP7S2sfyHbuo6bHo";
+       $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MDg4MDc0MDNcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiOGM1MjJiNjYtZmYxYi00ZDQ4LThjNzctMjJiNzBjMTNhZTE4XCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkdyYWNlTmFueXVraUFmQ29ubmVjdG9yXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTozYzNiNzU0Yi0zNjE3LTQwZjUtODQ5Ni03ZDJlYTdmZDU0ZjBAMiIsInZlciI6IjIiLCJuYmYiOjE1NDY5MzUyMzQsImV4cCI6MTU3ODQ3MTIzNCwiaWF0IjoxNTQ2OTM1MjM0LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.HSulP_GNpE6Z03nMMANjMT2REaxym3-KnZV5PKo8wEo";
 
-       $end_point = "https://kms.kaiza.la/v1/accessToken";
+       $end_point = "https://kms2.kaiza.la/v1/accessToken";
 
        $ch = curl_init($end_point);
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -23,23 +23,37 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
    }
 
-        public function send_announcement ($title, $message, $recievers){
-            $group_id = "57a34ceb-a66e-4140-affc-db6267d308bf@2";
-            $url = "https://kms.kaiza.la/v1/groups".$group_id."/actions";
+        public function send_announcement ($title, $description, $status, $date, $fields, $recievers){
+            $group_id = "c8003f67-2ab5-43a0-bce2-611ee31d10f4@2";
+            $url = "https://kms2.kaiza.la/v1/groups".$group_id."/actions";
             $access_token = $this->get_access_token();
 
-            $request_data = array ("id"=>"com.nanyukiaf.grace.announcement.2",
+            $request_data = array ("id"=>"com.nanyukiaf.grace.announcement.3",
             "sendToAllSubscribers"=>false, "subscribers"=>$receivers,
             "actionBody"=>array(
-            "properties"=>array(
-            "name"=>"messageTitle",
-            "value"=>$title,
-            "type" =>"text"),
+            "properties"=>
+            array(
+                "name"=>"sellerTitle",
+                "value"=>$title,
+                "type" =>"text"),
              array (
-               "name"=>"responseMessage",
-               "value"=>$message,
+               "name"=>"carDescription",
+               "value"=>$description,
                "type"=>"Text"
-           )));
+             ),
+           array (
+            "name"=>"carStatus",
+            "value"=> $status,
+            "type"=>"Text"
+           ),
+           array (
+            "name"=>"date",
+            "value"=> $date,
+            "type"=>"Text"
+           )
+        
+
+        ));
 
            $request_json = json_encode($request_data);
 

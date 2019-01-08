@@ -58,7 +58,7 @@ class Action_cards extends MX_Controller
                     "Name" =>$row->Name,
                     "Phone" =>$row->Phone,                    
                     "Location" =>$row->Location,
-                    "Response_Time" =>$row-> $time
+                    "Response_Time" =>$time
                     // "transmission_code" =>$row->transmission_code,
                     // "engine_code" =>$row->engine_code,
                     // "year" =>$row->year,
@@ -92,53 +92,53 @@ class Action_cards extends MX_Controller
             //4.Request to save data
             //5.send a confirmation
         }
-        public function create_buyer_action_card(){
-            // 1. Receive json post
-            $json_strings = file_get_contents("php://input");
-            // 2. convert json to array
-            $json_objects = json_decode($json_strings);
-            // 3. validate
-            if(is_array($json_object) && (count($json_objects) > 0)){
-                // Retreive the data
-                    $row = $json_object[0];
-                    $time = date('Y/m/d H:i:s', $row->Response_Time);
-                    $data = array(
-                        "brand_name" =>$row->brand_name,
-                        "brand_model" =>$row->brand_model,
-                        "brand_image" =>$row->brand_image,
-                        "name" =>$row->Name,
-                        "phone" =>$row->Phone,                    
-                        "location" =>$row->Location,
-                        "response_time" =>$row->Response_Time
+        // public function create_buyer_action_card(){
+        //     // 1. Receive json post
+        //     $json_strings = file_get_contents("php://input");
+        //     // 2. convert json to array
+        //     $json_objects = json_decode($json_strings);
+        //     // 3. validate
+        //     if(is_array($json_object) && (count($json_objects) > 0)){
+        //         // Retreive the data
+        //             $row = $json_object[0];
+        //             $time = date('Y/m/d H:i:s', $row->Response_Time);
+        //             $data = array(
+        //                 "brand_name" =>$row->brand_name,
+        //                 "brand_model" =>$row->brand_model,
+        //                 "brand_image" =>$row->brand_image,
+        //                 "name" =>$row->Name,
+        //                 "phone" =>$row->Phone,                    
+        //                 "location" =>$row->Location,
+        //                 "response_time" =>$row->Response_Time
                         
-                    );
-                    //4.Request to submit
-                   $save_status= $this->action_cards_model->save_Buyer($data);
+        //             );
+        //             //4.Request to submit
+        //            $save_status= $this->action_cards_model->save_Buyer($data);
                    
-                   $subcribers =array($row->Phone);
+        //            $subcribers =array($row->Phone);
         
-                   if($save_status ==TRUE){
-                     $message_title ="Buy Successfull";
-                     $message_description ="Thankyou ".$row->Name." for checking in";
+        //            if($save_status ==TRUE){
+        //              $message_title ="Buy Successfull";
+        //              $message_description ="Thankyou ".$row->Name." for checking in";
         
         
-                   }else{
+        //            }else{
                      
-                    $message_title="Purchase Failure";
-                    $message_description="din't login".$row->Name.".try again";
-                   }
+        //             $message_title="Purchase Failure";
+        //             $message_description="din't login".$row->Name.".try again";
+        //            }
                    
-                   $this->kaizala_model->send_announcement($message_title,
-                   $message_description,$subcribers,$time);
+        //            $this->kaizala_model->send_announcement($message_title,
+        //            $message_description,$subcribers,$time);
         
-                }
-                else{
-                    //send invalid data message
-                    echo"invalid data provided ... for buyer";
-                }
-                //4.Request to save data
-                //5.send a confirmation
-            }
+        //         }
+        //         else{
+        //             //send invalid data message
+        //             echo"invalid data provided ... for buyer";
+        //         }
+        //         //4.Request to save data
+        //         //5.send a confirmation
+        //     }
       
     }
         

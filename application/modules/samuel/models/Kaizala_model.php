@@ -22,7 +22,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $response = curl_exec($ch);
     curl_close($ch);
     $response_decoded=json_decode($response);
-    return $response_decode->accessToken;
+    return $response_decoded->accessToken;
     }  
     public function send_announcement($title, $description,$status,$date,  $message,$receivers)
     {
@@ -64,7 +64,7 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
             )
         );
   $request_data= json_encode($request_data);
-  $$ch = curl_init($url);
+  $ch = curl_init($url);
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST,
   "POST");
    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

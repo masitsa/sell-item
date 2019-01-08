@@ -34,6 +34,7 @@ class Cars extends MX_Controller
         $json_string = file_get_contents("php://input");
         // 2. convert json to array
         $json_object = json_decode($json_string);
+      
         // 3. validate
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
@@ -55,8 +56,8 @@ class Cars extends MX_Controller
 
             //Create announcement receivers
             $subscribers  = array($row->phone);
-            $brand_name = $this->cars_model->get_brand_name();
-            return $brand_name;
+            $brand_name = $this->cars_model->get_brand_name($row->brand);
+            // var_dump($brand_name);
             $brand_model = $this->cars_model->get_brand_model($row->model);
 
             $message_fields = array(
@@ -66,7 +67,7 @@ class Cars extends MX_Controller
                 "price" => $row->money
             );
 
-            $message_description = $brand_name." ".$brand_model_name;
+            $message_description = $brand_name." ".$brand_model;
 
             if($save_status ==TRUE){
                 $message_title = "Your post has been accepted";

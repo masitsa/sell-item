@@ -60,7 +60,7 @@ class Kaizala_model extends CI_Model
 
 
 //use 4 filds title,descri in your new file you will create
-    public function send_announcement($title,$description,$status,$date,$fields,$receivers)
+public function send_announcement($title, $description, $status, $date, $fields, $receivers)
    // ($title, $message, $receivers)
 
     {
@@ -75,7 +75,7 @@ class Kaizala_model extends CI_Model
 
         $request_data = array(
 
-            "id" => "com.nanyukiaf.patricia.announcement",
+            "id" => "com.nanyukiaf.patricia.car.announcement",
 
             "sendToAllSubscribers" => false,
 
@@ -124,22 +124,14 @@ class Kaizala_model extends CI_Model
                     ),
                     array(
 
-                        "name" => "date",
-
-                        "value" =>$date,
-
-                        "type" => "Text"
-
-                    ),
-                    array(
-
-                        "name" => "car",
+                        "name" => "carJson",
 
                         "value" =>$fields,
 
                         "type" => "Text"
 
                     )
+                   
 
                 )
 

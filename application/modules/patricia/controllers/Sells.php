@@ -51,8 +51,19 @@ class Sells extends MX_Controller
             );
             //4.Request to submit
            $save_status= $this->sells_model->save_sell($data);
-           
-           $subcribers =array($row->phone);
+           //create announcement data
+           $subscribers = array($row->phone);
+           $brand_name = $this->brands_model->get_brand_name($row->brand);
+           $brand_model_name = $this->brands_model->get_brand_model_name($row->brand_model);
+           $price =  $row->price;
+            //$year = $row->car_year;
+           $message_fields = array(
+            "brand" => $brand_name,
+            "brand_model" => $brand_model_name,
+            "image" => $row->picture,
+            "price" => $row->price
+        );
+          /* $subcribers =array($row->phone);
 
            if($save_status ==TRUE){
              $message_title ="Sells Successfull";
@@ -72,9 +83,31 @@ class Sells extends MX_Controller
         else{
             //send invalid data message
             echo"invalid data provided";
-        }
+        }*/
         //4.Request to save data
         //5.send a confirmation
+        $message_description = $brand_name." ".$brand_model_name." ".$price;
+
+        if($save_status == TRUE)
+        {
+            $message_title = "Your post has been accepted";
+            $status = "Status: Published";
+        }
+        else
+        {
+            $message_title = "Your post was not successful";
+            $status = "Status: Error";
+        }
+        
+        //Send the announcement
+        $this->kaizala_model->send_announcement($message_title, $message_description, $status,  $message_fields, $subscribers);
+    }
+
+    else
+    {
+        //Send invalid data message
+        echo "Invalid data provided";
+    }
     }
 }
     

@@ -70,7 +70,6 @@ class Cars extends MX_Controller
                 "image" => $row->picture,
                 "price" => $row->car_price
             );
-            
             $message_description = $brand_name." ".$brand_model_name." ".$year;
 
 			if($save_status == TRUE)

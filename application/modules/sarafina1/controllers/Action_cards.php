@@ -32,7 +32,18 @@ class Action_cards extends MX_Controller
 
     public function create_seller_action_card(){
         // 1. Receive json post
-        $json_string = file_get_contents("php://input");
+        // $json_string = file_get_contents("php://input");
+        $json_string = '[
+            {
+              "brand_name": "Ford",
+              "brand_model": "Edge",
+              "brand_image": "image_2014_05_18_08_10_12.png",
+              "Name": "Sarafina",
+              "Phone": "+254715527120",
+              "Location": "{\"lt\":0.0182416,\"lg\":37.0740701,\"n\":\"0.0182416, 37.0740701\",\"acc\":14.868000030517578}",
+              "Response_Time": "1546931439606"
+            }
+          ]';
         // 2. convert json to array
         $json_object = json_decode($json_string);
         // 3. validate
@@ -47,11 +58,11 @@ class Action_cards extends MX_Controller
                     "Name" =>$row->Name,
                     "Phone" =>$row->Phone,                    
                     "Location" =>$row->Location,
-                    "Response_Time" =>$row->Response_Time,
-                    "transmission_code" =>$row->transmission_code,
-                    "engine_code" =>$row->engine_code,
-                    "year" =>$row->year,
-                    "price" =>$row->price,
+                    "Response_Time" =>$row-> $time
+                    // "transmission_code" =>$row->transmission_code,
+                    // "engine_code" =>$row->engine_code,
+                    // "year" =>$row->year,
+                    // "price" =>$row->price,
                     
                 );
                 //4.Request to submit

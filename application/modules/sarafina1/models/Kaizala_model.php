@@ -10,7 +10,7 @@ class Kaizala_model extends CI_Model
 
         $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiYmE1MGE4MTctNzZmYy00ZTJmLThjMDEtMDFiOTM5N2IzNWYzXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkVfY29tbWVyY2VcXFwifVwifSIsInVpZCI6Ik1vYmlsZUFwcHNTZXJ2aWNlOmY0NzFkNzc5LTA4NjktNDg3Zi05MjYzLTdkZDRjZGU5YzI3MEAyIiwidmVyIjoiMiIsIm5iZiI6MTU0NjkzNTcwNSwiZXhwIjoxNTc4NDcxNzA1LCJpYXQiOjE1NDY5MzU3MDUsImlzcyI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIiwiYXVkIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8ifQ.waOJ_LsA6XDjecb10t93nGikCItLMknqZLg_EhLxswM";
 
-        $end_point = "https://kms2.kaiza.la/v1/accessToken";
+        $end_point = "https://kms.kaiza.la/v1/accessToken";
 
         $ch = curl_init($end_point);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -28,14 +28,14 @@ class Kaizala_model extends CI_Model
         return $response_decoded->accessToken;
     }
 
-    public function send_announcement($receivers, $title, $description, $status, $date, $Fields)
+    public function send_announcement($title, $description, $status, $date, $fields, $receivers)
     {
         $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.sarafina.announcement.2",
+            "id" => "com.nanyukiaf.sarafina.announcemnt.3",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
@@ -61,8 +61,8 @@ class Kaizala_model extends CI_Model
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "responseMessage",
-                        "value" => $Fields,
+                        "name" => "carJson",
+                        "value" => $fields,
                         "type" => "Text"
                     )
                 )

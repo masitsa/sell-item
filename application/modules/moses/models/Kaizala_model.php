@@ -36,7 +36,7 @@ class Kaizala_model extends CI_Model
         $accessToken = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.moses.car.announcement.11",
+            "id" => "com.nanyukiaf.moses.car.announcement.12",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
@@ -91,49 +91,5 @@ class Kaizala_model extends CI_Model
     }
 
     
-    /* public function send_announcement($title, $message, $receivers){
-        $group_id  = "5b9411dd-0e0d-40b1-9752-c24d9ed19f0f@2";
-
-        $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
-        $access_token = $this->get_access_token();
-
-        $request_data = array(
-            "id" => "com.nanyukiaf.moses.announcement.2",
-            "sendToAllSubscribers" => false,
-            "subscribers" => $receivers,
-            "actionBody" => array(
-                "properties" => array(
-                    array(
-                        "name" => "messageTitle",
-                        "value" => $title,
-                        "type" => "Text"
-                    ),
-                    array(
-                        "name" => "responseMessage",
-                        "value" => $message,
-                        "type" => "Text"
-                    )
-
-                )//properties array ends here
-            )
-
-
-        );
-
-        $request_json = json_encode($request_data);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($ch, CURLPOT_POSTFIELDS, $request_json);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, arra(
-            "accessToken: ".$accessToken,
-            "Content-Type: application/json",
-            "Content-Length: ".strlen($request_json)
-        ));
-
-        $result = curl_exec($ch);
-        curl_close($ch);
-        $result_object = json_decode($result);
-        return $result_object->actionId;
-    } */
+    
 }

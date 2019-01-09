@@ -31,9 +31,9 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $access_token =$this->get_access_token();
 
     $request_data = array(
-            "id" => "com.nanyukiaf.samuel.car.announcement.4",
+            "id" => "com.nanyukiaf.samuel.car.announcement.5",
             "sendToAllSubscribers" => false,
-            "subscribers" => $subscribers,
+            "subscribers" =>$receivers,
             "actionBody" => array(
                 "properties" => array(
                     array(

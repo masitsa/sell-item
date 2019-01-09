@@ -27,6 +27,7 @@ class Action_cards extends MX_Controller
         }
         
         $this->load->model("action_cards_model");
+        $this->load->model("brands_model");
         $this->load->model("kaizala_model");
     }
 
@@ -76,11 +77,11 @@ class Action_cards extends MX_Controller
                $year = $row->year;
 
                $message_fields = array(
-                "brand_name" => $brand_name,
-                "brand_model" => $brand_model_name,
-                "brand_image" => $row->brand_image,
-                "price" => $row->price,
-                "year" => $row->year,
+                "brand_name"=>$brand_name,
+                "brand_model"=>$brand_model_name,
+                "brand_image"=>$row->brand_image,
+                "price"=>$row->price,
+                "year"=>$row->year
             );
                 $message_description = $brand_name." ".$brand_model_name." ".$year;
                 

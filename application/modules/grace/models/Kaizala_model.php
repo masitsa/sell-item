@@ -37,7 +37,7 @@ class Kaizala_model extends CI_Model
             array(
                 "name"=>"sellerTitle",
                 "value"=>$title,
-                "type" =>"text"),
+                "type" =>"Text"),
             array (
                "name"=>"carDescription",
                "value"=>$description,
@@ -68,8 +68,8 @@ class Kaizala_model extends CI_Model
            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                "accessToken: ".$access_token,
                "Content-Type: application/json",
-               "Content-Length: ".strlen 
-               ($request_json)
+               "Content-Length: ".strlen($request_json) 
+               
            ));
            $result = curl_exec($ch);
            curl_close($ch);

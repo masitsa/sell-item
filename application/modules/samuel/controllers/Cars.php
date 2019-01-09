@@ -32,8 +32,19 @@ class Cars extends MX_Controller
 		function create_cars()
 		{
 			//1. receive a JSON POST
-			$json_string=file_get_contents
-			("php://input");
+			$json_string=file_get_contents("php://input");
+			// $json_string = '[
+			// {
+			// 	"brand": "Fiat",
+			// 	"model": "500 Abarth",
+			// 	"image": "image_2014_05_18_08_10_02.png",
+			// 	"transmission": "Automatic",
+			// 	"price": "30000",
+			// 	"name": "Samuel Muthana",
+			// 	"phone": "+254710141599",
+			// 	"date": "1546971556079"
+			// }
+			// ]';
 			//2. conc=verte json to an 
 			//create announcement receivers
 			$json_object=json_decode($json_string);
@@ -42,28 +53,29 @@ class Cars extends MX_Controller
 			{
 			//retrieve date
 			$row=$json_object[0];
-			$dateCreated = date('Y/m/d H:i:s', $row->date);
+			$dateCreated = date('Y-m-d H:i:s', intval($row->date));
 			$data=array(
-			"brand_name"=>$row->brand,
-			"brand_model"=>$row->model,
-			"samuel_car_image"=>$row->image,
-			"samuel_car_transmission"=>$row->transmission,
-			"samuel_car_price"=>$row->price,
-			"seller_name"=>$row->name,
-			"seller_phone"=>$row->phone,
-			"date_created"=>$dateCreated,
+				"brand_name"=>$row->brand,
+				"brand_model"=>$row->model,
+				"samuel_car_image"=>$row->image,
+				"samuel_car_transmission"=>$row->transmission,
+				"samuel_car_price"=>$row->price,
+				"seller_name"=>$row->name,
+				"seller_phone"=>$row->phone,
+				"date_created"=>$dateCreated,
 			);
 			$save_status= $this->cars_model->save_car
 			($data);
 
 			//Here we create the announcement data
 			$subscribers = array($row->phone);
-            $brand = $this->cars_model->get_brand_name($row->brand);
-			$model = $this->cars_model->get_brand_model_name($row->model);
+            $brand =$row->brand;
+			$model = $row->model;
+			
 			
 			$message_fields = array(
-                "brand_name" => $brand,
-                "brand_model" => $model,
+                "brand" => $brand,
+                "model" => $model,
                 "image" => $row->image,
                 "price" => $row->price
 			);
@@ -82,6 +94,7 @@ class Cars extends MX_Controller
 			}
 			//Send the announcement
 			$this->kaizala_model->send_announcement($message_title, $message_description, $status, $row->date, $message_fields, $subscribers);
+			
 			}
 			else
 		{

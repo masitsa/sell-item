@@ -33,28 +33,28 @@ class Action_cards extends MX_Controller
 
     public function create_seller_action_card(){
         // 1. Receive json post
-        $json_string = file_get_contents("php://input");
-        //  $json_string = '[
+         $json_string = file_get_contents("php://input");
+        // $json_string = '[
         //     {
-        //         "brand_name": "Honda",
-        //         "brand_model": "A6 quattro",
-        //         "transmission_code": "CEUB",
-        //         "brand_image": "https://cdn.inc-000.kms.osi.office.net/att/8a2a4b107d1eecd52a3acc2108e84ce975e87c454512f49a7a21d19812f2c9e5.jpg?sv=2015-12-11&sr=b&sig=3ypBoG8Te%2FdES%2BenLq%2Ba2iKvfbO3HCM2f%2F5%2F47XHLBM%3D&st=2019-01-08T14:39:43Z&se=2292-10-23T15:39:43Z&sp=r",
-        //         "year": "2018",
-        //         "price": "2012",
-        //         "Name": "Sarafina",
-        //         "Phone": "+254715527120",
-        //         "Location": "{\"lt\":0.0182211,\"lg\":37.0740429,\"n\":\"0.0182211, 37.0740429\",\"acc\":14.753000259399414}",
-        //         "Response_Time": "1546961980906"
+        //       "brand_name": "Fiat",
+        //       "brand_model": "A6",
+        //       "transmission_code": "CEUB",
+        //       "brand_image": "https://cdn.inc-000.kms.osi.office.net/att/c350557a5c1d321a09ca5a6000df0d45b77bc3ff04c7f2b947c41e781febc6ff.jpg?sv=2015-12-11&sr=b&sig=WbwzK9%2FAGyBqHEw9PwyC33jxsMfs7V5JqtPMMrF5q9k%3D&st=2019-01-09T09:13:47Z&se=2292-10-24T10:13:47Z&sp=r",
+        //       "year": "2019",
+        //       "price": "1200000",
+        //       "Name": "Sarafina",
+        //       "Phone": "+254715527120",
+        //       "Location": "{\"lt\":0.018223,\"lg\":37.0740386,\"n\":\"0.018223, 37.0740386\",\"acc\":14.663999557495117}",
+        //       "Response_Time": "1547028826565"
         //     }
-        // ]';
+        //   ]';
         // 2. convert json to array
         $json_object = json_decode($json_string);
         // 3. validate
         if(is_array($json_object) && (count($json_object) > 0)){
             // Retreive the data
                 $row = $json_object[0];
-                $time = date('Y/m/d H:i:s', $row->Response_Time);
+                $time = $this->kaizala_model->format_date($row->Response_Time);
                 $data = array(
                     "brand_name" =>$row->brand_name,
                     "brand_model" =>$row->brand_model,
@@ -64,10 +64,8 @@ class Action_cards extends MX_Controller
                     "Location" =>$row->Location,
                     "Response_Time" =>$time,
                     "transmission_code" =>$row->transmission_code,
-                    
                     "year" =>$row->year,
                     "price" =>$row->price
-                    
                 );
                 //4.Request to submit
                $save_status= $this->action_cards_model->save_action_card($data);

@@ -34,8 +34,7 @@ class Cars extends MX_Controller
 
 		//2. Convert JSON to array
 		$json_object = json_decode($json_string);
-
-		
+				
 		//3. Validate
 		if (is_array($json_object) && (count($json_object) > 0)) {
 			//1. Retrieve the data

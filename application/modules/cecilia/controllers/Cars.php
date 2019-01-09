@@ -50,7 +50,7 @@ class Cars extends MX_Controller
                     "price" =>$row->price,
                     "model" =>$row->model,
                     "brand" =>$row->brand,
-                    "car_image	" =>$row->carimage
+                    "car_image" =>$row->carimage
                 );
                 //request to submit /request to save data
                $saving =  $this->cars_model->save_cardetails($data);
@@ -60,7 +60,7 @@ class Cars extends MX_Controller
                 "model" =>$row->model,
                 "brand" =>$row->brand,
                 "price" =>$row->price,
-                "car_image	" =>$row->carimage
+                "car_image" =>$row->carimage
                );
                $year = 2013;
                $message_description = $row->brand." ".$row->model." ".$year;

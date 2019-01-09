@@ -27,6 +27,7 @@ class Action_cards extends MX_Controller
         }
         
         $this->load->model("action_cards_model");
+        $this->load->model("brands_model");
         $this->load->model("kaizala_model");
     }
 

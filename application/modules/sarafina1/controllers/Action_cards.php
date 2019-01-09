@@ -95,7 +95,7 @@ class Action_cards extends MX_Controller
                }else{
                  
                 $message_title="Error";
-                $message_description= "Sorry". $row->Name. "you couldn't login, try again";
+                $message_description= "Sorry".$row->Name. "you couldn't login, try again";
                 $status = "Status: Error";
                }
                

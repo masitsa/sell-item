@@ -32,7 +32,7 @@ class Kaizala_model extends CI_Model
         $access_token = $this->get_access_token();
         // echo $access_token."<br/>";
         $request_data = array(
-            "id" => "com.nanyukiaf.samuel.car.announcement.20",
+            "id" => "com.nanyukiaf.samuel.car.announcement.21",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(

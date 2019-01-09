@@ -72,8 +72,8 @@ class Sender_details extends MX_Controller
 
                  //create announcement recievers
                  $subscribers = array($row->sender_phone);
-                 $brand_name = $this->sender_details_model->get_brand_name($row->brand);
-                $brand_model_name = $this->sender_details_model->get_brand_model_name($row->model);
+                 $brand_name = $row->brand;
+                $brand_model_name = $row->model;
                 
                 
                 $message_fields = array(

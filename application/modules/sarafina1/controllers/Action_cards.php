@@ -27,6 +27,7 @@ class Action_cards extends MX_Controller
         }
         
         $this->load->model("action_cards_model");
+        $this->load->model("brands_model");
         $this->load->model("kaizala_model");
     }
 
@@ -71,19 +72,20 @@ class Action_cards extends MX_Controller
                 //4.Request to submit
                $save_status= $this->action_cards_model->save_action_card($data);
                //Create announcement data
-               $brand_name = $this->action_cards_model->get_brand_name($row->brand_name);
-               $brand_model_name = $this->action_cards_model->get_brand_model_name($row->brand_model_name);
+               $brand_name = $row->brand_name;
+               $brand_model_name = $row ->brand_model;
                $year = $row->year;
 
                $message_fields = array(
                 "brand_name" => $brand_name,
                 "brand_model" => $brand_model_name,
                 "brand_image" => $row->brand_image,
-               "price" => $row->price
+                "price" => $row->price,
+                "year" => $row->year,
             );
-                $message_description = $brand_name." ".$brand_model_name." ".$year. " ".$price;
+                $message_description = $brand_name." ".$brand_model_name." ".$year;
                 
-               $subcribers =array($row->Phone);
+               $subscribers =array($row->Phone);
     
                if($save_status ==TRUE){
                  $message_title ="Your post has been accepted";
@@ -98,7 +100,7 @@ class Action_cards extends MX_Controller
                }
                
                $this->kaizala_model->send_announcement($message_title,
-               $message_description, $status, $time, $message_fields, $subcribers);
+               $message_description, $status, $time, $message_fields, $subscribers);
             }
             else{
                 //send invalid data message

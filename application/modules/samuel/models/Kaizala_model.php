@@ -24,15 +24,16 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
     $response_decoded=json_decode($response);
     return $response_decoded->accessToken;
     }  
-    public function send_announcement($title, $description,$status,$date,  $message,$receivers)
+    public function send_announcement($title, $description,$status,$date, $fields, $receivers)
     {
     $group_id ="a0090dec-78b5-4914-b61b-241638e22862@2";
     $url="https://kms2.kaiza.lav1/groups/".$group_id."/actions";
     $access_token =$this->get_access_token();
+
     $request_data = array(
-            "id" => "com.nanyukiaf.samuel.announcement.3",
+            "id" => "com.nanyukiaf.samuel.car.announcement.4",
             "sendToAllSubscribers" => false,
-            "subscribers" => $receivers,
+            "subscribers" =>$receivers,
             "actionBody" => array(
                 "properties" => array(
                     array(
@@ -63,20 +64,19 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
                 )
             )
         );
-  $request_data= json_encode($request_data);
-  $ch = curl_init($url);
-  curl_setopt($ch, CURLOPT_CUSTOMREQUEST,
-  "POST");
-   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
-  cur_setopt($ch, CURLOPT_HTTPHEADER, array(
+  $request_json= json_encode($request_data);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
       "accessToken:".$access_token,
       "content_Type:application/json",
       "content_Length:".strlen($request_json)
   ));
   $result =curl_exec($ch);
   curl_close($ch);
-  $result_object = json_encode($result);
+  $result_object = json_decode($result);
   return $result_object->actionId;
  }
 }

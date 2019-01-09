@@ -28,7 +28,7 @@ class Kaizala_model extends CI_Model
             $url = "https://kms2.kaiza.la/v1/groups".$group_id."/actions";
             $access_token = $this->get_access_token();
 
-            $request_data = array ("id"=>"com.nanyukiaf.grace.car.announcement",
+            $request_data = array ("id"=>"com.nanyukiaf.grace.car.announcement.2",
             "sendToAllSubscribers"=>false, "subscribers"=>$receivers,
             "actionBody"=>array(
             "properties"=>
@@ -36,7 +36,7 @@ class Kaizala_model extends CI_Model
                 "name"=>"sellerTitle",
                 "value"=>$title,
                 "type" =>"text"),
-             array (
+            array (
                "name"=>"carDescription",
                "value"=>$description,
                "type"=>"Text"

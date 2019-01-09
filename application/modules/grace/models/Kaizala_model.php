@@ -33,7 +33,7 @@ class Kaizala_model extends CI_Model
             "id"=>"com.nanyukiaf.grace.car.announcement.3",
             "sendToAllSubscribers"=>false, "subscribers"=>$receivers,
             "actionBody"=>array(
-            "properties"=>
+            "properties"=>array(
             array(
                 "name"=>"sellerTitle",
                 "value"=>$title,
@@ -56,7 +56,7 @@ class Kaizala_model extends CI_Model
            
         
 
-        ));
+        )));
 
            $request_json = json_encode($request_data);
 

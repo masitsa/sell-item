@@ -26,7 +26,7 @@ class Kaizala_model extends CI_Model
         $response_decoded = json_decode($response);
         return $response_decoded->accessToken;
 	}
-    public function send_announcement($title, $message, $receivers)
+    public function send_announcement($title, $description, $status, $date, $fields, $receivers)
     {
         $group_id = "a2648ba2-927d-4c95-a78b-a6dc473fe6f5@2";
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";

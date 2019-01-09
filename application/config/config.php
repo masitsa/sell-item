@@ -25,11 +25,8 @@ date_default_timezone_set('Africa/Nairobi');
 |
  */
 
-<<<<<<< HEAD
 $config['base_url'] = 'https://sell-item.azurewebsites.net/';
-=======
- $config['base_url'] = 'https://sell-item.azurewebsites.net/';
->>>>>>> 921b37191fa64ec55c7ae0feeae2512990b5a44a
+ 
 //  $config['base_url'] = 'https://localhost/sell-item/';
 
 

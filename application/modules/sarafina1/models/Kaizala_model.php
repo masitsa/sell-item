@@ -30,41 +30,42 @@ class Kaizala_model extends CI_Model
     }
 
     public function send_announcement($title, $description, $status, $date, $fields, $receivers){
-        $group_id  = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
+        $group_id = "44e43039-2ad9-4b29-ae95-4684ff45a91e@2";
 
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
-        $accessToken = $this->get_access_token();
+        $accessToken =$this->get_access_token();
 
         $request_data = array(
-            "id" =>"com.nanyukiaf.sarafina.car.announcement.6",
-            "sendToAllSubscribers" =>false,
-            "subscribers" =>$receivers,
-            "actionBody" =>array(
-                "properties" =>array(
+            "id"=>"com.nanyukiaf.sarafina.car.announcement.8",
+            "sendToAllSubscribers"=>false,
+            "subscribers"=>$receivers,
+            "actionBody"=>array(
+                "properties"=>array(
                     array(
-                        "name" =>"sellerTitle",
-                        "value" =>$title,
-                        "type" => "Text"
+                        "name"=>"sellerTitle",
+                        "value"=>$title,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carDescription",
-                        "value" =>$description,
-                        "type" => "Text"
+                        "name"=>"carDescription",
+                        "value"=>$description,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carStatus",
-                        "value" =>$status,
-                        "type" =>"Text"
+                        "name"=>"carStatus",
+                        "value"=>$status,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"date",
-                        "value" =>$date,
-                        "type" => "Text"
+                        "name"=>"date",
+                        "value"=>$date,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carJson",
-                        "value" =>json_encode($fields),
-                        "type" =>"Text")
+                        "name"=>"carJson",
+                        "value"=>json_encode($fields),
+                        "type"=>"Text"
+                    )
 
                 )//properties array ends here
             )
@@ -86,10 +87,21 @@ class Kaizala_model extends CI_Model
 
         $result = curl_exec($ch);
         curl_close($ch);
+        // var_dump($result);
         $result_object = json_decode($result);
         return $result_object->actionId;
     }
 
-    
-    
+    public function format_date($timestamp = "1544013178916"){
+        $timestamp = preg_replace('/\s/', '', $timestamp);
+        $timestamp_length = strlen($timestamp);
+        $max_length = 10;
+        if($timestamp_length > $max_length){
+            $extra_length = $max_length - $timestamp_length;
+            $timestamp = substr($timestamp, 0, $extra_length);
+        }
+        $timestamp = $timestamp * 1;
+        $new_date = date("Y-m-d H:i:s", $timestamp);
+        return $new_date;
+    }
 }

@@ -36,35 +36,35 @@ class Kaizala_model extends CI_Model
         $accessToken = $this->get_access_token();
 
         $request_data = array(
-            "id" => " com.nanyukiaf.sarafina.car.announcement.6",
-            "sendToAllSubscribers" => false,
-            "subscribers" => $receivers,
-            "actionBody" => array(
-                "properties" => array(
+            "id" =>"com.nanyukiaf.sarafina.car.announcement.6",
+            "sendToAllSubscribers" =>false,
+            "subscribers" =>$receivers,
+            "actionBody" =>array(
+                "properties" =>array(
                     array(
-                        "name" => "sellerTitle",
-                        "value" => $title,
+                        "name" =>"sellerTitle",
+                        "value" =>$title,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "carDescription",
-                        "value" => $description,
+                        "name" =>"carDescription",
+                        "value" =>$description,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "carStatus",
-                        "value" => $status,
+                        "name" =>"carStatus",
+                        "value" =>$status,
+                        "type" =>"Text"
+                    ),
+                    array(
+                        "name" =>"date",
+                        "value" =>$date,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "date",
-                        "value" => $date,
-                        "type" => "Text"
-                    ),
-                    array(
-                        "name" => "carJson",
-                        "value" => json_encode($fields),
-                        "type" => "Text")
+                        "name" =>"carJson",
+                        "value" =>json_encode($fields),
+                        "type" =>"Text")
 
                 )//properties array ends here
             )

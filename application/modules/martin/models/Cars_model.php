@@ -11,8 +11,8 @@ class Cars_model extends CI_Model
         }
     }
 
-    public function get_brand_name($brand_name) {
-        $this->db->where("brand_name", $brand_name);
+    public function get_brand_name($brand_id) {
+        $this->db->where("brand_id", $brand_id);
         $query = $this->db->get("brand");
         $brand_name = "";
 

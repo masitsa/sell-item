@@ -8,7 +8,7 @@ class Kaizala_model extends CI_Model
         
         $application_id = "ba50a817-76fc-4e2f-8c01-01b9397b35f3";
         $application_secret = "OOHZOGTMXT";
-        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiYmE1MGE4MTctNzZmYy00ZTJmLThjMDEtMDFiOTM5N2IzNWYzXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkVfY29tbWVyY2VcXFwifVwifSIsInVpZCI6Ik1vYmlsZUFwcHNTZXJ2aWNlOmY0NzFkNzc5LTA4NjktNDg3Zi05MjYzLTdkZDRjZGU5YzI3MEAyIiwidmVyIjoiMiIsIm5iZiI6MTU0Njk3MjgxNiwiZXhwIjoxNTc4NTA4ODE2LCJpYXQiOjE1NDY5NzI4MTYsImlzcyI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIiwiYXVkIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8ifQ.G1Vgitbr8kHTTi3e__uDad4IlZNVBMfenOBwhnQMlLQ";
+        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTU1MjcxMjBcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiYmE1MGE4MTctNzZmYy00ZTJmLThjMDEtMDFiOTM5N2IzNWYzXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkVfY29tbWVyY2VcXFwifVwifSIsInVpZCI6Ik1vYmlsZUFwcHNTZXJ2aWNlOmY0NzFkNzc5LTA4NjktNDg3Zi05MjYzLTdkZDRjZGU5YzI3MEAyIiwidmVyIjoiMiIsIm5iZiI6MTU0NzAxOTMzNCwiZXhwIjoxNTc4NTU1MzM0LCJpYXQiOjE1NDcwMTkzMzQsImlzcyI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIiwiYXVkIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8ifQ.nQuGx5YiS42t2ZPUBZGBZAmiJAwUwIfZLCxX_yFVQck";
 
 
         $end_point = "https://kms2.kaiza.la/v1/accessToken";
@@ -36,35 +36,35 @@ class Kaizala_model extends CI_Model
         $accessToken = $this->get_access_token();
 
         $request_data = array(
-            "id" => "com.nanyukiaf.sarafina.car.announcement.4",
-            "sendToAllSubscribers" => false,
-            "subscribers" => $receivers,
-            "actionBody" => array(
-                "properties" => array(
+            "id" =>"com.nanyukiaf.sarafina.car.announcement.6",
+            "sendToAllSubscribers" =>false,
+            "subscribers" =>$receivers,
+            "actionBody" =>array(
+                "properties" =>array(
                     array(
-                        "name" => "sellerTitle",
-                        "value" => $title,
+                        "name" =>"sellerTitle",
+                        "value" =>$title,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "carDescription",
-                        "value" => $description,
+                        "name" =>"carDescription",
+                        "value" =>$description,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "carStatus",
-                        "value" => $status,
+                        "name" =>"carStatus",
+                        "value" =>$status,
+                        "type" =>"Text"
+                    ),
+                    array(
+                        "name" =>"date",
+                        "value" =>$date,
                         "type" => "Text"
                     ),
                     array(
-                        "name" => "date",
-                        "value" => $date,
-                        "type" => "Text"
-                    ),
-                    array(
-                        "name" => "carJson",
-                        "value" => json_encode($fields),
-                        "type" => "Text")
+                        "name" =>"carJson",
+                        "value" =>json_encode($fields),
+                        "type" =>"Text")
 
                 )//properties array ends here
             )

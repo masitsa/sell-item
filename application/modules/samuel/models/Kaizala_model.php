@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Kaizala_model extends CI_Model
 {
- private function get_access_token()
- {
-$application_id="0252de3e-8862-407b-b53d-b4b0d72ce491";
-$application_secret="5QQWX9004W ";
-$refresh_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTAxNDE1OTlcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiMDI1MmRlM2UtODg2Mi00MDdiLWI1M2QtYjRiMGQ3MmNlNDkxXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkthaXphbGEgRWNvbW1lcmNlXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZToyYzAwOGI3MC02MjVlLTQ3NWQtOGE0Yy0wM2M5MmU4MTI5MjdAMiIsInZlciI6IjIiLCJuYmYiOjE1NDY5NjU2OTAsImV4cCI6MTU3ODUwMTY5MCwiaWF0IjoxNTQ2OTY1NjkwLCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.dvvQXEPA8aoyIYeLeqLYQ47nveoDGkFV3PzdpDkVGgg";
+    private function get_access_token()
+    {
+        $application_id="5f0e58ed-98f4-4975-9bd7-626f5266b690";
+        $application_secret="PODK4JB6YC";
+        $refresh_token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTAxNDE1OTlcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiNWYwZTU4ZWQtOThmNC00OTc1LTliZDctNjI2ZjUyNjZiNjkwXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkthaXphbGEgRWNvbW1lcmNlIFNhbVxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6MmMwMDhiNzAtNjI1ZS00NzVkLThhNGMtMDNjOTJlODEyOTI3QDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ3MDE3MjIxLCJleHAiOjE1Nzg1NTMyMjEsImlhdCI6MTU0NzAxNzIyMSwiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.MFYUdrdTpEMJt9uHOjHYBqrQgOvZN8_T8sTABlmJ8UY";
 
-$end_point = "https://kms2.kaiza.la/v1/accessToken";
+        $end_point = "https://kms2.kaiza.la/v1/accessToken";
 
         $ch = curl_init($end_point);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -18,19 +18,20 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
             "applicationSecret: ".$application_secret,
             "refreshToken: ".$refresh_token,
             "Content-Type: application/json"
-            ));
-    $response = curl_exec($ch);
-    curl_close($ch);
-    $response_decoded=json_decode($response);
-    return $response_decoded->accessToken;
+        ));
+        $response = curl_exec($ch);
+        curl_close($ch);
+        // var_dump($response);
+        $response_decoded=json_decode($response);
+        return $response_decoded->accessToken;
     }  
     public function send_announcement($title, $description,$status,$date, $fields, $receivers)
     {
-    $group_id ="a0090dec-78b5-4914-b61b-241638e22862@2";
-    $url="https://kms2.kaiza.lav1/groups/".$group_id."/actions";
-    $access_token =$this->get_access_token();
-
-    $request_data = array(
+        $group_id ="a0090dec-78b5-4914-b61b-241638e22862@2";
+        $url="https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
+        $access_token = $this->get_access_token();
+        // echo $access_token."<br/>";
+        $request_data = array(
             "id" => "com.nanyukiaf.samuel.car.announcement.5",
             "sendToAllSubscribers" => false,
             "subscribers" =>$receivers,
@@ -64,19 +65,21 @@ $end_point = "https://kms2.kaiza.la/v1/accessToken";
                 )
             )
         );
-  $request_json= json_encode($request_data);
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-      "accessToken:".$access_token,
-      "content_Type:application/json",
-      "content_Length:".strlen($request_json)
-  ));
-  $result =curl_exec($ch);
-  curl_close($ch);
-  $result_object = json_decode($result);
-  return $result_object->actionId;
- }
+        // var_dump($request_data);
+        $request_json= json_encode($request_data);
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $request_json);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "accessToken: ".$access_token,
+            "content-Type: application/json",
+            "content-Length: ".strlen($request_json)
+        ));
+        $result =curl_exec($ch);
+        curl_close($ch);
+        // var_dump($result);
+        $result_object = json_decode($result);
+        return $result_object->actionId;
+    }
 }

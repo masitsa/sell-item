@@ -78,8 +78,8 @@ class Sender_details extends MX_Controller
                 
                 $message_fields = array(
                     "brand" => $brand_name,
-                    "brand_model" => $brand_model_name,
-                    "image" => $row->car_img_exterior,
+                    "model" => $brand_model_name,
+                    "car_img_exterior" => $row->car_img_exterior,
                     "price" => $row->price
                 );
                  

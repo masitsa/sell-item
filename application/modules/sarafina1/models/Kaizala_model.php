@@ -30,41 +30,41 @@ class Kaizala_model extends CI_Model
     }
 
     public function send_announcement($title, $description, $status, $date, $fields, $receivers){
-        $group_id  = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
+        $group_id = "d498658f-2362-46f5-85e6-7f8d8a3e6b75@2";
 
         $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
-        $accessToken = $this->get_access_token();
+        $accessToken =$this->get_access_token();
 
         $request_data = array(
-            "id" =>"com.nanyukiaf.sarafina.car.announcement.7",
-            "sendToAllSubscribers" =>false,
-            "subscribers" =>$receivers,
-            "actionBody" =>array(
-                "properties" =>array(
+            "id"=>"com.nanyukiaf.sarafina.car.announcement.7",
+            "sendToAllSubscribers"=>false,
+            "subscribers"=>$receivers,
+            "actionBody"=>array(
+                "properties"=>array(
                     array(
-                        "name" =>"sellerTitle",
-                        "value" =>$title,
-                        "type" => "Text"
+                        "name"=>"sellerTitle",
+                        "value"=>$title,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carDescription",
-                        "value" =>$description,
-                        "type" => "Text"
+                        "name"=>"carDescription",
+                        "value"=>$description,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carStatus",
-                        "value" =>$status,
-                        "type" =>"Text"
+                        "name"=>"carStatus",
+                        "value"=>$status,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"date",
-                        "value" =>$date,
-                        "type" => "Text"
+                        "name"=>"date",
+                        "value"=>$date,
+                        "type"=>"Text"
                     ),
                     array(
-                        "name" =>"carJson",
-                        "value" =>json_encode($fields),
-                        "type" =>"Text")
+                        "name"=>"carJson",
+                        "value"=>json_encode($fields),
+                        "type"=>"Text")
 
                 )//properties array ends here
             )

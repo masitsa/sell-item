@@ -31,7 +31,7 @@ class Kaizalas_model extends CI_Model
           $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
           $access_token = $this->get_access_token();
           $request_data = array(        //SEND ANNOUNCEMENT WITH FOLLOWING DATA
-              "id" => "com.nanyukiaf.cecilia.car.announcement.9",
+              "id" => "com.nanyukiaf.cecilia.car.announcement.10",
               "sendToAllSubscribers" => false,
               "subscribers" => $receivers,
               "actionBody" =>array(

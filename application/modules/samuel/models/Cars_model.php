@@ -13,11 +13,10 @@ class Cars_model extends CI_Model
         }
     }
 
-    public function get_brand_name($samuel_car_id)
+    public function get_brand_name($brand_id)
     {
-        $this->db->where("samuel_car_id", $samuel_car_id);
-        $query = $this->db->get("samuel_car");
-        
+        $this->db->where("brand_id", $brand_id);
+        $query = $this->db->get("brand");
         $brand = "";
 
         if($query->num_rows() > 0)
@@ -28,16 +27,17 @@ class Cars_model extends CI_Model
 
         return $brand;
     }
-    public function get_brand_model($samuel_car_id)
+
+    public function get_brand_model_name($brand_model_id)
     {
-        $this->db->where("samuel_car_id", $samuel_car_id);
-        $query = $this->db->get("samuel_car");
+        $this->db->where("brand_model_id", $brand_model_id);
+        $query = $this->db->get("brand_model");
         $model = "";
 
         if($query->num_rows() > 0)
         {
             $row = $query->row();
-            $model = $row->brand_model;
+            $model = $row->brand_model_name;
         }
 
         return $model;

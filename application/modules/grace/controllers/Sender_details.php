@@ -86,15 +86,13 @@ class Sender_details extends MX_Controller
                 $message_description = $brand_name." ".$brand_model_name;
 
                 if ($save_status ==TRUE){
-                    $message_title = "Saved Successful";
-                    $message_description = "Thank you".$row->sender_name."for checkin";
+                    $message_title = "Saved Successful";                   
                     $status = "Status: Published";
 
                 }
                 else {
                     //6.send invalid data message
-                    $message_title = "Your details were not saved successful";
-                    $message_description = "Sorry".$row->sender_name."not successful";
+                    $message_title = "Your details were not saved successful";                  
                     $status = "Status: Error";
                     
                 }

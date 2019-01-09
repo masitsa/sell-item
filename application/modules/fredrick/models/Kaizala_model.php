@@ -4,12 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Kaizala_model extends CI_Model
 {
     private function get_access_token() {
-        $application_id = "3f86086c-aafd-4d7f-a611-289192051dcc";
-        $application_secret = "HDJNX2MYNK";
+        $application_id = "f82445b2-9730-4728-849c-68762c6a4dfc";
+        $application_secret = "2TVKMTHJRR";
 
-        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTE1ODEwMDlcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiM2Y4NjA4NmMtYWFmZC00ZDdmLWE2MTEtMjg5MTkyMDUxZGNjXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIk1hcnRpbk5hbnl1a2lhZkNvbm5lY3RvclxcXCJ9XCJ9IiwidWlkIjoiTW9iaWxlQXBwc1NlcnZpY2U6YTk3MDE2MTItMTFiMC00ZDEyLTk1ODMtMDY5YWU1NjU0NDc5QDIiLCJ2ZXIiOiIyIiwibmJmIjoxNTQ1MjI2ODU3LCJleHAiOjE1NzY3NjI4NTcsImlhdCI6MTU0NTIyNjg1NywiaXNzIjoidXJuOm1pY3Jvc29mdDp3aW5kb3dzLWF6dXJlOnp1bW8iLCJhdWQiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyJ9.xubUdWvXs68jaXCybKXuVyTK4PAx9-fFdVomjUri3-A";
+        $refresh_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cm46bWljcm9zb2Z0OmNyZWRlbnRpYWxzIjoie1wicGhvbmVOdW1iZXJcIjpcIisyNTQ3MTQyNzMzMDVcIixcImNJZFwiOlwiXCIsXCJ0ZXN0U2VuZGVyXCI6XCJmYWxzZVwiLFwiYXBwTmFtZVwiOlwiY29tLm1pY3Jvc29mdC5tb2JpbGUua2FpemFsYWFwaVwiLFwiYXBwbGljYXRpb25JZFwiOlwiZjgyNDQ1YjItOTczMC00NzI4LTg0OWMtNjg3NjJjNmE0ZGZjXCIsXCJwZXJtaXNzaW9uc1wiOlwiOC40XCIsXCJhcHBsaWNhdGlvblR5cGVcIjotMSxcImRhdGFcIjpcIntcXFwiQXBwTmFtZVxcXCI6XFxcIkthaXphbGEgRWNvbW1lcmNlXFxcIn1cIn0iLCJ1aWQiOiJNb2JpbGVBcHBzU2VydmljZTpiZTIwYzNlNi0zYzg2LTRjZTMtOTI5NC0xZTZiZTJkNzU4MDdAMiIsInZlciI6IjIiLCJuYmYiOjE1NDcwMTI3OTcsImV4cCI6MTU3ODU0ODc5NywiaWF0IjoxNTQ3MDEyNzk3LCJpc3MiOiJ1cm46bWljcm9zb2Z0OndpbmRvd3MtYXp1cmU6enVtbyIsImF1ZCI6InVybjptaWNyb3NvZnQ6d2luZG93cy1henVyZTp6dW1vIn0.VWddtcRlesShVijTt7ubhIASTv-pnpuCb-krLf9ESz8";
 
-        $end_point = "https://kms.kaiza.la/v1/accessToken";
+        $end_point = "https://kms2.kaiza.la/v1/accessToken";
         //Calls the endpoint
         $ch = curl_init($end_point);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
@@ -29,27 +29,42 @@ class Kaizala_model extends CI_Model
     public function send_announcement($title, $message, $receivers)
     {
         $group_id = "a2648ba2-927d-4c95-a78b-a6dc473fe6f5@2";
-        $url = "https://kms.kaiza.la/v1/groups/".$group_id."/actions";
+        $url = "https://kms2.kaiza.la/v1/groups/".$group_id."/actions";
         $access_token = $this->get_access_token();
 
         $request_data = array(
             //"id" => "com.nanyukiaf.alvaro.announcemnt.2",
-            "id" => "com.nanyuki.martin.carsales.15",
+            "id" => "com.nanyuki.fredrick.car.announcement",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(
-                "properties" => array(
-                    array(
-                        "name" => "messageTitle",
-                        "value" => $title,
-                        "type" => "Text"
-                    ),
-                    array(
-                        "name" => "responseMessage",
-                        "value" => $message,
-                        "type" => "Text"
-                    )
-                )
+            "properties" => array(
+            array(
+            "name" => "sellerTitle",
+            "value" => $title,
+            "type" => "Text"
+            ),
+            array(
+            "name" => "carDescription",
+            "value" => $description,
+            "type" => "Text"
+            ),
+            array(
+            "name" => "carStatus",
+            "value" => $status,
+            "type" => "Text"
+            ),
+            array(
+            "name" => "date",
+            "value" => $date,
+            "type" => "Text"
+            ),
+            array(
+            "name" => "carJson",
+            "value" => json_encode($fields),
+            "type" => "Text")
+            
+            )//properties array ends here
             )
         );
 

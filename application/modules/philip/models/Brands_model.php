@@ -32,7 +32,7 @@ class Brands_model extends CI_Model
         public function retrieve_cars()
     {
         // $this->db->select("brand_name, brand_image_name");
-        $query = $this->db->get("philip_sender_detail");
+        $query = $this->db->get("philip_car");
 
         return $query;
     }

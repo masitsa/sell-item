@@ -99,8 +99,7 @@ class Action_cards extends MX_Controller
                 $status = "Status: Error";
                }
                
-               $this->kaizala_model->send_announcement($message_title,
-               $message_description, $status, $time, $message_fields, $subscribers);
+               $this->kaizala_model->send_announcement($message_title, $message_description, $status, $time, $message_fields, $subscribers);
             }
             else{
                 //send invalid data message

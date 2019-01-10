@@ -86,7 +86,7 @@ class Transactions extends MX_Controller
                 $status = "Status: Error";
             }
 
-            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $row ->date_posted, $message_fields, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $row->date_posted, $message_fields, $subscribers);
 
         }else{
             // send invalid data message

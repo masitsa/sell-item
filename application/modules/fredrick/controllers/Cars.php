@@ -45,7 +45,7 @@ class Cars extends MX_Controller
             $date_submitted = date("Y-m-d H:i:s");
 			$data = array(
 				"fredrick_car_year" => $row->car_year,
-				"brand_model_id" => $row->brand_model,
+				"brand_model_id" => $row->brand_model_id,
 				"date_created" => $date_submitted,
 				"seller_name" => $row->name,
 				"seller_phone" => $row->phone,
@@ -62,7 +62,7 @@ class Cars extends MX_Controller
 			$subscribers = array($row->phone);			
 			//$brand_name = $this->cars_model->get_brand_name($row->brand_model);
 			$brand_name = $this->cars_model->get_brand_name(3);
-            $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
+            $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model_id);
             $year = $row->car_year;
 
             $message_fields = array(

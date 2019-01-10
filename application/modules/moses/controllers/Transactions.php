@@ -91,6 +91,16 @@ class Transactions extends MX_Controller
         }else{
             // send invalid data message
             echo "invalid data provided: ";
+
+            echo "<br>". $row->brand_name;
+            echo "<br>". $row->brand_model;
+            echo "<br>".$row->brand_model_transmission_type;
+            echo "<br>". $row->brand_model_price;
+            echo "<br>". $row->brand_model_image;
+            echo "<br>". $row->date_posted;
+            echo "<br>". $row->name;
+            echo "<br>". $row->phone;
+            echo "<br>". $row->location;
             $error = $this->db->error();
             if($error['message']){
                 echo $error["message"];

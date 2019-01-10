@@ -42,11 +42,13 @@ class Buyers extends MX_Controller
                 $row = $json_object[0];
                 $data = array(
                     "buyer_name" =>$row->buyername,
-                    "date" =>$row->date,
                     "buyer_phone" =>$row->phonenumber,
-                    "car_price" =>$row->carprice,
-                    "car_model" =>$row->carmodel,
-                    "car_brand" =>$row->carbrand
+                     "car_brand" =>$row->carbrand,
+                     "car_model" =>$row->carmodel,
+                     "car_transmission" =>$row->cartransmission,
+                    "date" =>$row->date,
+                   "car_price" =>$row->carprice,
+                    
                 );
                 //request to submit /request to save data
                $saving =  $this->buyers_model->save_buyerdetails($data);

@@ -41,7 +41,7 @@ class Transactions extends MX_Controller
 
             // Retrive the data
             $row = $json_object[0];
-            //eg $checkin_time = $row -> time_checkin; //repeat for all fields// never mind skipped
+           
 
             //must match with database
             $data = array(
@@ -60,20 +60,33 @@ class Transactions extends MX_Controller
             //4. Request to submit
             $save_status = $this->transactions_model->save_transaction($data);
 
-            //create announcement receivers
-            $subscribers = array($row->phone);
+            //Create announcement data
+			$subscribers = array($row->seller_phone);
+            $brand_name = $row->brand_name;
+            $brand_model_name = $row->brand_model;
+            //$year = $row->moses_car_year;
+            $year = 2019;
+
+            $message_fields = array(
+                "brand" => $brand_name,
+                "brand_model" => $brand_model_name,
+                "image" => $row->moses_car_image,
+                "price" => $row->moses_car_price
+            );
+            
+            $message_description = $brand_name." ".$brand_model_name." ".$year;
 
 
             //5. send confirmation later we will send an announcement
             if($save_status == TRUE){
-                $message_title = "Transaction Successful";
-                $message_description = "Thank you ".$row->name." for transacting";
+                $message_title = "Your post has been accepted";
+                $status = "Status: Published";
             }else{
-                $message_title = "Transaction Failure";
-                $message_description = "Pardon me ".$row->name." your transaction attempt was not successful. Please try again.";
+                $message_title = "Your post was not successful";
+                $status = "Status: Error";
             }
 
-            $this->kaizala_model->send_announcement($message_title, $message_description, $subscribers);
+            $this->kaizala_model->send_announcement($message_title, $message_description, $status, $date_created, $message_fields, $subscribers);
 
         }else{
             // send invalid data message

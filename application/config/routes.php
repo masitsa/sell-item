@@ -137,6 +137,6 @@ $route['fredrick/create-car'] = "fredrick/cars/create_car";
 // $route['philip/get-brands'] = "philip/brands/get_brands";
 $route['patricia/get-brands'] = "patricia/brands/get_brands";
 $route['patricia/create_sell'] = "patricia/sells/create_sell";
-$route['patricia/create_buy'] = "patricia/buys/create_sell";
+$route['patricia/create_buy'] = "patricia/buys/create_buy";
 $route['patricia/retrieveSoldCars'] = "patricia/brands/retrieveSoldCars";
 //$route['patricia/access'] = "patricia/access/getAccess";

@@ -70,8 +70,8 @@ class Transactions extends MX_Controller
             $message_fields = array(
                 "brand" => $brand_name,
                 "brand_model" => $brand_model_name,
-                "image" => $row->moses_car_image,
-                "price" => $row->moses_car_price
+                "image" => $row->brand_model_image,
+                "price" => $row->brand_model_price
             );
             
             $message_description = $brand_name." ".$brand_model_name." ".$year;

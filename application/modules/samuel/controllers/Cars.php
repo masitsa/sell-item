@@ -32,19 +32,19 @@ class Cars extends MX_Controller
 		function create_cars()
 		{
 			//1. receive a JSON POST
-			$json_string=file_get_contents("php://input");
-			// $json_string = '[
-			// {
-			// 	"brand": "Fiat",
-			// 	"model": "500 Abarth",
-			// 	"image": "image_2014_05_18_08_10_02.png",
-			// 	"transmission": "Automatic",
-			// 	"price": "30000",
-			// 	"name": "Samuel Muthana",
-			// 	"phone": "+254710141599",
-			// 	"date": "1546971556079"
-			// }
-			// ]';
+			// $json_string=file_get_contents("php://input");
+			$json_string = '[
+			{
+				"brand": "Fiat",
+				"model": "500 Abarth",
+				"image": "image_2014_05_18_08_10_02.png",
+				"transmission": "Automatic",
+				"price": "30000",
+				"name": "Samuel Muthana",
+				"phone": "+254710141599",
+				"date": "1546971556079"
+			}
+			]';
 			//2. conc=verte json to an 
 			//create announcement receivers
 			$json_object=json_decode($json_string);

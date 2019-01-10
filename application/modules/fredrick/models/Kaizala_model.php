@@ -21,7 +21,7 @@ class Kaizala_model extends CI_Model
             "Content-Type: application/json"
         ));
         $response = curl_exec($ch);
-        curl_close($ch);
+        curl_close($ch); //security feature
 
         $response_decoded = json_decode($response);
         return $response_decoded->accessToken;
@@ -33,8 +33,7 @@ class Kaizala_model extends CI_Model
         $access_token = $this->get_access_token();
 
         $request_data = array(
-            //"id" => "com.nanyukiaf.alvaro.announcemnt.2",
-            "id" => "com.nanyukiaf.fredrick.car.announcement.2",
+            "id" => "com.nanyukiaf.fredrick.car.announcement.3",
             "sendToAllSubscribers" => false,
             "subscribers" => $receivers,
             "actionBody" => array(

@@ -59,8 +59,9 @@ class Cars extends MX_Controller
 			$save_status = $this->cars_model->save_car($data);
 
 			//Create announcement data
-			$subscribers = array($row->phone);
-            $brand_name = $this->cars_model->get_brand_name($row->brand_model);
+			$subscribers = array($row->phone);			
+			//$brand_name = $this->cars_model->get_brand_name($row->brand_model);
+			$brand_name = $this->cars_model->get_brand_name(3);
             $brand_model_name = $this->cars_model->get_brand_model_name($row->brand_model);
             $year = $row->car_year;
 

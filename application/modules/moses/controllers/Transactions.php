@@ -61,7 +61,7 @@ class Transactions extends MX_Controller
             $save_status = $this->transactions_model->save_transaction($data);
 
             //Create announcement data
-			$subscribers = array($row->seller_phone);
+			$subscribers = array($row->phone);
             $brand_name = $row->brand_name;
             $brand_model_name = $row->brand_model;
             //$year = $row->moses_car_year;

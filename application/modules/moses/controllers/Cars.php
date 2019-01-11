@@ -76,7 +76,8 @@ class Cars extends MX_Controller
                 "brand" => $brand_name,
                 "brand_model" => $brand_model_name,
                 "image" => $row->moses_car_image,
-                "price" => $row->moses_car_price
+                "price" => $row->moses_car_price,
+                "year" => $row->moses_car_year
             );
             
             $message_description = $brand_name." ".$brand_model_name." ".$year;
